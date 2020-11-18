@@ -48,7 +48,7 @@ class Article
     private $publishedat;
 
     /**
-     * @ORM\ManyToOne(targetEntity=user::class, inversedBy="articles")
+     * @ORM\ManyToOne(targetEntity=User::class, inversedBy="articles")
      * @ORM\JoinColumn(nullable=false)
      */
     private $user;

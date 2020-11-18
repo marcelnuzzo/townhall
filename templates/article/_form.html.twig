@@ -1,0 +1,6 @@
+{{ form_start(form) }}
+    {{ form_widget(form) }}
+    <button class="btn">
+	{{ article.id ? 'Modifier l\'article' : 'Créer l\'article' }}
+	</button>
+{{ form_end(form) }}
