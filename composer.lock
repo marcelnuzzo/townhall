@@ -1470,6 +1470,7 @@
             "time": "2020-11-14T15:56:27+00:00"
         },
         {
+<<<<<<< HEAD
             "name": "jms/metadata",
             "version": "2.3.0",
             "source": {
@@ -1532,6 +1533,8 @@
             "time": "2020-06-06T16:52:59+00:00"
         },
         {
+=======
+>>>>>>> crudkevin
             "name": "monolog/monolog",
             "version": "2.1.1",
             "source": {
@@ -7125,6 +7128,7 @@
             "time": "2020-10-27T19:28:23+00:00"
         },
         {
+<<<<<<< HEAD
             "name": "vich/uploader-bundle",
             "version": "1.15.0",
             "source": {
@@ -7228,6 +7232,8 @@
             "time": "2020-07-09T07:29:07+00:00"
         },
         {
+=======
+>>>>>>> crudkevin
             "name": "webmozart/assert",
             "version": "1.9.1",
             "source": {
