@@ -23,8 +23,9 @@
                 <th>NameMayor</th>
                 <th>PhotoMayor</th>
                 <th>TownHallTeam</th>
-                <th>ImageName</th>
                 <th>UpdateAt</th>
+                <th>image</th>
+                <th>photo</th>
                 <th>actions</th>
             </tr>
         </thead>
@@ -46,8 +47,9 @@
                 <td>{{ town_hall.nameMayor }}</td>
                 <td>{{ town_hall.photoMayor }}</td>
                 <td>{{ town_hall.townHallTeam }}</td>
-                <td>{{ town_hall.imageName }}</td>
                 <td>{{ town_hall.updateAt ? town_hall.updateAt|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ town_hall.imageName }}</td>
+                <td><img src="{{ vich_uploader_asset(town_hall, 'imageFile') }}" alt="" /></td>
                 <td>
                     <a href="{{ path('town_hall_show', {'id': town_hall.id}) }}">show</a>
                     <a href="{{ path('town_hall_edit', {'id': town_hall.id}) }}">edit</a>
@@ -55,7 +57,7 @@
             </tr>
         {% else %}
             <tr>
-                <td colspan="18">no records found</td>
+                <td colspan="17">no records found</td>
             </tr>
         {% endfor %}
         </tbody>
