@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New TownHall{% endblock %}
+
+{% block body %}
+    <h1>Create new TownHall</h1>
+
+    {{ include('town_hall/_form.html.twig') }}
+
+    <a href="{{ path('town_hall_index') }}">back to list</a>
+{% endblock %}
