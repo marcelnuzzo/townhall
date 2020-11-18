@@ -1,0 +1,66 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Structure{% endblock %}
+
+{% block body %}
+    <h1>Structure</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ structure.id }}</td>
+            </tr>
+            <tr>
+                <th>Organization_type</th>
+                <td>{{ structure.organizationType }}</td>
+            </tr>
+            <tr>
+                <th>School_type</th>
+                <td>{{ structure.schoolType }}</td>
+            </tr>
+            <tr>
+                <th>Name</th>
+                <td>{{ structure.name }}</td>
+            </tr>
+            <tr>
+                <th>Logo</th>
+                <td>{{ structure.logo }}</td>
+            </tr>
+            <tr>
+                <th>Summary</th>
+                <td>{{ structure.summary }}</td>
+            </tr>
+            <tr>
+                <th>Content</th>
+                <td>{{ structure.content }}</td>
+            </tr>
+            <tr>
+                <th>Postaladdress</th>
+                <td>{{ structure.postaladdress }}</td>
+            </tr>
+            <tr>
+                <th>Phone</th>
+                <td>{{ structure.phone }}</td>
+            </tr>
+            <tr>
+                <th>Email</th>
+                <td>{{ structure.email }}</td>
+            </tr>
+            <tr>
+                <th>Website</th>
+                <td>{{ structure.website }}</td>
+            </tr>
+            <tr>
+                <th>Createdat</th>
+                <td>{{ structure.createdat }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('structure_index') }}">back to list</a>
+
+    <a href="{{ path('structure_edit', {'id': structure.id}) }}">edit</a>
+
+    {{ include('structure/_delete_form.html.twig') }}
+{% endblock %}

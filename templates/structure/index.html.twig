@@ -1,0 +1,55 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Structure index{% endblock %}
+
+{% block body %}
+    <h1>Structure index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Organization_type</th>
+                <th>School_type</th>
+                <th>Name</th>
+                <th>Logo</th>
+                <th>Summary</th>
+                <th>Content</th>
+                <th>Postaladdress</th>
+                <th>Phone</th>
+                <th>Email</th>
+                <th>Website</th>
+                <th>Createdat</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for structure in structures %}
+            <tr>
+                <td>{{ structure.id }}</td>
+                <td>{{ structure.organizationType }}</td>
+                <td>{{ structure.schoolType }}</td>
+                <td>{{ structure.name }}</td>
+                <td>{{ structure.logo }}</td>
+                <td>{{ structure.summary }}</td>
+                <td>{{ structure.content }}</td>
+                <td>{{ structure.postaladdress }}</td>
+                <td>{{ structure.phone }}</td>
+                <td>{{ structure.email }}</td>
+                <td>{{ structure.website }}</td>
+                <td>{{ structure.createdat }}</td>
+                <td>
+                    <a href="{{ path('structure_show', {'id': structure.id}) }}">show</a>
+                    <a href="{{ path('structure_edit', {'id': structure.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="13">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('structure_new') }}">Create new</a>
+{% endblock %}
