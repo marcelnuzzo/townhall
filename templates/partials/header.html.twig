@@ -23,6 +23,20 @@
 		</ul>
 	</div>
 </nav>
+	<ul>
+		<li>
+			<a href="{{ path('user_index') }}">Gestion des utilisateurs</a>
+		</li>
+		<li>
+			<a href="{{ path('article_index') }}">Gestion des articles</a>
+		</li>
+		<li>
+			<a href="{{ path('townhall_show', {'id': 1}) }}">Information mairie</a>
+		</li>
+		<li>
+			<a href="{{ path('home_admin') }}">Espace admin</a>
+		</li>
+	</ul>
 {% for message in app.flashes('success') %}
 	<div class="alert alert-success">
 		{{ message }}

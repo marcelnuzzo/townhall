@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use App\Repository\StructureRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass=StructureRepository::class)
@@ -29,6 +30,7 @@ class Structure
 
     /**
      * @ORM\Column(type="string", length=255)
+	 * @Assert\NotBlank(message="Erreur. Ce champ est obligatoire.") 
      */
     private $name;
 
@@ -59,11 +61,17 @@ class Structure
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
+	 * @Assert\Email(
+     *     message = "L'adresse email {{ value }} est invalide."
+     * )
      */
     private $email;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
+	 * @Assert\Url(
+     *     message = "L’adresse URL {{ value }} est invalide."
+     * )
      */
     private $website;
 
@@ -73,7 +81,7 @@ class Structure
     private $createdat;
 
     /**
-     * @ORM\ManyToOne(targetEntity=user::class, inversedBy="structures")
+     * @ORM\ManyToOne(targetEntity=User::class, inversedBy="structures")
      */
     private $user;
 

@@ -6,6 +6,7 @@ use App\Repository\TownHallRepository;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\HttpFoundation\File\File;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass=TownHallRepository::class)
@@ -22,6 +23,7 @@ class TownHall
 
     /**
      * @ORM\Column(type="string", length=255)
+	 * @Assert\NotBlank(message="Erreur. Ce champ est obligatoire.") 
      */
     private $name;
 
@@ -32,6 +34,7 @@ class TownHall
 
     /**
      * @ORM\Column(type="text")
+	 * @Assert\NotBlank(message="Erreur. Ce champ est obligatoire.") 
      */
     private $story;
 
@@ -42,26 +45,34 @@ class TownHall
 
     /**
      * @ORM\Column(type="text")
+	 * @Assert\NotBlank(message="Erreur. Ce champ est obligatoire.") 
      */
     private $content;
 
     /**
      * @ORM\Column(type="string", length=255)
+	 * @Assert\NotBlank(message="Erreur. Ce champ est obligatoire.") 
      */
     private $postaladdress;
 
     /**
      * @ORM\Column(type="string", length=255)
+	 * @Assert\NotBlank(message="Erreur. Ce champ est obligatoire.") 
      */
     private $phone;
 
     /**
      * @ORM\Column(type="string", length=255)
+	 * @Assert\NotBlank(message="Erreur. Ce champ est obligatoire.") 
+	* @Assert\Email(
+     *     message = "L'adresse email {{ value }} est invalide."
+     * )
      */
     private $email;
 
     /**
      * @ORM\Column(type="string", length=255)
+	 * @Assert\NotBlank(message="Erreur. Ce champ est obligatoire.") 
      */
     private $website;
 
@@ -77,6 +88,7 @@ class TownHall
 
     /**
      * @ORM\Column(type="string", length=255)
+	 * @Assert\NotBlank(message="Erreur. Ce champ est obligatoire.") 
      */
     private $nameMayor;
 

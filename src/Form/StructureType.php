@@ -3,9 +3,11 @@
 namespace App\Form;
 
 use App\Entity\Structure;
+use App\Entity\User;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 
 class StructureType extends AbstractType
 {
@@ -22,9 +24,11 @@ class StructureType extends AbstractType
             ->add('phone')
             ->add('email')
             ->add('website')
-            ->add('createdat')
-            ->add('user')
-        ;
+			->add('user', EntityType::class, [
+    'class' => User::class,
+    'choice_label' => 'email',
+	]);
+			;
     }
 
     public function configureOptions(OptionsResolver $resolver)

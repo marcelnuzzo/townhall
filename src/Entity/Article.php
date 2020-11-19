@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use App\Repository\ArticleRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass=ArticleRepository::class)
@@ -19,12 +20,17 @@ class Article
 
     /**
      * @ORM\Column(type="string", length=255)
+	 * @Assert\NotBlank(message="Erreur. Ce champ est obligatoire.") 
      */
     private $title;
 
     /**
      * @ORM\Column(type="string", length=255)
-     */
+	 * @Assert\Choice(
+	 {"alert-info", "event", "annonce"},
+	 message = "Le choix {{ value }} est invalide."
+	 )
+	*/
     private $category;
 
     /**
@@ -34,6 +40,7 @@ class Article
 
     /**
      * @ORM\Column(type="text")
+	 * @Assert\NotBlank(message="Erreur. Ce champ est obligatoire.") 
      */
     private $content;
 

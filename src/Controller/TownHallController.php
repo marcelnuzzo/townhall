@@ -11,12 +11,12 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
- * @Route("/town/hall")
+ * @Route("/user/mairie")
  */
 class TownHallController extends AbstractController
 {
     /**
-     * @Route("/", name="town_hall_index", methods={"GET"})
+     * @Route("/", name="townhall_index", methods={"GET"})
      */
     public function index(TownHallRepository $townHallRepository): Response
     {
@@ -39,7 +39,7 @@ class TownHallController extends AbstractController
             $entityManager->persist($townHall);
             $entityManager->flush();
 
-            return $this->redirectToRoute('town_hall_index');
+            return $this->redirectToRoute('townhall_index');
         }
 
         return $this->render('town_hall/new.html.twig', [
@@ -49,7 +49,7 @@ class TownHallController extends AbstractController
     }
 
     /**
-     * @Route("/{id}", name="town_hall_show", methods={"GET"})
+     * @Route("/{id}", name="townhall_show", methods={"GET"})
      */
     public function show(TownHall $townHall): Response
     {
@@ -69,7 +69,7 @@ class TownHallController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('town_hall_index');
+            return $this->redirectToRoute('townhall_index');
         }
 
         return $this->render('town_hall/edit.html.twig', [
