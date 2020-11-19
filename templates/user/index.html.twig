@@ -1,47 +1,53 @@
-{% extends 'base.html.twig' %}
+{% extends 'admin/base.html.twig' %}
 
 {% block title %}Liste des comptes utilisateurs{% endblock %}
 
 {% block body %}
-    <h1>Liste des comptes utilisateurs</h1>
-    <p><a href="{{ path('user_new') }}">Ajouter un compte utilisateur</a></p>
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Prénom</th>
-                <th>Nom</th>
-                <th>Adresse email</th>
-                <th>N° téléphone</th>
-                <th>Profil</th>
-                <th>Crééé</th>
-                <th>Modifier</th>
-                <th>Supprimer</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for user in users %}
-            <tr>
-                <td>{{ user.id }}</td>
-                <td>{{ user.firstname }}</td>
-                <td>{{ user.lastname }}</td>
-                <td>{{ user.email }}</td>
-                <td>{{ user.phone }}</td>
-                <td>{{ user.roles ? user.roles|json_encode : '' }}</td>
-                <td>{{ user.createdat ? user.createdat|date('d/m/Y H:i') : '' }}</td>
-                <td>
-                    <a href="{{ path('user_edit', {'id': user.id}) }}">Modifier</a>
-                </td>
-                <td>
-                    {{ include('user/_delete_form.html.twig') }}
-                </td>
-                </td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="9">Aucun compte utilisateur enregistré.</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
+    <div class="container">
+        <div class="text-center">
+            <h1>Liste des comptes utilisateurs</h1>
+        </div>
+
+        <div class="mt-5">
+            <a href="{{ path('user_new') }}" class="btn btn-outline-info" role="button" aria-pressed="true">Ajouter un compte utilisateur</a>
+        </div>
+
+        <div class="mt-5">
+            <table class="table">
+                <thead>
+                    <tr class="text-center">
+                        <th>Id</th>
+                        <th>Prénom</th>
+                        <th>Nom</th>
+                        <th>Adresse email</th>
+                        <th>N° téléphone</th>
+                        <th>Profil</th>
+                        <th>Créé</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                {% for user in users %}
+                    <tr>
+                        <td>{{ user.id }}</td>
+                        <td>{{ user.firstname }}</td>
+                        <td>{{ user.lastname }}</td>
+                        <td>{{ user.email }}</td>
+                        <td>{{ user.phone }}</td>
+                        <td>{{ user.roles ? user.roles|json_encode : '' }}</td>
+                        <td class="text-center">{{ user.createdat ? user.createdat|date('d/m/Y H:i') : '' }}</td>
+                        <td class="d-flex">
+                            <a href="{{ path('user_edit', {'id': user.id}) }}" class="btn btn-outline-info mr-2" role="button" aria-pressed="true">Modifier</a>
+                            {{ include('user/_delete_form.html.twig') }}
+                        </td>
+                    </tr>
+                {% else %}
+                    <tr>
+                        <td colspan="9">Aucun compte utilisateur enregistré.</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
 {% endblock %}

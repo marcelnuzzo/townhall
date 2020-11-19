@@ -1,55 +1,52 @@
-{% extends 'base.html.twig' %}
+{% extends 'admin/base.html.twig' %}
 
 {% block title %}Structure index{% endblock %}
 
 {% block body %}
-    <h1>Structure index</h1>
+    <div class="container-fluid">
+        <div class="text-center">
+            <h1>Structure index</h1>
+        </div>
 
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Organization_type</th>
-                <th>School_type</th>
-                <th>Name</th>
-                <th>Logo</th>
-                <th>Summary</th>
-                <th>Content</th>
-                <th>Postaladdress</th>
-                <th>Phone</th>
-                <th>Email</th>
-                <th>Website</th>
-                <th>Createdat</th>
-                <th>actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for structure in structures %}
-            <tr>
-                <td>{{ structure.id }}</td>
-                <td>{{ structure.organizationType }}</td>
-                <td>{{ structure.schoolType }}</td>
-                <td>{{ structure.name }}</td>
-                <td>{{ structure.logo }}</td>
-                <td>{{ structure.summary }}</td>
-                <td>{{ structure.content }}</td>
-                <td>{{ structure.postaladdress }}</td>
-                <td>{{ structure.phone }}</td>
-                <td>{{ structure.email }}</td>
-                <td>{{ structure.website }}</td>
-                <td>{{ structure.createdat }}</td>
-                <td>
-                    <a href="{{ path('structure_show', {'id': structure.id}) }}">show</a>
-                    <a href="{{ path('structure_edit', {'id': structure.id}) }}">edit</a>
-                </td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="13">no records found</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
+        <div class="mt-5">
+            <a href="{{ path('structure_new') }}" class="btn btn-outline-info" role="button" aria-pressed="true">Ajouter une structure</a>
+        </div>
 
-    <a href="{{ path('structure_new') }}">Create new</a>
+        <div class="mt-4">
+            <table class="table">
+                <thead>
+                    <tr class="text-center">
+                        <th>Nom</th>
+                        <th>Adresse</th>
+                        <th>Téléphone</th>
+                        <th>Email</th>
+                        <th>Site internet</th>
+                        <th>Créé le </th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                {% for structure in structures %}
+                    <tr class="text-center">
+                        <td>{{ structure.name }}</td>
+                        <td>{{ structure.postaladdress }}</td>
+                        <td>{{ structure.phone }}</td>
+                        <td>{{ structure.email }}</td>
+                        <td>{{ structure.website }}</td>
+                        <td>{{ structure.createdat }}</td>
+                        <td class="d-flex justify-content-center">
+                            <a href="{{ path('structure_show', {'id': structure.id}) }}" class="btn btn-outline-success mr-2" role="button" aria-pressed="true">Voir</a>
+                            <a href="{{ path('structure_edit', {'id': structure.id}) }}" class="btn btn-outline-info mr-2" role="button" aria-pressed="true">Modifier</a>
+                            {{ include('structure/_delete_form.html.twig') }}
+                        </td>
+                    </tr>
+                {% else %}
+                    <tr>
+                        <td colspan="13">no records found</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
 {% endblock %}

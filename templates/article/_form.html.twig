@@ -1,6 +1,38 @@
-{{ form_start(form, {'attr': {'novalidate': 'novalidate' }}) }}
-    {{ form_widget(form) }}
-    <button class="btn">
-	{{ article.id ? 'Modifier l\'article' : 'Créer l\'article' }}
-	</button>
-{{ form_end(form) }}
+<div class="mt-5">
+    {{ form_start(form) }}
+        <div class="form-outline mb-4">
+            {{ form_widget(form.title, {'attr': {'class': 'form-control'}}) }}
+        </div>
+
+        <div class="row mb-4">
+            <div class="col">
+                <div class="form-outline mb-4">
+                    {{ form_label(form.category) }}
+                    {{ form_widget(form.category) }}
+                </div>
+            </div>
+            <div class="col">
+                <div class="form-outline mb-4">
+                    {{ form_label(form.image) }}</br>
+                    {{ form_widget(form.image, {'attr': {'class': 'form-control'}}) }}
+                </div>
+            </div>
+        </div>
+
+        <div class="form-outline mb-4">
+            {{ form_widget(form.summary, {'attr': {'class': 'form-control'}}) }}</br>
+        </div>
+
+        <div class="form-outline mb-4">
+            {{ form_widget(form.content, {'attr': {'class': 'form-control'}}) }}</br>
+        </div>
+
+        <div class="form-outline mb-4">
+            {{ form_widget(form.user, {'attr': {'class': 'form-control'}}) }}
+        </div>
+
+        <div class="justify-content-end">
+            <button class="btn btn-outline-info">{{ article.id ? 'Modifier' : 'Créer' }}</button>
+        </div>
+    {{ form_end(form) }}
+</div>

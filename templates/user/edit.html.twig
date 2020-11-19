@@ -1,11 +1,17 @@
-{% extends 'base.html.twig' %}
+{% extends 'admin/base.html.twig' %}
 
 {% block title %}Modification du compte utilisateur{% endblock %}
 
 {% block body %}
-    <h1>Modification du compte utilisateur</h1>
+    <section>
+        <a href="{{ path('user_index') }}" class="btn btn-outline-danger mx-3 my-3" role="button" aria-pressed="true">Retour</a>
 
-    {{ include('user/_form.html.twig', {'button_label': 'Update'}) }}
+        <div class="container">
+            <div class="text-center">
+                <h1>Modification du compte utilisateur</h1>
+            </div>
 
-    <p><a href="{{ path('user_index') }}">Retour à la liste des comptes utilisateurs</a></p>
+            {{ include('user/_form.html.twig', {'button_label': 'Update'}) }}
+        </div>
+    </section>
 {% endblock %}

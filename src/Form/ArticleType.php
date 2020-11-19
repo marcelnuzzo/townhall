@@ -18,15 +18,15 @@ class ArticleType extends AbstractType
     {
         $builder
             ->add('title', TextType::class, [
-                'label' => 'Titre de l\'article :',
+                'label' => false,
                 'attr' => [
                     'autofocus' => true,
                     'required' => true,
-                    'placeholder' => 'Entrez le titre de l\'aticle',
+                    'placeholder' => 'Titre de l\'aticle',
                 ],
             ])
             ->add('category', ChoiceType::class, [
-                'label' => 'Sélectionnez une catégorie :',
+                'label' => 'Sélectionnez une catégorie',
                 'expanded' => true,
                 'choices' => [
                     'Événement' => 'event',
@@ -35,21 +35,24 @@ class ArticleType extends AbstractType
                 ],
             ])
             ->add('summary', TextareaType::class, [
-                'label' => 'Résumé de l\'article :',
+                'label' => false,
                 'attr' => [
-				'rquired' => false,
-                    'placeholder' => 'Entrez le résumé de l\'aticle',
+				'required' => false,
+                    'placeholder' => 'Résumé de l\'aticle',
                 ],
             ])
             ->add('content', TextareaType::class, [
-                'label' => 'Contenu de l\'article :',
+                'label' => false,
+                'attr' => [
+                    'placeholder' => 'Contenu de l\'article',
+                ]
             ])
             ->add('image')
-					->add('user', EntityType::class, [
-					'label' => 'Sélectionnez un utilisateur :',
-    'class' => User::class,
-    'choice_label' => 'email',
-	]);
+            ->add('user', EntityType::class, [
+            'label' => 'Sélectionnez un utilisateur',
+            'class' => User::class,
+            'choice_label' => 'email',
+            ]);
     }
 
     public function configureOptions(OptionsResolver $resolver)

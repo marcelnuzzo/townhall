@@ -34,9 +34,7 @@ class HomeController extends AbstractController
      */
     public function admin(): Response
     {
-        return $this->render('home/admin.html.twig', [
-            'controller_name' => 'HomeController',
-        ]);
+        return $this->render('admin/admin.html.twig');
     }
 
 }
