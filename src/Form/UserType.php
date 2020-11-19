@@ -8,6 +8,9 @@ use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\Extension\Core\Type\TelType;
+use Symfony\Component\Form\Extension\Core\Type\PasswordType;
+use Symfony\Component\Form\Extension\Core\Type\RepeatedType;
 
 class UserType extends AbstractType
 {
@@ -28,10 +31,11 @@ class UserType extends AbstractType
                     'placeholder' => 'Entrez le prénom',
                 ],
             ])
-            ->add('phone', TextType::class, [
+            ->add('phone', TelType::class, [
                 'label' => 'N° téléphone :',
                 'attr' => [
-                    'placeholder' => 'Entrez le numéro de téléphone',
+                    'required' => false,
+					'placeholder' => 'Entrez le numéro de téléphone',
                 ],
             ])
 			->add('email', TextType::class, [
@@ -40,8 +44,7 @@ class UserType extends AbstractType
 					'required' => true,
                     'placeholder' => 'Entrez l\'adress,e email',
                 ],
-            ])
-            ->add('password');
+            ]);
     }
 
     public function configureOptions(OptionsResolver $resolver)

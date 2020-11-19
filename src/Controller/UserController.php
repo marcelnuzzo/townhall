@@ -36,10 +36,12 @@ class UserController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $user->setRoles(["ROLE_ADMIN"]);
+			$user->setPassword("blabla");
             $user->setCreatedat(new \DateTime('now', new \DateTimeZone('Europe/Paris')));
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($user);
             $entityManager->flush();
+			$this->addFlash('success', 'Le compte utilisateur a été créé avec succès');
 
             return $this->redirectToRoute('user_index');
         }
@@ -70,6 +72,7 @@ class UserController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $this->getDoctrine()->getManager()->flush();
+			$this->addFlash('success', 'Les modifications ont bien été enregistrées.');
 
             return $this->redirectToRoute('user_index');
         }
