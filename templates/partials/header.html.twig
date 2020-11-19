@@ -1,3 +1,11 @@
+<div class="jumbotron">
+	<h1 class="display-3">Bienvenue à la maire de Cergy</h1>
+	<p>du texte</p>
+	<p class="lead">
+		<a class="btn btn-primary" href="#" role="button">Voir nos articles</a>
+	</p>
+	<p>emplacement pour notre slider de nos articles (ou autres)</p>
+</div>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
 	<a class="navbar-brand" href="#">Navbar</a>
 	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor03" aria-controls="navbarColor03" aria-expanded="false" aria-label="Toggle navigation">
@@ -6,10 +14,17 @@
 	<div class="collapse navbar-collapse" id="navbarColor03">
 		<ul class="navbar-nav mr-auto">
 			<li class="nav-item active">
-				<a class="nav-link" href="">Accueil</a>
+				<a class="nav-link" href="\">Accueil</a>
 			</li>
+			</li>
+				<li class="nav-item dropdown">
+				<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Le village</a>
+				<div class="dropdown-menu">
+				<a class="dropdown-item" href="{{ path('village_history') }}">Historique</a>
+				<a class="dropdown-item" href="{{ path("village_location") }}">Situation géographique</a>
+        	</li>
 			<li class="nav-item active">
-				<a class="nav-link" href="">Notre village</a>
+				<a class="nav-link" href="{{ path('townhall_index') }}">Mairie</a>
 			</li>
 			<li class="nav-item active">
 				<a class="nav-link" href="">Nos actualités</a>
@@ -23,6 +38,7 @@
 		</ul>
 	</div>
 </nav>
+	{% if is_granted('ROLE_ADMIN') %}
 	<ul>
 		<li>
 			<a href="{{ path('user_index') }}">Gestion des utilisateurs</a>
@@ -37,6 +53,7 @@
 			<a href="{{ path('home_admin') }}">Espace admin</a>
 		</li>
 	</ul>
+	{% endif %}
 {% for message in app.flashes('success') %}
 	<div class="alert alert-success">
 		{{ message }}

@@ -1,16 +1,18 @@
 <footer class="mt-5 bg-light py-5 text-center">
 	<ul>
 		<li>
-			<a href="">Nous contacter</a>
+			<a href="#">Nous contacter</a>
 		</li>
 		<li>
 			<a href="{{ path('home_accessibility') }}">Accessibilité</a>
 		</li>
 		<li>
-			<a href="">Mentions légales</a>
+			<a href="#">Mentions légales</a>
 		</li>
+		{% if is_granted('ROLE_ADMIN') %}
 		<li>
 			<a href="{{ path('home_admin') }}">Espace admin</a>
 		</li>
+		{% endif %}
 	</ul>
 </footer>
