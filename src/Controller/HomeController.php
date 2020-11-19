@@ -9,8 +9,8 @@ use Symfony\Component\Routing\Annotation\Route;
 class HomeController extends AbstractController
 {
     /**
-     * @Route("/home", name="home")
-     * @Route("/", name="home")
+     * @Route("/", name="home_default")
+     * @Route("/accueil", name="home_index")
      */
     public function index(): Response
     {
@@ -18,4 +18,25 @@ class HomeController extends AbstractController
             'controller_name' => 'HomeController',
         ]);
     }
+	
+				/**
+     * @Route("/accessibilité", name="home_accessibility")
+     */
+    public function accessibility(): Response
+    {
+        return $this->render('home/accessibility.html.twig', [
+            'controller_name' => 'HomeController',
+        ]);
+    }
+	
+				/**
+     * @Route("/admin", name="home_admin")
+     */
+    public function admin(): Response
+    {
+        return $this->render('home/admin.html.twig', [
+            'controller_name' => 'HomeController',
+        ]);
+    }
+
 }
