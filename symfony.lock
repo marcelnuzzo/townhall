@@ -81,12 +81,9 @@
     "egulias/email-validator": {
         "version": "2.1.24"
     },
-<<<<<<< HEAD
     "jms/metadata": {
         "version": "2.3.0"
     },
-=======
->>>>>>> crudkevin
     "monolog/monolog": {
         "version": "2.1.1"
     },
@@ -96,12 +93,9 @@
     "ocramius/proxy-manager": {
         "version": "2.2.3"
     },
-<<<<<<< HEAD
     "php": {
         "version": "7.3"
     },
-=======
->>>>>>> crudkevin
     "phpdocumentor/reflection-common": {
         "version": "2.2.0"
     },
@@ -511,7 +505,6 @@
     "twig/twig": {
         "version": "v3.1.1"
     },
-<<<<<<< HEAD
     "vich/uploader-bundle": {
         "version": "1.5",
         "recipe": {
@@ -524,8 +517,6 @@
             "./config/packages/vich_uploader.yaml"
         ]
     },
-=======
->>>>>>> crudkevin
     "webmozart/assert": {
         "version": "1.9.1"
     },
