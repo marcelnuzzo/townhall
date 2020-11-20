@@ -1,0 +1,13 @@
+.jumbotron {
+    text-align: center;
+    margin-top: 10px;
+}
+
+@import "bootstrap/functions";
+@import "bootstrap/variables";
+
+$theme-colors: (
+  primary: $purple
+);
+
+@import "node_modules/bootstrap/scss/bootstrap";

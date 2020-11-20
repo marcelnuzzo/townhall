@@ -9,7 +9,7 @@
         </div>
 
         <div class="mt-5">
-            <a href="{{ path('user_new') }}" class="btn btn-outline-info" role="button" aria-pressed="true">Ajouter un compte utilisateur</a>
+            <a href="{{ path('user_new') }}" class="btn btn-secondary" role="button" aria-pressed="true">Ajouter un compte utilisateur</a>
         </div>
 
         <div class="mt-5">
@@ -37,7 +37,7 @@
                         <td>{{ user.roles ? user.roles|json_encode : '' }}</td>
                         <td class="text-center">{{ user.createdat ? user.createdat|date('d/m/Y H:i') : '' }}</td>
                         <td class="d-flex">
-                            <a href="{{ path('user_edit', {'id': user.id}) }}" class="btn btn-outline-info mr-2" role="button" aria-pressed="true">Modifier</a>
+                            <a href="{{ path('user_edit', {'id': user.id}) }}" class="btn btn-secondary mr-2" role="button" aria-pressed="true">Modifier</a>
                             {{ include('user/_delete_form.html.twig') }}
                         </td>
                     </tr>
