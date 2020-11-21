@@ -20,11 +20,13 @@ class Message
 
     /**
      * @ORM\Column(type="string", length=255)
+	 * @Assert\NotBlank(message="Erreur. Ce champ est obligatoire.") 
      */
     private $object;
 
     /**
      * @ORM\Column(type="string", length=255)
+	 * @Assert\NotBlank(message="Erreur. Ce champ est obligatoire.") 
 	 * @Assert\Email(
      *     message = "L'adresse email {{ value }} est invalide."
      * )
@@ -38,11 +40,13 @@ class Message
 
     /**
      * @ORM\Column(type="string", length=255)
+	 * @Assert\NotBlank(message="Erreur. Ce champ est obligatoire.") 
      */
     private $content;
 
     /**
      * @ORM\Column(type="boolean")
+	 * @Assert\IsTrue(message="Vous devez confirmer l'envoi de vos données personnelles.")
      */
     private $accept;
 

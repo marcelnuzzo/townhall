@@ -1,21 +1,19 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Message index{% endblock %}
+{% block title %}Boîte de réception{% endblock %}
 
 {% block body %}
-    <h1>Message index</h1>
-
+    <h1>Boîte de réception</h1>
     <table class="table">
         <thead>
             <tr>
                 <th>Id</th>
-                <th>Object</th>
-                <th>Email</th>
-                <th>Status</th>
-                <th>Content</th>
-                <th>Accept</th>
-                <th>ReceivedAt</th>
-                <th>actions</th>
+                <th>Objet</th>
+                <th>Expéditeur</th>
+                <th>Statut</th>
+                <th>Date réception</th>
+                <th>Voir</th>
+				<th>Supprimer</th>
             </tr>
         </thead>
         <tbody>
@@ -23,23 +21,21 @@
             <tr>
                 <td>{{ message.id }}</td>
                 <td>{{ message.object }}</td>
-                <td>{{ message.email }}</td>
+                <td><a href="mailto:{{ message.email }}">{{ message.email }}</a></td>
                 <td>{{ message.status }}</td>
-                <td>{{ message.content }}</td>
-                <td>{{ message.accept ? 'Yes' : 'No' }}</td>
-                <td>{{ message.receivedAt ? message.receivedAt|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ message.receivedAt ? message.receivedAt|date('d/m/Y H:i') : '' }}</td>
                 <td>
-                    <a href="{{ path('message_show', {'id': message.id}) }}">show</a>
-                    <a href="{{ path('message_edit', {'id': message.id}) }}">edit</a>
+                    <a href="{{ path('message_show', {'id': message.id}) }}">Voir</a>
                 </td>
+				<td>
+					{{ include('message/_delete_form.html.twig') }}
+				</td>
             </tr>
         {% else %}
             <tr>
-                <td colspan="8">no records found</td>
+                <td colspan="7">Aucun message reçu.</td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
-
-    <a href="{{ path('message_new') }}">Create new</a>
 {% endblock %}

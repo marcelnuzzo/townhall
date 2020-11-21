@@ -1,46 +1,17 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Message{% endblock %}
+{% block title %}Message n°{{ message.id }} – {{ message.object }}{% endblock %}
 
 {% block body %}
-    <h1>Message</h1>
-
-    <table class="table">
-        <tbody>
-            <tr>
-                <th>Id</th>
-                <td>{{ message.id }}</td>
-            </tr>
-            <tr>
-                <th>Object</th>
-                <td>{{ message.object }}</td>
-            </tr>
-            <tr>
-                <th>Email</th>
-                <td>{{ message.email }}</td>
-            </tr>
-            <tr>
-                <th>Status</th>
-                <td>{{ message.status }}</td>
-            </tr>
-            <tr>
-                <th>Content</th>
-                <td>{{ message.content }}</td>
-            </tr>
-            <tr>
-                <th>Accept</th>
-                <td>{{ message.accept ? 'Yes' : 'No' }}</td>
-            </tr>
-            <tr>
-                <th>ReceivedAt</th>
-                <td>{{ message.receivedAt ? message.receivedAt|date('Y-m-d H:i:s') : '' }}</td>
-            </tr>
-        </tbody>
-    </table>
-
-    <a href="{{ path('message_index') }}">back to list</a>
-
-    <a href="{{ path('message_edit', {'id': message.id}) }}">edit</a>
-
-    {{ include('message/_delete_form.html.twig') }}
+	<h1>Message n°{{ message.id }}</h1>
+	<p>Envoyé par : <a href="{{ message.email }}">{{ message.email }}</a></p>
+	<p>Le {{ message.receivedAt ? message.receivedAt|date('d/m/Y') : '' }} à {{ message.receivedAt ? message.receivedAt|date('H:i') : '' }}</p>
+	<p>Statut : {{ message.status }}</p>
+	<p><a href="{{ path('message_status', {'id': message.id}) }}">Changer le statut</a></p>
+	<p>Objet : {{ message.object }}</p>
+	<h2>Contenu :</h2>
+	<p>{{ message.content }}</p>
+	<p><a href="{{ message.email }}">Répondre</a></p>
+	<hr>
+	<p><a href="{{ path('message_index') }}">Retour à la boîte de messagerie</a></p>
 {% endblock %}
