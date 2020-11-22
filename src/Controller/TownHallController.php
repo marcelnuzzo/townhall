@@ -16,7 +16,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class TownHallController extends AbstractController
 {
     /**
-     * @Route("/", name="townhall_index", methods={"GET"})
+     * @Route("/structure", name="townhall_index", methods={"GET"})
      */
     public function index(TownHallRepository $townHallRepository): Response
     {
