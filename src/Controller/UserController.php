@@ -14,12 +14,13 @@ use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 class UserController extends AbstractController
 {
     /**
-     * @Route("/liste", name="user_index", methods={"GET"})
+     * @Route("/admin/user/index", name="user_index")
      */
-    public function index(UserRepository $userRepository): Response
+    public function index()
     {
-        return $this->render('user/index.html.twig', [
-            'users' => $userRepository->findAll(),
+        $users = $this->getDoctrine()->getRepository(User::class)->findBy(array(), array('createdat' => 'DESC'));
+		return $this->render('user/index.html.twig', [
+            'users' => $users,
         ]);
     }
 
