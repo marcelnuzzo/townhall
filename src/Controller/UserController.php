@@ -16,7 +16,7 @@ class UserController extends AbstractController
     /**
      * @Route("/admin/user/index", name="user_index")
      */
-    public function index()
+    public function user_index()
     {
         $users = $this->getDoctrine()->getRepository(User::class)->findBy(array(), array('createdat' => 'DESC'));
 		return $this->render('user/index.html.twig', [
@@ -25,9 +25,9 @@ class UserController extends AbstractController
     }
 
     /**
-     * @Route("/nouveau", name="user_new", methods={"GET","POST"})
+     * @Route("/admin/user/new", name="user_new", methods={"GET","POST"})
      */
-    public function new(Request $request, UserPasswordEncoderInterface $passwordEncoder): Response
+    public function user_new(Request $request, UserPasswordEncoderInterface $passwordEncoder): Response
     {
         $user = new User();
         $form = $this->createForm(UserType::class, $user);
@@ -53,27 +53,28 @@ class UserController extends AbstractController
     }
 
     /**
-     * @Route("/{id}", name="user_show", methods={"GET"})
+     * @Route("/user/show/{id}", name="user_show")
      */
-    public function show(User $user): Response
+    public function user_show(User $user)
     {
-        return $this->render('user/show.html.twig', [
+		return $this->render('user/show.html.twig', [
             'user' => $user,
         ]);
     }
 
     /**
-     * @Route("/{id}/edit", name="user_edit", methods={"GET","POST"})
+     * @Route("/admin/user/edit/{id}", name="user_edit", methods={"GET","POST"})
      */
-    public function edit(Request $request, User $user): Response
+    public function user_edit(Request $request, User $user, UserPasswordEncoderInterface $passwordEncoder): Response
     {
         $form = $this->createForm(UserType::class, $user);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
             $this->getDoctrine()->getManager()->flush();
+			$password = $passwordEncoder->encodePassword($user, "kevin"); //Encode the password
+            $user->setPassword($password); //setter the password of user
 			$this->addFlash('success', 'Les modifications ont bien été enregistrées.');
-
             return $this->redirectToRoute('user_index');
         }
 
@@ -84,9 +85,9 @@ class UserController extends AbstractController
     }
 
     /**
-     * @Route("/{id}", name="user_delete", methods={"DELETE"})
+     * @Route("/admin/user/delete/{id}", name="user_delete", methods={"DELETE"})
      */
-    public function delete(Request $request, User $user): Response
+    public function user_delete(Request $request, User $user): Response
     {
         if ($this->isCsrfTokenValid('delete'.$user->getId(), $request->request->get('_token'))) {
             $entityManager = $this->getDoctrine()->getManager();
