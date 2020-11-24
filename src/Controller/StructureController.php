@@ -16,9 +16,9 @@ use Symfony\Component\Routing\Annotation\Route;
 class StructureController extends AbstractController
 {
     /**
-     * @Route("/", name="structure_index", methods={"GET"})
+     * @Route("/index", name="structure_index")
      */
-    public function index(StructureRepository $structureRepository): Response
+    public function structure_index()
     {
         return $this->render('structure/index.html.twig', [
             'structures' => $structureRepository->findAll(),
@@ -26,9 +26,9 @@ class StructureController extends AbstractController
     }
 
     /**
-     * @Route("/new", name="structure_new", methods={"GET","POST"})
+     * @Route("/user/structure/new", name="structure_new", methods={"GET","POST"})
      */
-    public function new(Request $request): Response
+    public function structure_new(Request $request): Response
     {
         $structure = new Structure();
         $form = $this->createForm(StructureType::class, $structure);
