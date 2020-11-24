@@ -1,76 +1,35 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}TownHall{% endblock %}
+{% block title %}Informations sur la mairie{% endblock %}
 
 {% block body %}
-    <h1>Mairie</h1>
-
-    <table class="table">
-        <tbody>
-            <tr>
-                <th>Name</th>
-                <td>{{ town_hall.name }}</td>
-            </tr>
-            <tr>
-                <th>Logo</th>
-                <td>{{ town_hall.logo }}</td>
-            </tr>
-            <tr>
-                <th>Story</th>
-                <td>{{ town_hall.story }}</td>
-            </tr>
-            <tr>
-                <th>Summary</th>
-                <td>{{ town_hall.summary }}</td>
-            </tr>
-            <tr>
-                <th>Content</th>
-                <td>{{ town_hall.content }}</td>
-            </tr>
-            <tr>
-                <th>Postaladdress</th>
-                <td>{{ town_hall.postaladdress }}</td>
-            </tr>
-            <tr>
-                <th>Phone</th>
-                <td>{{ town_hall.phone }}</td>
-            </tr>
-            <tr>
-                <th>Email</th>
-                <td>{{ town_hall.email }}</td>
-            </tr>
-            <tr>
-                <th>Website</th>
-                <td>{{ town_hall.website }}</td>
-            </tr>
-            <tr>
-                <th>Latitude</th>
-                <td>{{ town_hall.latitude }}</td>
-            </tr>
-            <tr>
-                <th>Longitude</th>
-                <td>{{ town_hall.longitude }}</td>
-            </tr>
-            <tr>
-                <th>NameMayor</th>
-                <td>{{ town_hall.nameMayor }}</td>
-            </tr>
-            <tr>
-                <th>PhotoMayor</th>
-                <td>{{ town_hall.photoMayor }}</td>
-            </tr>
-            <tr>
-                <th>TownHallTeam</th>
-                <td>{{ town_hall.townHallTeam }}</td>
-            </tr>
-            <tr>
-                <th>UpdateAt</th>
-                <td>{{ town_hall.updateAt ? town_hall.updateAt|date('Y-m-d H:i:s') : '' }}</td>
-            </tr>
-        </tbody>
-    </table>
-
-
-
-    <a href="{{ path('town_hall_edit', {'id': town_hall.id}) }}">edit</a>
+    <h1>Informations sur la mairie</h1>
+	{% if not town_hall %}
+	<p><a href="{{ path('townhall_new') }}">Compléter les informations</a></p>
+{% else %}
+	<ul>
+   <li>Nom : {{ town_hall.name }}</li>
+   <li>Logo : {{ town_hall.logo }}</li>
+   <li>Adresse postale : {{ town_hall.postaladdress }}</li>
+   <li>N° téléphone : {{ town_hall.phone }}</li>
+   <li>Adresse email : {{ town_hall.email }}</li>
+   <li>Site internet : {{ town_hall.website }}</li>
+   <li>Latitude : {{ town_hall.latitude }}</li>
+   <li>Longitude : {{ town_hall.longitude }}</li>
+  </ul>
+  <h2>Équipe municipale</h2>
+  <ul>
+	<li>Prénom / nom du maire : {{ town_hall.nameMayor }}</li>
+	<li>PhotoMayor : {{ town_hall.photoMayor }}</li>
+	<li>Équipe municipale : {{ town_hall.townHallTeam }}</li>
+  </ul>
+  <h2>Histoire</h2>
+  <p>{{ town_hall.story }}</p>
+  <h2>Résumé</h2>
+  <p>{{ town_hall.summary }}</p>
+  <h2>Conteenu</h2>
+  <p>{{ town_hall.content }}</p>
+  <p>Dernière modification : {{ town_hall.updateAt ? town_hall.updateAt|date('d/m/Y H:i:s') : '' }}</p>
+  <p><a href="{{ path('townhall_edit', {'id': town_hall.id}) }}">Modifier</a>
+  {% endif %}
 {% endblock %}

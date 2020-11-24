@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Mairie{% endblock %}
+
+{% block body %}
+	{% if not town_hall %}
+	<p>Aucune information enregistrée.</p>
+{% else %}
+	<h1>Mairie {{ town_hall.name }}</h1>
+	{{ town_hall.logo }}
+	<h>Coordonnées</h2>
+	<ul>
+	<li>Adresse postale : {{ town_hall.postaladdress }}</li>
+   <li>N° téléphone : {{ town_hall.phone }}</li>
+   <li>Adresse email : {{ town_hall.email }}</li>
+   <li>Site internet : {{ town_hall.website }}</li>
+  </ul>
+  <h2>Équipe municipale</h2>
+  <ul>
+	<li>Prénom / nom du maire : {{ town_hall.nameMayor }}</li>
+	<li>PhotoMayor : {{ town_hall.photoMayor }}</li>
+	<li>Équipe municipale : {{ town_hall.townHallTeam }}</li>
+  </ul>
+  <h2>Résumé</h2>
+  <p>{{ town_hall.summary }}</p>
+  <h2>Conteenu</h2>
+  <p>{{ town_hall.content }}</p>
+  {% endif %}
+{% endblock %}

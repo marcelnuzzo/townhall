@@ -4,6 +4,8 @@ namespace App\Controller;
 
 use App\Entity\Message;
 use App\Form\MessageType;
+use App\Repository\TownHallRepository;
+use App\Entity\TownHall;
 use App\Form\ContactType;
 use App\Repository\MessageRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -15,7 +17,7 @@ class MessageController extends AbstractController
 {
     
 	/**
-     * @Route("/user/message", name="message_index")
+     * @Route("/user/message/index", name="message_index")
      */
     public function message_index()
     {
@@ -31,6 +33,7 @@ class MessageController extends AbstractController
     public function messag_send(Request $request): Response
     {
         $message = new Message();
+		$townhall = $this->getDoctrine()->getRepository(TownHall::class)->find(1);
         $form = $this->createForm(MessageType::class, $message);
         $form->handleRequest($request);
 
@@ -47,6 +50,7 @@ class MessageController extends AbstractController
 
         return $this->render('message/send.html.twig', [
             'message' => $message,
+			'townhall' => $townhall,
             'form' => $form->createView(),
         ]);
     }

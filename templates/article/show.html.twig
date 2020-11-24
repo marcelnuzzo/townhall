@@ -1,46 +1,24 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Article{% endblock %}
+{% block title %}Article n°{{ article.id }} {{ article.title }}{% endblock %}
 
 {% block body %}
-    <h1>Article</h1>
-
-    <table class="table">
-        <tbody>
-            <tr>
-                <th>Id</th>
-                <td>{{ article.id }}</td>
-            </tr>
-            <tr>
-                <th>Titre</th>
-                <td>{{ article.title }}</td>
-            </tr>
-            <tr>
-                <th>Category</th>
-                <td>{{ article.category }}</td>
-            </tr>
-            <tr>
-                <th>Summary</th>
-                <td>{{ article.summary }}</td>
-            </tr>
-            <tr>
-                <th>Content</th>
-                <td>{{ article.content }}</td>
-            </tr>
-            <tr>
-                <th>Image</th>
-                <td>{{ article.image }}</td>
-            </tr>
-            <tr>
-                <th>Publishedat</th>
-                <td>{{ article.publishedat ? article.publishedat|date('Y-m-d H:i:s') : '' }}</td>
-            </tr>
-        </tbody>
-    </table>
-
-    <a href="{{ path('article_index') }}">back to list</a>
-
-    <a href="{{ path('article_edit', {'id': article.id}) }}">edit</a>
-
-    {{ include('article/_delete_form.html.twig') }}
+    <h1>Article n°{{ article.id }} {{ article.title }}</h1>
+	<ul>
+		<li>Titre : {{ article.title }}</li>
+		<li>Publié le {{ article.publishedat ? article.publishedat|date('d/m/Y à H:i') : '' }}</li>
+		<li>Catégorie : {{ article.category }}</li>
+	</ul>
+	<h2>Résumé</h2>
+		<p>{{ article.image }}</p>
+		<p>{{ article.summary }}</p>
+	<h2>Contenu</h2>
+	<p>{{ article.content }}</p>
+	<nav role="navigation" aria-label="Menu secondaire">
+		<ul>
+			<li><a href="{{ path('article_index') }}">Retour à la liste des articles</a></li>
+			<li><a href="{{ path('article_edit', {'id': article.id}) }}">Modifier</a></li>
+			<li>{{ include('article/_delete_form.html.twig') }}</li>
+		</ul>
+	</nav>
 {% endblock %}

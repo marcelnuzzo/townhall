@@ -10,6 +10,15 @@
 				</li>
 			{% endif %}
 			<li>
+					<a href="{{ path('article_index') }}">Gérer les articles</a>
+			</li>
+			<li>
+					<a href="{{ path('townhall_show') }}">Gérer les informations relatives à la maire</a>
+			</li>
+			<li>
+					<a href="{{ path('message_index') }}">Gérer les messages</a>
+			</li>
+			<li>
 				<a class="btn btn-primary" href="{{ path('app_logout') }}">Déconnexion</a>
 			</li>
 		</ul>
@@ -33,18 +42,15 @@
 			<li class="nav-item active">
 				<a class="nav-link" href="\">Accueil</a>
 			</li>
-			</li>
-				<li class="nav-item dropdown">
+			<li class="nav-item dropdown">
 				<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Le village</a>
 				<div class="dropdown-menu">
-				<a class="dropdown-item" href="{{ path('village_history') }}">Historique</a>
-				<a class="dropdown-item" href="{{ path("village_location") }}">Situation géographique</a>
-        	</li>
+				<a class="dropdown-item" href="{{ path('townhall_story') }}">Historire</a>
 			<li class="nav-item active">
-				<a class="nav-link" href="{{ path('townhall_index') }}">Mairie</a>
+				<a class="nav-link" href="{{ path('townhall_showpublic') }}">Mairie</a>
 			</li>
 			<li class="nav-item active">
-				<a class="nav-link" href="">Nos actualités</a>
+				<a class="nav-link" href="{{ path('article_indexpublic') }}">Nos actualités</a>
 			</li>
 			<li class="nav-item active">
 				<a class="nav-link" href="">Nos établissements scolaires</a>
