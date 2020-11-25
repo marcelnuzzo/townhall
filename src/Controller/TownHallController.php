@@ -44,7 +44,7 @@ class TownHallController extends AbstractController
     public function townhall_show($_route)
     {
         $townhall = $this->getDoctrine()->getRepository(TownHall::class)->find(1);
-$render = $_route=="townhall_show" ? 'town_hall/show.html.twig' : 'town_hall/showpublic.html.twig';
+        $render = $_route=="townhall_show" ? 'town_hall/show.html.twig' : 'town_hall/showpublic.html.twig';
 		return $this->render($render, [
             'town_hall' => $townhall,
         ]);

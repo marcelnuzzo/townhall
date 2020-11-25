@@ -9,7 +9,7 @@
 {% else %}
 	<ul>
    <li>Nom : {{ town_hall.name }}</li>
-   <li>Logo : {{ town_hall.logo }}</li>
+   <li>Logo :  <img src="{{ vich_uploader_asset(townhall, 'logoFile') }}" alt="image du logo de la ville" /></li>
    <li>Adresse postale : {{ town_hall.postaladdress }}</li>
    <li>N° téléphone : {{ town_hall.phone }}</li>
    <li>Adresse email : {{ town_hall.email }}</li>
@@ -20,13 +20,13 @@
   <h2>Équipe municipale</h2>
   <ul>
 	<li>Prénom / nom du maire : {{ town_hall.nameMayor }}</li>
-	<li>PhotoMayor : {{ town_hall.photoMayor }}</li>
-	<li>Équipe municipale : {{ town_hall.townHallTeam }}</li>
+	<li>PhotoMayor : {{ town_hall.imageFile }}</li>
+	<li>Équipe municipale : {#{{ town_hall.townHallTeam }}</li>#}
   </ul>
   <h2>Histoire</h2>
   <p>{{ town_hall.story }}</p>
   <h2>Résumé</h2>
-  <p>{{ town_hall.summary }}</p>
+  <p>{{ town_hall.summar }}</p>z
   <h2>Conteenu</h2>
   <p>{{ town_hall.content }}</p>
   <p>Dernière modification : {{ town_hall.updateAt ? town_hall.updateAt|date('d/m/Y H:i:s') : '' }}</p>
