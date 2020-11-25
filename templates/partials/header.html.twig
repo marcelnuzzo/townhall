@@ -18,6 +18,24 @@
 			<li>
 					<a href="{{ path('message_index') }}">Gérer les messages</a>
 			</li>
+			<li class="nav-item dropdown">
+				<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Gérer les infrastructures</a>
+				<div class="dropdown-menu">
+					<ul>
+						<li>
+							<a class="dropdown-item" href="{{ path('structure_index', {'structure': 'association'}) }}">Gérer les associations</a>
+						</li>
+						<li class="nav-item active">
+							<a class="dropdown-item" href="{{ path('structure_index', {'structure': 'commerce'}) }}">Gérer les commerces</a>
+						</li>
+						<li>
+						<a class="dropdown-item" href="{{ path('structure_index', {'structure': 'établissements scolaire'}) }}">Gérer les établissements scolaires</a>
+						</li>
+						<li>
+							<a class="dropdown-item" href="{{ path('structure_index', {'structure': 'transport'}) }}">Gérer les transports</a>
+						</li>
+					</ul>
+				</div>
 			<li>
 				<a class="btn btn-primary" href="{{ path('app_logout') }}">Déconnexion</a>
 			</li>

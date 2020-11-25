@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\User;
 use App\Entity\Structure;
 use App\Form\StructureType;
 use App\Repository\StructureRepository;
@@ -10,48 +11,52 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-/**
- * @Route("/structure")
- */
+
+
 class StructureController extends AbstractController
 {
     /**
-     * @Route("/index", name="structure_index")
+     * @Route("/user/{structure}/index", name="structure_index")
      */
-    public function structure_index()
+    public function structure_index($structure)
     {
-        return $this->render('structure/index.html.twig', [
-            'structures' => $structureRepository->findAll(),
+        $structures = $this->getDoctrine()->getRepository(Structure::class)->findBy(['organization_type' => $structure]);
+		return $this->render('structure/index.html.twig', [
+            'structures' => $structures,
+			'structure' => $structure,
         ]);
     }
 
     /**
-     * @Route("/user/structure/new", name="structure_new", methods={"GET","POST"})
+     * @Route("/user/{structure}/new", name="structure_new")
      */
-    public function structure_new(Request $request): Response
+    public function structure_new($structure, Request $request)
     {
-        $structure = new Structure();
-        $form = $this->createForm(StructureType::class, $structure);
+        $infrastructure = new Structure();
+        $form = $this->createForm(StructureType::class, $infrastructure);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+			$infrastructure->setOrganizationType($structure);
+			$structure->setCreatedat(date("Y-m-d H:i:s"));
             $entityManager = $this->getDoctrine()->getManager();
-            $entityManager->persist($structure);
+            $entityManager->persist($infrastructure);
             $entityManager->flush();
 
-            return $this->redirectToRoute('structure_index');
+            return $this->redirectToRoute('message_index');
         }
 
         return $this->render('structure/new.html.twig', [
             'structure' => $structure,
+			'infrastructure' => $infrastructure,
             'form' => $form->createView(),
         ]);
     }
 
     /**
-     * @Route("/{id}", name="structure_show", methods={"GET"})
+     * @Route("/user/{structure}/show", name="structure_show")
      */
-    public function show(Structure $structure): Response
+    public function structure_show(Structure $structure): Response
     {
         return $this->render('structure/show.html.twig', [
             'structure' => $structure,
@@ -59,9 +64,9 @@ class StructureController extends AbstractController
     }
 
     /**
-     * @Route("/{id}/edit", name="structure_edit", methods={"GET","POST"})
+     * @Route("/user/{structure}/edit/{id}", name="structure_edit")
      */
-    public function edit(Request $request, Structure $structure): Response
+    public function structure_edit(Request $request, Structure $structure): Response
     {
         $form = $this->createForm(StructureType::class, $structure);
         $form->handleRequest($request);
@@ -79,9 +84,9 @@ class StructureController extends AbstractController
     }
 
     /**
-     * @Route("/{id}", name="structure_delete", methods={"DELETE"})
+     * @Route("/user/delete/{id}", name="structure_delete", methods={"DELETE"})
      */
-    public function delete(Request $request, Structure $structure): Response
+    public function structure_delete(Request $request, Structure $structure): Response
     {
         if ($this->isCsrfTokenValid('delete'.$structure->getId(), $request->request->get('_token'))) {
             $entityManager = $this->getDoctrine()->getManager();
