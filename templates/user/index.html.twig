@@ -12,7 +12,7 @@
                 <th>Prénom</th>
                 <th>Nom</th>
                 <th>Adresse email</th>
-				<th>Mot de passe</th>
+				{#<th>Mot de passe</th>#}
                 <th>N° téléphone</th>
                 <th>Profil</th>
                 <th>Crééé</th>
@@ -27,7 +27,7 @@
                 <td>{{ user.firstname }}</td>
                 <td>{{ user.lastname }}</td>
                 <td>{{ user.email }}</td>
-				<td>{{ user.password }}</td>
+				{#<td>{{ user.password }}</td>#}
                 <td>{{ user.phone }}</td>
                 <td>{{ user.roles ? user.roles|json_encode : '' }}</td>
                 <td>{{ user.createdat ? user.createdat|date('d/m/Y H:i') : '' }}</td>

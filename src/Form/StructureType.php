@@ -18,7 +18,7 @@ class StructureType extends AbstractType
             ->add('school_type')
             ->add('name')
             ->add('logo')
-            ->add('summary')
+            ->add('summar')
             ->add('content')
             ->add('postaladdress')
             ->add('phone')

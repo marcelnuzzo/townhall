@@ -34,7 +34,7 @@ class UserController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $user->setRoles(["ROLE_ADMIN"]);
+            //$user->setRoles(["ROLE_ADMIN"]);
 			$password = $passwordEncoder->encodePassword($user, "kevin"); //Encode the password
             $user->setPassword($password); //setter the password of user
             $user->setCreatedat(new \DateTime('now', new \DateTimeZone('Europe/Paris')));
@@ -43,7 +43,7 @@ class UserController extends AbstractController
             $entityManager->flush();
 			$this->addFlash('success', 'Le compte utilisateur a été créé avec succès');
 
-            return $this->redirectToRoute('user_index');
+            //return $this->redirectToRoute('user_index');
         }
 
         return $this->render('user/new.html.twig', [

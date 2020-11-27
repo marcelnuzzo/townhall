@@ -36,7 +36,7 @@ class Article
     /**
      * @ORM\Column(type="text", nullable=true)
      */
-    private $summary;
+    private $summar;
 
     /**
      * @ORM\Column(type="text")
@@ -89,14 +89,14 @@ class Article
         return $this;
     }
 
-    public function getSummary(): ?string
+    public function getSummar(): ?string
     {
-        return $this->summary;
+        return $this->summar;
     }
 
-    public function setSummary(?string $summary): self
+    public function setSummar(?string $summar): self
     {
-        $this->summary = $summary;
+        $this->summar = $summar;
 
         return $this;
     }

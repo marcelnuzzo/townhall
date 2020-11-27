@@ -79,6 +79,7 @@ class User implements UserInterface
         $this->messages = new ArrayCollection();
         $this->articles = new ArrayCollection();
         $this->structures = new ArrayCollection();
+        $this->user = new ArrayCollection();
     }
 
     public function getId(): ?int
