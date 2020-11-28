@@ -20,17 +20,13 @@ class Structure
 
     /**
      * @ORM\Column(type="string", length=255)
-	 * @Assert\Choice(
-	 {"Association", "Commerce", "Établissement scolaire", "Transport"},
-	 message = "Le choix {{ value }} est invalide."
-	 )
      */
     private $organization_type;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
 	 * @Assert\Choice(
-	 {"École maternelle", "Écle primaire", "Collège", "Lycée"},
+	 {"École maternelle", "École primaire", "Collège", "Lycée"},
 	 message = "Le choix {{ value }} est invalide."
 	 )
      */

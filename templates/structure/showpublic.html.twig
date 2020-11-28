@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}{{ infrastructure.organizationType }} {{ infrastructure.name }}{% endblock %}
+{% block title %}{{ infrastructure.organizationType }} – {{ infrastructure.name }}{% endblock %}
 
 {% block body %}
     <h1>{{ infrastructure.organizationType }} – {{ infrastructure.name }}</h1>
@@ -31,5 +31,4 @@
 				{% if infrastructure.website is not null %}
                 <p>Site internet : {{ infrastructure.website }}</p>
 				{% endif %}
-    <p><a href="{{ path('structure_edit', {'structure': infrastructure.organizationType, 'id': infrastructure.id}) }}">Modifier</a></p>
 {% endblock %}

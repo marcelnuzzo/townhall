@@ -3,11 +3,9 @@
 {% block title %}Edit Structure{% endblock %}
 
 {% block body %}
-    <h1>Edit Structure</h1>
+    <h1>Modification «{{ structure }}s»</h1>
 
     {{ include('structure/_form.html.twig', {'button_label': 'Update'}) }}
 
-    <a href="{{ path('structure_index') }}">back to list</a>
-
-    {{ include('structure/_delete_form.html.twig') }}
+    <a href="{{ path('structure_index', {'structure': structure}) }}">back to list</a>
 {% endblock %}

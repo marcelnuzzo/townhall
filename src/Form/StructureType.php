@@ -19,8 +19,21 @@ class StructureType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder
-            ->add('school_type', ChoiceType::class, [
+        $structure = $options['structure'];
+		
+		
+		$builder
+            ->add('name', TextType::class, [
+                'label' => 'Nom de l\'infrastructure :',
+                'attr' => [
+                    'required' => true,
+                    'placeholder' => 'Entrez le nom de l\'infrastructure',
+                ],
+            ]);
+			
+			if ($structure == "établissements scolaire") {
+			$builder
+			->add('school_type', ChoiceType::class, [
                 'label' => 'Sélectionnez le type d\'établissement scolaire :',
                 'expanded' => true,
                 'choices' => [
@@ -29,15 +42,11 @@ class StructureType extends AbstractType
                     'Collège' => 'Collège',
 					'Lycée' => 'Lycée',
                 ],
-            ])
-            ->add('name', TextType::class, [
-                'label' => 'Nom de l\'infrastructure :',
-                'attr' => [
-                    'required' => true,
-                    'placeholder' => 'Entrez le nom de l\'infrastructure',
-                ],
-            ])
-            ->add('logo')
+            ]);
+			}
+			
+           $builder
+			->add('logo')
             ->add('summary', TextareaType::class, [
                 'label' => 'Quelques mots sur l\'infrastructure :',
                 'attr' => [
@@ -85,6 +94,7 @@ class StructureType extends AbstractType
     {
         $resolver->setDefaults([
             'data_class' => Structure::class,
+			'structure' => null,
         ]);
     }
 }
