@@ -12,6 +12,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use App\Services\envoiMail;
 
 class MessageController extends AbstractController
 {
@@ -30,7 +31,7 @@ class MessageController extends AbstractController
     /**
      * @Route("/nous-contacter", name="message_send", methods={"GET","POST"})
      */
-    public function messag_send(Request $request): Response
+    public function messag_send(Request $request, \Swift_Mailer $mailer,  EnvoiMail $envoiMail): Response
     {
         $message = new Message();
 		$townhall = $this->getDoctrine()->getRepository(TownHall::class)->find(1);
@@ -43,7 +44,10 @@ class MessageController extends AbstractController
 			$message->setReceivedAt(new \DateTime('now', new \DateTimeZone('Europe/Paris')));
             $entityManager->persist($message);
             $entityManager->flush();
-			$this->addFlash('success', 'Le message a été envoyé.');
+            // Send message
+            $mes = $envoiMail->envoi($message);
+            $mailer->send($mes);
+            $this->addFlash('success', 'Le message a été envoyé.');
 
             return $this->redirectToRoute('home_index');
         }

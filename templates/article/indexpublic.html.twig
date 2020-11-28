@@ -11,7 +11,7 @@
 				<p>Le {{ article.publishedat ? article.publishedat|date('d/m/Y à H:i') : '' }}</p>
 				<p>{{ article.image }}</p>
 				<p>Catégorie : {{ article.category }}</p>
-				<p>{{ article.summary }}</p>
+				<p>{{ article.summar }}</p>
 				<p><a href="{{ path('article_showpublic', {'id': article.id}) }}">Lire la suite</a></p>
 			</article>
 		{% endfor %}

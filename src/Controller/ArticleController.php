@@ -2,13 +2,14 @@
 
 namespace App\Controller;
 
+use App\Entity\User;
 use App\Entity\Article;
 use App\Form\ArticleType;
 use App\Repository\ArticleRepository;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class ArticleController extends AbstractController
 {
@@ -34,10 +35,13 @@ class ArticleController extends AbstractController
         $article = new Article();
         $form = $this->createForm(ArticleType::class, $article);
         $form->handleRequest($request);
-
+        $user =  $this->getUser();
+    
         if ($form->isSubmitted() && $form->isValid()) {
 			$article->setPublishedat(new \DateTime('now', new \DateTimeZone('Europe/Paris')));
+            $article->setUser($user);
             $entityManager = $this->getDoctrine()->getManager();
+           
             $entityManager->persist($article);
             $entityManager->flush();
 
@@ -84,7 +88,7 @@ class ArticleController extends AbstractController
     }
 
     /**
-     * @Route("/usr/article/delete/{id}", name="article_delete", methods={"DELETE"})
+     * @Route("/user/article/delete/{id}", name="article_delete", methods={"DELETE"})
      */
     public function article_delete(Request $request, Article $article): Response
     {

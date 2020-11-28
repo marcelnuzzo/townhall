@@ -34,7 +34,7 @@ class ArticleType extends AbstractType
                     'Annonce' => 'annonce',
                 ],
             ])
-            ->add('summary', TextareaType::class, [
+            ->add('summar', TextareaType::class, [
                 'label' => 'Résumé de l\'article :',
                 'attr' => [
 				'rquired' => false,
@@ -45,11 +45,14 @@ class ArticleType extends AbstractType
                 'label' => 'Contenu de l\'article :',
             ])
             ->add('image')
-					->add('user', EntityType::class, [
-					'label' => 'Sélectionnez un utilisateur :',
-    'class' => User::class,
-    'choice_label' => 'email',
-	]);
+            /*
+            ->add('user', EntityType::class, [
+            'label' => 'Sélectionnez un utilisateur :',
+            'class' => User::class,
+            'choice_label' => 'email',
+            ])
+            */
+            ;
     }
 
     public function configureOptions(OptionsResolver $resolver)

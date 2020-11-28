@@ -7,6 +7,7 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Component\Form\Extension\Core\Type\CollectionType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\TelType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
@@ -44,7 +45,32 @@ class UserType extends AbstractType
 					'required' => true,
                     'placeholder' => 'Entrez l\'adress,e email',
                 ],
-            ]);
+            ])
+            ->add("roles", CollectionType::class, [
+                'entry_type' => ChoiceType::class, 
+                'entry_options' => [
+                    'label' => false,
+                    'choices' => [
+                        'ROLE_ADMIN' => "ROLE_ADMIN",
+                        'ROLE_USER' => "ROLE_USER"
+                    ],
+                    'expanded' => true,
+                    'multiple' => false,
+                ]
+            ])
+            /*
+            ->add('roles', ChoiceType::class, [
+                "choices" => [
+                    'ROLE_ADMIN' => "ROLE_ADMIN",
+                    'ROLE_USER' => "ROLE_USER"
+                ],
+                'mapped' => true,
+                'expanded' => true,
+                'multiple' => false,
+            ])
+            */
+            ;
+            
     }
 
     public function configureOptions(OptionsResolver $resolver)

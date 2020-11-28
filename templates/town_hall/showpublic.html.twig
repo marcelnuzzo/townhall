@@ -7,7 +7,7 @@
 	<p>Aucune information enregistrée.</p>
 {% else %}
 	<h1>Mairie {{ town_hall.name }}</h1>
-	{{ town_hall.logo }}
+	{{ town_hall.logoFile }}
 	<h>Coordonnées</h2>
 	<ul>
 	<li>Adresse postale : {{ town_hall.postaladdress }}</li>
@@ -18,11 +18,11 @@
   <h2>Équipe municipale</h2>
   <ul>
 	<li>Prénom / nom du maire : {{ town_hall.nameMayor }}</li>
-	<li>PhotoMayor : {{ town_hall.photoMayor }}</li>
-	<li>Équipe municipale : {{ town_hall.townHallTeam }}</li>
+	<li>Photo du maire : {{ town_hall.imafeFile }}</li>
+	<li>Équipe municipale : {#{{ town_hall.townHallTeam }}#}</li>
   </ul>
   <h2>Résumé</h2>
-  <p>{{ town_hall.summary }}</p>
+  <p>{{ town_hall.summar }}</p>
   <h2>Conteenu</h2>
   <p>{{ town_hall.content }}</p>
   {% endif %}

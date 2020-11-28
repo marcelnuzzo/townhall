@@ -46,7 +46,7 @@ class Structure
     /**
      * @ORM\Column(type="text", nullable=true)
      */
-    private $summary;
+    private $summar;
 
     /**
      * @ORM\Column(type="text", nullable=true)
@@ -80,9 +80,9 @@ class Structure
     private $website;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="datetime")
      */
-    private $createdat;
+    private $createdAt;
 
     /**
      * @ORM\ManyToOne(targetEntity=User::class, inversedBy="structures")
@@ -142,14 +142,14 @@ class Structure
         return $this;
     }
 
-    public function getSummary(): ?string
+    public function getSummar(): ?string
     {
-        return $this->summary;
+        return $this->summar;
     }
 
-    public function setSummary(?string $summary): self
+    public function setSummar(?string $summar): self
     {
-        $this->summary = $summary;
+        $this->summar = $summar;
 
         return $this;
     }
@@ -214,14 +214,14 @@ class Structure
         return $this;
     }
 
-    public function getCreatedat(): ?string
+    public function getCreatedAt(): ?\DateTimeInterface
     {
-        return $this->createdat;
+        return $this->createdAt;
     }
 
-    public function setCreatedat(string $createdat): self
+    public function setCreatedAt(\DateTimeInterface $createdAt): self
     {
-        $this->createdat = $createdat;
+        $this->createdAt = $createdAt;
 
         return $this;
     }
