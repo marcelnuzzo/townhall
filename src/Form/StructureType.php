@@ -19,9 +19,7 @@ class StructureType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-<<<<<<< HEAD
         $structure = $options['structure'];
-		
 		
 		$builder
             ->add('name', TextType::class, [
