@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Controller;
+    namespace App\Controller;
 
 use App\Entity\User;
 use App\Entity\Structure;
@@ -42,7 +42,7 @@ class StructureController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
 			$infrastructure->setOrganizationType($structure);
-			$infrastructure->setCreatedat(date("Y-m-d H:i:s"));
+			$infrastructure->setCreatedAt(new \DateTime('now', new \DateTimeZone('Europe/Paris')));
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($infrastructure);
             $entityManager->flush();

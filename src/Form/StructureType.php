@@ -46,7 +46,7 @@ class StructureType extends AbstractType
 			
            $builder
 			->add('logo')
-            ->add('summary', TextareaType::class, [
+            ->add('summar', TextareaType::class, [
                 'label' => 'Quelques mots sur l\'infrastructure :',
                 'attr' => [
                     'placeholder' => 'Quelques mots sur l\'infrastructure',

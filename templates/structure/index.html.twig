@@ -11,22 +11,11 @@
                 <th>Id</th>
                 <th>Nom</th>
                 <th>Logo</th>
-<<<<<<< HEAD
                 <th>Description</th>
                 <th>Date création</th>
                 <th>Voir</th>
 				<th>Modifier</th>
 				<th>Supprimer</th>
-=======
-                <th>Summar</th>
-                <th>Content</th>
-                <th>Postaladdress</th>
-                <th>Phone</th>
-                <th>Email</th>
-                <th>Website</th>
-                <th>Createdat</th>
-                <th>actions</th>
->>>>>>> d57e068da8c9ee4b9af3431ab20b4cee5eac4991
             </tr>
         </thead>
         <tbody>
@@ -35,17 +24,8 @@
                 <td>{{ structure.id }}</td>
                 <td>{{ structure.schoolType }} {{ structure.name }}</td>
                 <td>{{ structure.logo }}</td>
-<<<<<<< HEAD
-                <td>{{ structure.summary }}</td>
-=======
                 <td>{{ structure.summar }}</td>
-                <td>{{ structure.content }}</td>
-                <td>{{ structure.postaladdress }}</td>
-                <td>{{ structure.phone }}</td>
-                <td>{{ structure.email }}</td>
-                <td>{{ structure.website }}</td>
->>>>>>> d57e068da8c9ee4b9af3431ab20b4cee5eac4991
-                <td>{{ structure.createdat }}</td>
+                <td>{{ structure.createdat ? structure.createdat|date('d/m/Y H:i') : '' }}</td></td>
                 <td>
                     <a href="{{ path('structure_show', {'structure': structure.organizationType, 'id': structure.id }) }}">Voir</a>
 					</td>

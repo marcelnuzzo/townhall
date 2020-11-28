@@ -3,14 +3,14 @@
 {% block title %}Gestion des {{ structure }}s{% endblock %}
 
 {% block body %}
-    <h1>Liste des {{ structure }}s</h1>
+    <h1>Liste des {{ structure }}</h1>
         {% for structure in structures %}
                 <article>
 				<h2>{{ structure.schoolType }} {{ structure.name }}</h2>
                 {% if structure.logo is not null %}
 				<p>{{ structure.logo }}</p>
 				{% endif %}
-                <p>{{ structure.summary }}</p>
+                <p>{{ structure.summar }}</p>
                 <p>
                     <a href="{{ path('structure_showpublic', {'structure': structure.organizationType, 'id': structure.id }) }}">En savoir plus</a>
 					</p>

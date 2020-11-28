@@ -37,22 +37,14 @@ class ArticleType extends AbstractType
             ->add('summar', TextareaType::class, [
                 'label' => 'Résumé de l\'article :',
                 'attr' => [
-				'rquired' => false,
+				'required' => false,
                     'placeholder' => 'Entrez le résumé de l\'aticle',
                 ],
             ])
             ->add('content', TextareaType::class, [
                 'label' => 'Contenu de l\'article :',
             ])
-            ->add('image')
-            /*
-            ->add('user', EntityType::class, [
-            'label' => 'Sélectionnez un utilisateur :',
-            'class' => User::class,
-            'choice_label' => 'email',
-            ])
-            */
-            ;
+            ->add('image');
     }
 
     public function configureOptions(OptionsResolver $resolver)
