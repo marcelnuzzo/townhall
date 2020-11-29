@@ -56,10 +56,10 @@ class AppFixtures extends Fixture
             ));
         $manager->persist($user2);
         $manager->flush();
-		
+		/*
 		$townhall = new TownHall();
         $townhall->setName('Mairie de Cergy');
-		$townhall->setLogoName('Logo');
+		$townhall->setLogoName('ogo');
 		$townhall->setContent('Mairie de Cergy');
         $townhall->setSummar($faker->text);
 		$townhall->setStory($faker->text);
@@ -74,7 +74,7 @@ class AppFixtures extends Fixture
 		$townhall->setNameMayor("blabla");
 		$manager->persist($townhall);
         $manager->flush();
-		
+		*/
 		for($i=1; $i<=10; $i++) {
             if($i < 5) {
                 $user = $user2;

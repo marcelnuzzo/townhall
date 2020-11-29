@@ -26,9 +26,9 @@ class Structure
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
 	 * @Assert\Choice(
-	 {"École maternelle", "École primaire", "Collège", "Lycée"},
-	 message = "Le choix {{ value }} est invalide."
-	 )
+	 *{"École maternelle", "École primaire", "Collège", "Lycée"},
+	 *message = "Le choix {{ value }} est invalide."
+	 *)
      */
     private $school_type;
 

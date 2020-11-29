@@ -43,7 +43,7 @@ class UserController extends AbstractController
             $entityManager->flush();
 			$this->addFlash('success', 'Le compte utilisateur a été créé avec succès');
 
-            //return $this->redirectToRoute('user_index');
+            return $this->redirectToRoute('user_index');
         }
 
         return $this->render('user/new.html.twig', [
@@ -52,13 +52,14 @@ class UserController extends AbstractController
         ]);
     }
 
+
     /**
-     * @Route("/user/show/{id}", name="user_show")
+     * @Route("/user/show", name="user_show")
      */
-    public function user_show(User $user)
+    public function user_show()
     {
 		return $this->render('user/show.html.twig', [
-            'user' => $user,
+            'user' => $this->getUser()
         ]);
     }
 

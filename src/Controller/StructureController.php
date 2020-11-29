@@ -62,6 +62,7 @@ class StructureController extends AbstractController
 	 * @Route("/{structure}/show/{id}", name="structure_showpublic")
 	 * @param $_route
      */
+    /*
     public function structure_show($_route, $id, Structure $infrastructure, EntityManagerInterface $manager)
     {
         $infrastructure = $manager->getRepository(Structure::class)->find($id);
@@ -71,10 +72,35 @@ class StructureController extends AbstractController
 			'id' => $id,
         ]);
     }
+    */
+
+    /**
+     * @Route("/user/{structure}/show/{id}", name="structure_show")
+	 * @Route("/{structure}/show/{id}", name="structure_showpublic")
+	 * @param $_route
+     */
+    /*
+    public function structure_show($id, Structure $infrastructure, EntityManagerInterface $manager, Request $request)
+    {
+        $currentRoute = $request->attributes->get('_route');
+        $infrastructure = $manager->getRepository(Structure::class)->find($id);
+        if($currentRoute == "structure_show") {
+            $route = "structure_show";
+        } else if ($currentRoute == "structure_showpublic"){
+            $route = "structure_showpublic";
+        }
+        $html = ".html.twig";
+        return $this->render($route.$html, [
+            'infrastructure' => $infrastructure,
+            'id' => $id,
+        ]);
+    }
+    */
 
     /**
      * @Route("/user/{structure}/edit/{id}", name="structure_edit")
      */
+    /*
     public function structure_edit($structure, Request $request, Structure $infrastructure): Response
     {
         $form = $this->createForm(StructureType::class, $infrastructure, [
@@ -95,6 +121,7 @@ class StructureController extends AbstractController
             'form' => $form->createView(),
         ]);
     }
+    */
 	
 	   //method to delete a user account
     /**

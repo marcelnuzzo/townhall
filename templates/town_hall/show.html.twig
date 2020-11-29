@@ -4,8 +4,8 @@
 
 {% block body %}
     <h1>Informations sur la mairie</h1>
-	{% if not town_hall %}
-	<p><a href="{{ path('townhall_new') }}">Compléter les informations</a></p>
+{% if not town_hall %}
+<p><a href="{{ path('townhall_new') }}">Compléter les informations</a></p>
 {% else %}
 	<ul>
    <li>Nom : {{ town_hall.name }}</li>
@@ -21,13 +21,13 @@
   <ul>
 	<li>Prénom / nom du maire : {{ town_hall.nameMayor }}</li>
 	<li>Photo du maire :<img src="{{ vich_uploader_asset(town_hall, 'imageFile') }}" alt="phot du maire" /></li>
-	<li>Équipe municipale : {#{{ town_hall.townHallTeam }}</li>#}
+	{#<li>Équipe municipale : {{ town_hall.townHallTeam }}</li>#}
   </ul>
   <h2>Histoire</h2>
   <p>{{ town_hall.story }}</p>
   <h2>Résumé</h2>
   <p>{{ town_hall.summar }}</p>
-  <h2>Conteenu</h2>
+  <h2>Contenu</h2>
   <p>{{ town_hall.content }}</p>
   <p>Dernière modification : {{ town_hall.updateAt ? town_hall.updateAt|date('d/m/Y H:i:s') : '' }}</p>
   <p><a href="{{ path('townhall_edit', {'id': town_hall.id}) }}">Modifier</a>
