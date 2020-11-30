@@ -2,12 +2,13 @@
 
 namespace App\Form;
 
-use App\Entity\Article;
 use App\Entity\User;
+use App\Entity\Article;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
-use Symfony\Component\OptionsResolver\OptionsResolver;
+use Vich\UploaderBundle\Form\Type\VichImageType;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
+use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
@@ -44,7 +45,12 @@ class ArticleType extends AbstractType
             ->add('content', TextareaType::class, [
                 'label' => 'Contenu de l\'article :',
             ])
-            ->add('image');
+            ->add('imageFile', VichImageType::class, array(
+                'required' => false,
+                'label' => "Photo de l'article",
+                'allow_delete' => true, 
+            ))
+            ;
     }
 
     public function configureOptions(OptionsResolver $resolver)

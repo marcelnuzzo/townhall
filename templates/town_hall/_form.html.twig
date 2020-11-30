@@ -1,4 +1,7 @@
 {{ form_start(form, {'attr': {'novalidate': 'novalidate' }}) }}
     {{ form_widget(form) }}
-    <button class="btn">{{ button_label|default('Save') }}</button>
+    <button class="btn btn-warning">
+        {{ town_hall.id ? 'Modifier la mairie' : 'Créer la mairie' }}
+    </button>
 {{ form_end(form) }}
+{#{{ button_label|default('Save') }}#}

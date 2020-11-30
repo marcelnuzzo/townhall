@@ -74,19 +74,26 @@ class AppFixtures extends Fixture
 		$townhall->setNameMayor("blabla");
 		$manager->persist($townhall);
         $manager->flush();
-		*/
+        */
+        
+        $category = [
+            'Événement',
+            'Alerte info',
+            'Annonce',
+        ];
 		for($i=1; $i<=10; $i++) {
             if($i < 5) {
                 $user = $user2;
             } else {
                 $user = $user1;
             }
+            shuffle($category);
+            $cat = $category[0];
             $article = new Article();
             $article->setTitle($faker->sentence(6))
-                    ->setCategory($faker->word)
+                    ->setCategory($cat)
                     ->setSummar($faker->sentence(6))
                     ->setContent($faker->paragraph)
-                    ->setImage($faker->imageUrl($width = 640, $height = 480))
                     ->setPublishedAt($faker->dateTimeBetween('-100 days', '-1 days'))
                     ->setUser($user);
 

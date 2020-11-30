@@ -17,12 +17,20 @@
   </ul>
   <h2>Équipe municipale</h2>
   <ul>
-	<li>Prénom / nom du maire : {{ town_hall.nameMayor }}</li>
-  <li>Photo du maire :<img src="{{ vich_uploader_asset(town_hall, 'imageFile') }}" alt="phot du maire" /></li>
-	{#<li>Équipe municipale : {{ town_hall.townHallTeam }}#}</li>
+  {% for user in users %}
+	   <li>{{ user.firstname }} {{ user.lastname }}</li>
+  {% endfor %}
+  <hr>
+  </ul>
+  <h2>Le maire</h2>
+  <ul>
+	<li>{{ town_hall.nameMayor }}</li>
+  <li>Photo du maire :<img src="{{ vich_uploader_asset(town_hall, 'imageFile') }}" alt="photo du maire" /></li>
+  <hr>
   </ul>
   <h2>Résumé</h2>
   <p>{{ town_hall.summar }}</p>
+  <hr>
   <h2>Conteenu</h2>
   <p>{{ town_hall.content }}</p>
   {% endif %}

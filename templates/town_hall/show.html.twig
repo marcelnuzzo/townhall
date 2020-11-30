@@ -19,9 +19,13 @@
   </ul>
   <h2>Équipe municipale</h2>
   <ul>
+    {% for user in users %}
+	    <li>{{ user.firstname }} {{ user.lastname }}</li>
+    {% endfor %}
+  </ul>
+  <ul>
 	<li>Prénom / nom du maire : {{ town_hall.nameMayor }}</li>
-	<li>Photo du maire :<img src="{{ vich_uploader_asset(town_hall, 'imageFile') }}" alt="phot du maire" /></li>
-	{#<li>Équipe municipale : {{ town_hall.townHallTeam }}</li>#}
+	<li>Photo du maire :<img src="{{ vich_uploader_asset(town_hall, 'imageFile') }}" alt="photo du maire" /></li>
   </ul>
   <h2>Histoire</h2>
   <p>{{ town_hall.story }}</p>

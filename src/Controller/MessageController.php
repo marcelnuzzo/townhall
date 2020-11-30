@@ -31,10 +31,11 @@ class MessageController extends AbstractController
     /**
      * @Route("/nous-contacter", name="message_send", methods={"GET","POST"})
      */
-    public function messag_send(Request $request, \Swift_Mailer $mailer,  EnvoiMail $envoiMail): Response
+    public function messag_send(Request $request, \Swift_Mailer $mailer,  EnvoiMail $envoiMail, TownHallRepository $repo): Response
     {
         $message = new Message();
-		$townhall = $this->getDoctrine()->getRepository(TownHall::class)->find(1);
+        $firstId = $repo->findFirstId()[0]['id'];
+        $townhall = $this->getDoctrine()->getRepository(TownHall::class)->find($firstId);
         $form = $this->createForm(MessageType::class, $message);
         $form->handleRequest($request);
 

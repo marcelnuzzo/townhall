@@ -3,8 +3,10 @@
 namespace App\Controller;
 
 use App\Entity\TownHall;
+use App\Entity\User;
 use App\Form\TownHallType;
 use App\Repository\TownHallRepository;
+use App\Repository\UserRepository;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -45,9 +47,9 @@ class TownHallController extends AbstractController
      * @Route("/user/townhall/new", name="townhall_new", methods={"GET","POST"})
 	 * @param $_route
      */
-    public function townhall_show($_route,  TownHallRepository $repo, Request $request)
+    public function townhall_show($_route,  TownHallRepository $townhallRepo, Request $request, UserRepository $userRepo)
     {
-        $exist = $repo->findAll();
+        $exist = $townhallRepo->findAll();
         if(!$exist) {
             $townHall = new TownHall();
             $form = $this->createForm(TownHallType::class, $townHall);
@@ -66,12 +68,14 @@ class TownHallController extends AbstractController
                 'form' => $form->createView(),
             ]);
         } else {
-            $firstId = $repo->findFirstId()[0]['id'];
+            $users = $userRepo->findAll();
+            $firstId = $townhallRepo->findFirstId()[0]['id'];
             $townhall = $this->getDoctrine()->getRepository(TownHall::class)->find($firstId);
         
             $render = $_route=="townhall_show" ? 'town_hall/show.html.twig' : 'town_hall/showpublic.html.twig';
             return $this->render($render, [
                 'town_hall' => $townhall,
+                'users' => $users,
             ]);
         }
     }

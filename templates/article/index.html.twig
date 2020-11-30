@@ -26,7 +26,8 @@
                 <td>{{ article.title }}</td>
                 <td>{{ article.category }}</td>
                 <td>{{ article.summar }}</td>
-                <td>{{ article.image }}</td>
+                <td><img src="{{ vich_uploader_asset(article, 'imageFile') }}" alt="photo de l'article" width="64"/></p>
+                </td>
                 <td>{{ article.publishedat ? article.publishedat|date('d/m/Y H:i') : '' }}</td>
                 <td>
                     <a href="{{ path('article_show', {'id': article.id}) }}">Voir</a>

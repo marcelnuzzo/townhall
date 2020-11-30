@@ -14,6 +14,7 @@ use Doctrine\ORM\EntityManagerInterface;
 
 class StructureController extends AbstractController
 {
+
     /**
      * @Route("/user/{structure}/index", name="structure_index")
 	 * @Route("/{structure}/index", name="structure_indexpublic")
@@ -58,11 +59,10 @@ class StructureController extends AbstractController
     }
 
     /**
-     * @Route("/user/{structure}/show/{id}", name="structure_show")
-	 * @Route("/{structure}/show/{id}", name="structure_showpublic")
+     * @Route("/user/structure/show/{id}", name="structure_show")
+	 * @Route("/structure/show/{id}", name="structure_showpublic")
 	 * @param $_route
      */
-    /*
     public function structure_show($_route, $id, Structure $infrastructure, EntityManagerInterface $manager)
     {
         $infrastructure = $manager->getRepository(Structure::class)->find($id);
@@ -72,7 +72,6 @@ class StructureController extends AbstractController
 			'id' => $id,
         ]);
     }
-    */
 
     /**
      * @Route("/user/{structure}/show/{id}", name="structure_show")
@@ -98,9 +97,8 @@ class StructureController extends AbstractController
     */
 
     /**
-     * @Route("/user/{structure}/edit/{id}", name="structure_edit")
+     * @Route("/user/structure/edit/{id}", name="structure_edit")
      */
-    /*
     public function structure_edit($structure, Request $request, Structure $infrastructure): Response
     {
         $form = $this->createForm(StructureType::class, $infrastructure, [
@@ -121,11 +119,9 @@ class StructureController extends AbstractController
             'form' => $form->createView(),
         ]);
     }
-    */
 	
-	   //method to delete a user account
     /**
-     * @Route("/user/{structure}/delete/{id}", name="structure_delete")
+     * @Route("/user/structure/delete/{id}", name="structure_delete")
      */
 		public function structure_delete($id, Request $request, $structure, EntityManagerInterface $manager)
     {
