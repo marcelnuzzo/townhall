@@ -10,6 +10,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Doctrine\ORM\EntityManagerInterface;
 
 class ArticleController extends AbstractController
 {
@@ -88,16 +89,14 @@ class ArticleController extends AbstractController
     }
 
     /**
-     * @Route("/user/article/delete/{id}", name="article_delete", methods={"DELETE"})
+     * @Route("/user/article/delete/{id}", name="article_delete")
      */
-    public function article_delete(Request $request, Article $article): Response
+    public function article_delete($id, Request $request, EntityManagerInterface $manager)
     {
-        if ($this->isCsrfTokenValid('delete'.$article->getId(), $request->request->get('_token'))) {
-            $entityManager = $this->getDoctrine()->getManager();
-            $entityManager->remove($article);
-            $entityManager->flush();
-        }
-
+        $article = $manager->getRepository(Article::class)->find($id);
+		$article->setImageName("");
+        $manager->remove($article);
+        $manager->flush();
         return $this->redirectToRoute('article_index');
     }
 }

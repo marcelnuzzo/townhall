@@ -99,9 +99,10 @@ class StructureController extends AbstractController
     /**
      * @Route("/user/structure/edit/{id}", name="structure_edit")
      */
-    public function structure_edit($structure, Request $request, Structure $infrastructure): Response
+    public function structure_edit(Request $request, Structure $infrastructure): Response
     {
-        $form = $this->createForm(StructureType::class, $infrastructure, [
+        $structure = $infrastructure->getOrganizationType();
+		$form = $this->createForm(StructureType::class, $infrastructure, [
             'structure' => $structure,
         ]);
         $form->handleRequest($request);
@@ -123,9 +124,10 @@ class StructureController extends AbstractController
     /**
      * @Route("/user/structure/delete/{id}", name="structure_delete")
      */
-		public function structure_delete($id, Request $request, $structure, EntityManagerInterface $manager)
+		public function structure_delete($id, Request $request, EntityManagerInterface $manager)
     {
         $infrastructure = $manager->getRepository(Structure::class)->find($id);
+		$structure = $infrastructure->getOrganizationType();
         $manager->remove($infrastructure);
         $manager->flush();
         return $this->redirectToRoute('structure_index', [ 'structure' => $structure ]);

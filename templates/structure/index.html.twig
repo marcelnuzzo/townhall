@@ -23,17 +23,17 @@
             <tr>
                 <td>{{ structure.id }}</td>
                 <td>{{ structure.schoolType }} {{ structure.name }}</td>
-                <td>{{ structure.logo }}</td>
+                <td><img src="{{ structure.logo }}" alt="Logo"></td>
                 <td>{{ structure.summar }}</td>
                 <td>{{ structure.createdat ? structure.createdat|date('d/m/Y H:i') : '' }}</td></td>
                 <td>
-                    <a href="{{ path('structure_show', {'structure': structure.organizationType, 'id': structure.id }) }}">Voir</a>
+                    <a href="{{ path('structure_show', {'id': structure.id }) }}">Voir</a>
 					</td>
 					<td>
-                    <a href="{{ path('structure_edit', {'structure': structure.organizationType, 'id': structure.id}) }}">Modifier</a>
+                    <a href="{{ path('structure_edit', {'id': structure.id}) }}">Modifier</a>
                 </td>
 				<td>
-				<a href="{{ path('structure_delete', {'structure': structure.organizationType, 'id': structure.id}) }}">Supprimer</a>
+				<a href="{{ path('structure_delete', {'id': structure.id}) }}">Supprimer</a>
 				</td>
             </tr>
         {% else %}

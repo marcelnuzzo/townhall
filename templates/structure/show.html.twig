@@ -31,5 +31,5 @@
 				{% if infrastructure.website is not null %}
                 <p>Site internet : {{ infrastructure.website }}</p>
 				{% endif %}
-    <p><a href="{{ path('structure_edit', {'structure': infrastructure.organizationType, 'id': infrastructure.id}) }}">Modifier</a></p>
+    <p><a href="{{ path('structure_edit', {'id': infrastructure.id}) }}">Modifier</a></p>
 {% endblock %}

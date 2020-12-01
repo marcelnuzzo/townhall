@@ -29,6 +29,7 @@ class TownHallController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $entityManager = $this->getDoctrine()->getManager();
+			$townHall->setUpdateAt(new \DateTime('now', new \DateTimeZone('Europe/Paris')));
             $entityManager->persist($townHall);
             $entityManager->flush();
 
@@ -85,10 +86,11 @@ class TownHallController extends AbstractController
      */
     public function townhall_edit(Request $request, TownHall $townHall): Response
     {
-        $form = $this->createForm(TownHallType::class, $townHall);
+		$form = $this->createForm(TownHallType::class, $townHall);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+			$townHall->setUpdateAt(new \DateTime('now', new \DateTimeZone('Europe/Paris')));
             $this->getDoctrine()->getManager()->flush();
 
             return $this->redirectToRoute('townhall_show');

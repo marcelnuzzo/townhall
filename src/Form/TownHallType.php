@@ -108,9 +108,6 @@ class TownHallType extends AbstractType
                     'placeholder' => 'Nom du maire',
                 ],
             ])
-            ->add('updateAt', DateTimeType::class, [
-                'date_label' => false,//'Date de création',
-            ])
             /*
             ->add('imageName', TextType::class, [
                 'label' => "Nom de l'image",

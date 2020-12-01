@@ -12,6 +12,8 @@
 		<li>Profil : {{ user.roles ? user.roles|json_encode : '' }}</li>
 		<li>Créé le {{ user.createdat ? user.createdat|date('d/m/Y à H:i') : '' }}</li>
 	</ul>
-	<a href="{{ path('user_edit', {'id': app.user.id}) }}">Modifier</a>
-	{{ include('user/_delete_form.html.twig') }}
+	{% if is_granted('ROLE_ADMIN') %}
+		<a href="{{ path('user_edit', {'id': app.user.id}) }}">Modifier</a>
+		{{ include('user/_delete_form.html.twig') }}
+	{% endif %}
 {% endblock %}

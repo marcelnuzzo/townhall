@@ -56,10 +56,10 @@ class AppFixtures extends Fixture
             ));
         $manager->persist($user2);
         $manager->flush();
-		/*
+		
 		$townhall = new TownHall();
         $townhall->setName('Mairie de Cergy');
-		$townhall->setLogoName('ogo');
+		$townhall->setLogoName($faker->imageUrl($width = 640, $height = 480));
 		$townhall->setContent('Mairie de Cergy');
         $townhall->setSummar($faker->text);
 		$townhall->setStory($faker->text);
@@ -70,11 +70,11 @@ class AppFixtures extends Fixture
 		$townhall->setUpdateAt(new \DateTime());
 		$townhall->setLatitude(4);
 		$townhall->setLongitude(10);
-		$townhall->setImageName("blabla");
-		$townhall->setNameMayor("blabla");
+		$townhall->setImageName($faker->imageUrl($width = 640, $height = 480));
+		$townhall->setNameMayor("Will Smith");
 		$manager->persist($townhall);
         $manager->flush();
-        */
+		
         
         $category = [
             'Événement',
@@ -94,6 +94,7 @@ class AppFixtures extends Fixture
                     ->setCategory($cat)
                     ->setSummar($faker->sentence(6))
                     ->setContent($faker->paragraph)
+					->setImageName($faker->imageUrl($width = 640, $height = 480))
                     ->setPublishedAt($faker->dateTimeBetween('-100 days', '-1 days'))
                     ->setUser($user);
 
@@ -105,9 +106,9 @@ class AppFixtures extends Fixture
             $message = new Message();
             $message->setObject($faker->word(5))
                     ->setEmail($faker->email())
-                    ->setStatus($faker->word())
+                    ->setStatus("Non lu")
                     ->setContent($faker->sentence(2))
-                    ->setAccept(mt_rand(0, 1))
+                    ->setAccept(true)
                     ->setReceivedAt($faker->dateTimeBetween('-10 days', '-1 days'));
 
             $manager->persist($message);    
@@ -135,7 +136,7 @@ class AppFixtures extends Fixture
             }
             shuffle($orgType);
             $org = $orgType[0];
-            if(strcmp('Etablissement scolaire', $org) === 0) {
+            if(strcmp('établissements scolaire', $org) === 0) {
                 shuffle($etsScolaire);
                 $etsSco = $etsScolaire[0];
             } else {
@@ -146,6 +147,7 @@ class AppFixtures extends Fixture
                     ->setSchoolType($etsSco)
                     ->setName($faker->name())
                     ->setSummar($faker->sentence(3))
+					->setLogo($faker->imageUrl($width = 640, $height = 480))
                     ->setContent($faker->paragraph())
                     ->setPostaladdress($faker->country()." ".$faker->address())
                     ->setPhone($faker->phoneNumber())

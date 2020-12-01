@@ -1,14 +1,14 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Gestion des {{ structure }}s{% endblock %}
+{% block title %}Nos {{ structure }}s{% endblock %}
 
 {% block body %}
-    <h1>Liste des {{ structure }}s</h1>
+    <h1>Nos {{ structure }}s</h1>
         {% for structure in structures %}
                 <article>
-                    <h2>{{ structure.schoolType }} {{ structure.name }}</h2>
+                    <h2>{{ structure.organizationType }} {{ structure.schoolType }} {{ structure.name }}</h2>
                     {% if structure.logo is not null %}
-                    <p>{{ structure.logo }}</p>
+                    <p><img src="{{ structure.logo }}" alt="Logo" width="300"/></p>
                     {% endif %}
                     <p>{{ structure.summar }}</p>
                     <p>

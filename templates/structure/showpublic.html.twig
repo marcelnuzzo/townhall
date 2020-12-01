@@ -4,12 +4,12 @@
 
 {% block body %}
     <h1>{{ infrastructure.organizationType }} – {{ infrastructure.name }}</h1>
-	{% if infrastructure.organizationType == "Établissements scolaire" %}
-	<p>Type : {{ structure.schoolType }}</p>
+	{% if infrastructure.organizationType == "établissements scolaire" %}
+	<p>Type : {{ infrastructure.schoolType }}</p>
 	{% endif %}
                 <p>Nom : {{ infrastructure.name }}</p>
 				{% if infrastructure.logo is not null %}
-                <p>{{ infrastructure.logo }}</p>
+                <p><img src="{{ infrastructure.logo }}" alt="Logo {{ infrastructure.organizationType }}"></p>
 				{% endif %}
 				{% if infrastructure.summar is not null %}
 				<h2>Résumé</h2>
