@@ -16,7 +16,6 @@
             <table class="table">
                 <thead>
                     <tr class="text-center">
-                        <th>Id</th>
                         <th>Titre</th>
                         <th>Catégorie</th>
                         <th>Résumé</th>
@@ -28,7 +27,6 @@
                 <tbody>
                 {% for article in articles %}
                     <tr>
-                        <td>{{ article.id }}</td>
                         <td>{{ article.title }}</td>
                         <td>{{ article.category }}</td>
                         <td>{{ article.summary }}</td>
