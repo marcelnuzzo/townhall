@@ -7,22 +7,12 @@
 
 body {
     font-family: "Heebo", sans-serif;
-    background-color: #F2F3F4;
+    background-color: white;
 }
 
 .primary {
     color: #E8ECF7;
     background-color: #E8ECF7;
-}
-
-.secondary {
-    border-color: #4CAF50;
-    color: green;
-}
-
-.secondary:hover {
-    background-color: #4CAF50;
-    color: white;
 }
 
 .btn {
