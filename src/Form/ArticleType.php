@@ -38,19 +38,26 @@ class ArticleType extends AbstractType
             ->add('summar', TextareaType::class, [
                 'label' => 'Résumé de l\'article :',
                 'attr' => [
-				'required' => false,
+                    'required' => false,
                     'placeholder' => 'Entrez le résumé de l\'aticle',
                 ],
             ])
             ->add('content', TextareaType::class, [
                 'label' => 'Contenu de l\'article :',
             ])
+            ->add('imageName', TextType::class, [
+                'label' => 'Nom de la photo :',
+                'attr' => [
+                    'autofocus' => true,
+                    'required' => true,
+                    'placeholder' => 'Entrez le nom de la photo',
+                ],
+            ])
             ->add('imageFile', VichImageType::class, array(
                 'required' => false,
                 'label' => "Photo de l'article",
-                'allow_delete' => true, 
-            ))
-            ;
+                'allow_delete' => true,
+            ));
     }
 
     public function configureOptions(OptionsResolver $resolver)

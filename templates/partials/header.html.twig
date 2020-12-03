@@ -10,13 +10,13 @@
 				</li>
 			{% endif %}
 			<li>
-					<a href="{{ path('article_index') }}">Gérer les articles</a>
+				<a href="{{ path('article_index') }}">Gérer les articles</a>
 			</li>
 			<li>
-					<a href="{{ path('townhall_show') }}">Gérer les informations relatives à la mairie</a>
+				<a href="{{ path('townhall_show') }}">Gérer les informations relatives à la mairie</a>
 			</li>
 			<li>
-					<a href="{{ path('message_index') }}">Gérer les messages</a>
+				<a href="{{ path('message_index') }}">Gérer les messages</a>
 			</li>
 			<li class="nav-item dropdown">
 				<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Gérer les infrastructures</a>
@@ -29,67 +29,70 @@
 							<a class="dropdown-item" href="{{ path('structure_index', {'structure': 'commerce'}) }}">Gérer les commerces</a>
 						</li>
 						<li>
-						<a class="dropdown-item" href="{{ path('structure_index', {'structure': 'établissements scolaire'}) }}">Gérer les établissements scolaires</a>
+							<a class="dropdown-item" href="{{ path('structure_index', {'structure': 'établissements scolaire'}) }}">Gérer les établissements scolaires</a>
 						</li>
 						<li>
 							<a class="dropdown-item" href="{{ path('structure_index', {'structure': 'transport'}) }}">Gérer les transports</a>
 						</li>
 					</ul>
 				</div>
+			</li>
 			<li>
 				<a class="btn btn-primary" href="{{ path('app_logout') }}">Déconnexion</a>
 			</li>
 		</ul>
 	</nav>
 {% else %}
-<div class="jumbotron">
-	<h1 class="display-3">Bienvenue à la maire de Cergy</h1>
-	<img src="{{ asset("allImages/logo.png") }}" alt="">
-	<p>du texte</p>
-	<p class="lead">
-		<a class="btn btn-primary" href="#" role="button">Voir nos articles</a>
-	</p>
-	<p>emplacement pour notre slider de nos articles (ou autres)</p>
-</div>
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-	<a class="navbar-brand" href="#">Navbar</a>
-	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor03" aria-controls="navbarColor03" aria-expanded="false" aria-label="Toggle navigation">
-		<span class="navbar-toggler-icon"></span>
-	</button>
-	<div class="collapse navbar-collapse" id="navbarColor03">
-		<ul class="navbar-nav mr-auto">
-			<li class="nav-item active">
-				<a class="nav-link" href="\">Accueil</a>
-			</li>
-			<li class="nav-item dropdown">
-				<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Le village</a>
-				<div class="dropdown-menu">
-				<a class="dropdown-item" href="{{ path('townhall_story') }}">Notre histoire</a>
-			<li class="nav-item active">
-				<a class="nav-link" href="{{ path('townhall_showpublic') }}">Votre mairie</a>
-			</li>
-			<li class="nav-item active">
-				<a class="nav-link" href="{{ path('article_indexpublic') }}">Nos actualités</a>
-			</li>
-			<li>
-				<a class="dropdown-item" href="{{ path('structure_indexpublic', {'structure': 'association'}) }}">Nos associations</a>
-			</li>
-			<li>
-			<a class="dropdown-item" href="{{ path('structure_indexpublic', {'structure': 'commerce'}) }}">Nos commerces</a>
-			</l>
-			<li class="nav-item active">
-				<a class="dropdown-item" href="{{ path('structure_indexpublic', {'structure': 'établissements scolaire'}) }}">Nos établissements scolaires</a>
-			</li>
-			<li class="nav-item active">
-				<a class="dropdown-item" href="{{ path('structure_indexpublic', {'structure': 'transport'}) }}">Nos transports en commun</a>
-			</li>
-			<li class="nav-item active">
-				<a class="nav-link" href="{{ path('message_send') }}">Nous contacter</a>
-			</li>
-		</ul>
+	<div class="jumbotron">
+		<h1 class="display-3">Bienvenue à la maire de Cergy</h1>
+		<img src="{{ asset("allImages/logo.png") }}" alt="">
+		<p>du texte</p>
+		<p>
+			<a class="btn btn-primary" href="#" role="button">Voir nos articles</a>
+		</p>
+		<p>emplacement pour notre slider de nos articles (ou autres)</p>
 	</div>
-</nav>
-	{% endif %}
+	<nav class="navbar navbar-expand-lg navbar-light bg-light">
+		<a class="navbar-brand" href="#">Navbar</a>
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor03" aria-controls="navbarColor03" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="navbarColor03">
+			<ul class="navbar-nav mr-auto">
+				<li class="nav-item active">
+					<a class="nav-link" href="\">Accueil</a>
+				</li>
+				<li class="nav-item dropdown">
+					<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Le village</a>
+					<div class="dropdown-menu">
+						<a class="dropdown-item" href="{{ path('townhall_story') }}">Notre histoire</a>
+						<li class="nav-item active">
+							<a class="nav-link" href="{{ path('townhall_showpublic') }}">Votre mairie</a>
+						</li>
+						<li class="nav-item active">
+							<a class="nav-link" href="{{ path('article_indexpublic') }}">Nos actualités</a>
+						</li>
+						<li>
+							<a class="dropdown-item" href="{{ path('structure_indexpublic', {'structure': 'association'}) }}">Nos associations</a>
+						</li>
+						<li>
+							<a class="dropdown-item" href="{{ path('structure_indexpublic', {'structure': 'commerce'}) }}">Nos commerces</a>
+						</li>
+					</l>
+				</li>
+				<li class="nav-item active">
+					<a class="dropdown-item" href="{{ path('structure_indexpublic', {'structure': 'établissements scolaire'}) }}">Nos établissements scolaires</a>
+				</li>
+				<li class="nav-item active">
+					<a class="dropdown-item" href="{{ path('structure_indexpublic', {'structure': 'transport'}) }}">Nos transports en commun</a>
+				</li>
+				<li class="nav-item active">
+					<a class="nav-link" href="{{ path('message_send') }}">Nous contacter</a>
+				</li>
+			</ul>
+		</div>
+	</nav>
+{% endif %}
 {% for message in app.flashes('success') %}
 	<div class="alert alert-success">
 		{{ message }}
