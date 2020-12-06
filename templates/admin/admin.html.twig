@@ -3,11 +3,10 @@
 {% block title %}Espace admin{% endblock %}
 
 {% block body %}
-	<section>
-		<div class="d-flex justify-content-center align-items-center h-100">
-			<div class="text-black">
-				<h1 class="mb-3">Bienvenue</h1>
-			</div>
+	<div style="height: 100vh;">
+		<div class="border d-flex align-items-center justify-content-center h-100" >
+			<h1>Bienvenue {{user.firstname}} {{user.lastname}}</h1>
 		</div>
-	</section>
+	</div>
+
 {% endblock %}
