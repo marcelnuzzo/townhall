@@ -2,12 +2,13 @@
 
 namespace App\Form;
 
-use App\Entity\Article;
 use App\Entity\User;
+use App\Entity\Article;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
-use Symfony\Component\OptionsResolver\OptionsResolver;
+use Vich\UploaderBundle\Form\Type\VichImageType;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
+use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
@@ -18,15 +19,15 @@ class ArticleType extends AbstractType
     {
         $builder
             ->add('title', TextType::class, [
-                'label' => false,
+                'label' => 'Titre de l\'article :',
                 'attr' => [
                     'autofocus' => true,
                     'required' => true,
-                    'placeholder' => 'Titre de l\'aticle',
+                    'placeholder' => 'Entrez le titre de l\'aticle',
                 ],
             ])
             ->add('category', ChoiceType::class, [
-                'label' => 'Sélectionnez une catégorie',
+                'label' => 'Sélectionnez une catégorie :',
                 'expanded' => true,
                 'choices' => [
                     'Événement' => 'event',
@@ -34,25 +35,29 @@ class ArticleType extends AbstractType
                     'Annonce' => 'annonce',
                 ],
             ])
-            ->add('summary', TextareaType::class, [
-                'label' => false,
+            ->add('summar', TextareaType::class, [
+                'label' => 'Résumé de l\'article :',
                 'attr' => [
-				'required' => false,
-                    'placeholder' => 'Résumé de l\'aticle',
+                    'required' => false,
+                    'placeholder' => 'Entrez le résumé de l\'aticle',
                 ],
             ])
             ->add('content', TextareaType::class, [
-                'label' => false,
-                'attr' => [
-                    'placeholder' => 'Contenu de l\'article',
-                ]
+                'label' => 'Contenu de l\'article :',
             ])
-            ->add('image')
-            ->add('user', EntityType::class, [
-            'label' => 'Sélectionnez un utilisateur',
-            'class' => User::class,
-            'choice_label' => 'email',
-            ]);
+            ->add('imageName', TextType::class, [
+                'label' => 'Nom de la photo :',
+                'attr' => [
+                    'autofocus' => true,
+                    'required' => true,
+                    'placeholder' => 'Entrez le nom de la photo',
+                ],
+            ])
+            ->add('imageFile', VichImageType::class, array(
+                'required' => false,
+                'label' => "Photo de l'article",
+                'allow_delete' => true,
+            ));
     }
 
     public function configureOptions(OptionsResolver $resolver)

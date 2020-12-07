@@ -1,29 +1,31 @@
 <div class="mt-5">
     {{ form_start(form) }}
-        <div class="row mb-4">
-            <div class="col">
-                <div class="form-outline mb-4">
-                    {{ form_widget(form.organization_type, {'attr': {'class': 'form-control'}}) }}
-                </div>
-            </div>
-            <div class="col">
-                <div class="form-outline mb-4">
-                    {{ form_widget(form.school_type, {'attr': {'class': 'form-control'}}) }}
-                </div>
-            </div>
+        
+        <div class="form-outline mb-4">
+            {#{{ form_widget(form.organizationType, {'attr': {'class': 'form-control'}}) }}#}
         </div>
 
         <div class="form-outline mb-4">
             {{ form_widget(form.name, {'attr': {'class': 'form-control'}}) }}
         </div>
 
-        <div class="form-outline mb-4">
-            {{ form_label(form.logo) }}</br>
-            {{ form_widget(form.logo, {'attr': {'class': 'form-control'}}) }}
+        <div class="row mb-4">
+            <div class="col">
+                <div class="form-outline mb-4">
+                    {{ form_label(form.logoFile) }}</br>
+                    {{ form_widget(form.logoFile) }}
+                </div>
+            </div>
+            <div class="col">
+                <div class="form-outline mb-4">
+                    {{ form_label(form.logoName) }}</br>
+                    {{ form_widget(form.logoName, {'attr': {'class': 'form-control'}}) }}
+                </div>
+            </div>
         </div>
 
         <div class="form-outline mb-4">
-            {{ form_widget(form.summary, {'attr': {'class': 'form-control'}}) }}
+            {{ form_widget(form.summar, {'attr': {'class': 'form-control'}}) }}
         </div>
 
         <div class="form-outline mb-4">
@@ -61,7 +63,7 @@
         </div>
 
         <div class="justify-content-end">
-            <button class="btn btn-secondary">{{ structure.id ? 'Modifier' : 'Créer' }}</button>
+            {#<button class="btn btn-secondary">{{ structure.id ? 'Modifier' : 'Créer' }}</button>#}
         </div>
     {{ form_end(form) }}
 </div>

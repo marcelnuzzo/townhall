@@ -29,8 +29,8 @@
                     <tr>
                         <td>{{ article.title }}</td>
                         <td>{{ article.category }}</td>
-                        <td>{{ article.summary }}</td>
-                        <td>{{ article.image }}</td>
+                        <td>{{ article.summar }}</td>
+                        <td>{{ article.imageName }}</td>
                         <td class="text-center">{{ article.publishedat ? article.publishedat|date('d/m/Y H:i') : '' }}</td>
                         <td class="d-flex justify-content-center">
                             <a href="{{ path('article_show', {'id': article.id}) }}" class="btn btn-see mr-2" role="button" aria-pressed="true">Voir</a>

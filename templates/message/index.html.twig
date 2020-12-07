@@ -15,7 +15,6 @@
                         <th>Objet</th>
                         <th>Email</th>
                         <th>Statut</th>
-                        <th>Lu</th>
                         <th>Reçu le</th>
                         <th>Actions</th>
                     </tr>
@@ -26,7 +25,6 @@
                         <td>{{ message.object }}</td>
                         <td>{{ message.email }}</td>
                         <td>{{ message.status }}</td>
-                        <td>{{ message.accept ? 'Oui' : 'Non' }}</td>
                         <td>{{ message.receivedAt ? message.receivedAt|date('d/m/Y à H:i:s') : '' }}</td>
                         <td class="d-flex justify-content-center">
                             <a href="{{ path('message_show', {'id': message.id}) }}" class="btn btn-see mr-2" role="button" aria-pressed="true">Voir</a>

@@ -4,7 +4,7 @@
 
 {% block body %}
     <section>
-        <a href="{{ path('article_index') }}" class="btn btn-delete mx-3 my-3" role="button" aria-pressed="true">Retour</a>
+        <a href="{{ path('structure_index', {'structure': infrastructure.organizationType}) }}" class="btn btn-delete mx-3 my-3" role="button" aria-pressed="true">Retour</a>
         
         <div class="container">
             <div class="text-center">
@@ -15,55 +15,47 @@
                 <table class="table">
                     <tbody>
                         <tr>
-                            <th>Type d'organisation</th>
-                            <td>{{ structure.organizationType }}</td>
-                        </tr>
-                        <tr>
-                            <th>Type d'établissement scolaire</th>
-                            <td>{{ structure.schoolType }}</td>
-                        </tr>
-                        <tr>
                             <th>Nom</th>
-                            <td>{{ structure.name }}</td>
+                            <td>{{ infrastructure.name }}</td>
                         </tr>
                         <tr>
                             <th>Logo</th>
-                            <td>{{ structure.logo }}</td>
+                            <td>{{ infrastructure.logo }}</td>
                         </tr>
                         <tr>
                             <th>Résumé</th>
-                            <td>{{ structure.summary }}</td>
+                            <td>{{ infrastructure.summary }}</td>
                         </tr>
                         <tr>
                             <th>Contenu</th>
-                            <td>{{ structure.content }}</td>
+                            <td>{{ infrastructure.content }}</td>
                         </tr>
                         <tr>
                             <th>Adresse</th>
-                            <td>{{ structure.postaladdress }}</td>
+                            <td>{{ infrastructure.postaladdress }}</td>
                         </tr>
                         <tr>
                             <th>Numéro de téléphone</th>
-                            <td>{{ structure.phone }}</td>
+                            <td>{{ infrastructure.phone }}</td>
                         </tr>
                         <tr>
                             <th>Email</th>
-                            <td>{{ structure.email }}</td>
+                            <td>{{ infrastructure.email }}</td>
                         </tr>
                         <tr>
                             <th>Site internet</th>
-                            <td>{{ structure.website }}</td>
+                            <td>{{ infrastructure.website }}</td>
                         </tr>
                         <tr>
                             <th>Créé le</th>
-                            <td>{{ structure.createdat }}</td>
+                            <td>{{ infrastructure.createdat }}</td>
                         </tr>
                     </tbody>
                 </table>
             </div>
 
-            <div class="d-flex justify-content-end">
-                <a href="{{ path('structure_edit', {'id': structure.id}) }}" class="btn btn-secondary mr-2" role="button" aria-pressed="true">Modifier</a>
+            <div class="d-flex justify-content-end mb-2">
+                <a href="{{ path('structure_edit', {'id': infrastructure.id}) }}" class="btn btn-secondary mr-2" role="button" aria-pressed="true">Modifier</a>
                 {{ include('structure/_delete_form.html.twig') }}
             </div>
         </div>

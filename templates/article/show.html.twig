@@ -18,13 +18,16 @@
                         </p>
                         <hr> 
                         <p>
-                        {{ article.summary }}
+                        {{ article.summar }}
                         </p>  
-                        <p>
+                        {% if article.imageFile is defined %}
+                            <img src="{{ vich_uploader_asset(article, 'imageFile') }}" width="200"/>
+                        {% endif %}
+                        <p class="mt-2">
                             {{ article.content }}
                         </p>
                         <p>
-                            {{ article.image }}
+                            {{ article.imageName }}
                         </p>
                         <div class="d-flex justify-content-end">
                             <a href="{{ path('article_edit', {'id': article.id}) }}" class="btn btn-secondary mr-2" role="button" aria-pressed="true">Modifier</a>
