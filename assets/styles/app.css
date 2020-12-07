@@ -1,3 +1,7 @@
 .nav-button:hover {
-    background-color: gold;
+    background-color: #E8ECF7;
   }
+
+body {
+  overflow-x: hidden;
+}  

@@ -1,0 +1,98 @@
+{% extends 'base.html.twig' %}
+
+
+
+{% block body %}
+ 
+  <img src=" https://www.mairie-le-thillay.fr/sites/lethillay/files/styles/bandeau/public/image/bandeau/p4251492.jpg?itok=EtXOIQSv" style="width:1000px; position:static; display: block; margin-left: auto; margin-right: auto;margin-top:0;" />
+
+
+
+   {# navbar #}
+  <div style="position:relative; background-color:white; width: 79.1%; height: 50px; border: solid; border-top-style: none; border-width: 1px; border-color: #D3D3D3; display: block; margin-left: auto; margin-right: auto">    
+    <nav style="text-align: center">
+        <div style="position:relative;  right:0px; top: 12px; width: 60px;  " class="nav-button">
+        <a   href="/"  style="text-decoration:none">Accueil</a>
+        </div>
+        <div>
+
+
+        <div style="position:relative; right:-90px; top: -13px; width: 80px; "  class="nav-button">
+        <div class="dropdown">
+        
+          <a  href="#" role="button" id="deroulanta" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"; style="text-decoration:none">Le village</a>
+        
+          <div class="dropdown-menu" aria-labelledby="deroulanta">
+            <a class="dropdown-item" type="button" href="/Historique">Historique</a>
+            <a class="dropdown-item" type="button" href="/SituationGeographique">Situation géographique</a>
+          </div>
+        </div>
+        </div>
+
+        <div style="position:relative; right:-200px; top: -36px; width: 60px; " class="nav-button" >
+        <div class="dropdown">
+          <a   class="nav-button" href="#" role="button" id="deroulanta" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"; style="text-decoration:none">Mairie</a>
+          <div class="dropdown-menu" aria-labelledby="deroulanta">
+            <a class="dropdown-item" type="button" href="/LesElus">Les élus</a>
+            <a class="dropdown-item" type="button" href="/ConseilsMunicipaux">Conseils municipaux</a>
+            
+          </div>
+        </div>
+        </div>
+        
+       <div style="position:relative; right:-280px; top: -60px; width: 100px; "  class="nav-button"> 
+       <div class="dropdown">
+          <a  href="#" role="button" id="deroulanta" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"; style="text-decoration:none">Vie pratique</a>
+          <div class="dropdown-menu" aria-labelledby="deroulanta">
+            <a class="dropdown-item" type="button" href="/NumerosUtiles">Numéros utiles</a>
+            <a class="dropdown-item" type="button" href="/Commerces">Commerces</a>
+            <a class="dropdown-item" type="button" href="/Transports">Transports</a>
+            <a class="dropdown-item" type="button" href="/Dechets">Déchêts</a>
+            <a class="dropdown-item" type="button" href="/Demarches">Démarches</a>
+            <a class="dropdown-item" type="button" href="/Cimetiere">Cimétière</a>
+
+          </div>
+        </div>
+        </div>
+
+        <div style="position:relative; right:-435px; top: -90px; width: 60px;  width: 200px ; " class="nav-button">
+         <div class="dropdown">
+          <a  href="#" role="button" id="deroulanta" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"; style="text-decoration:none">Vie associative et culturelle</a>
+          <div class="dropdown-menu" aria-labelledby="deroulanta">
+            <a class="dropdown-item" type="button" href="/AnnuaireDesAssociations">Annuaire des associations</a>
+            <a class="dropdown-item" type="button" href="/LocationDeSalle">Location de salle</a>
+            <a class="dropdown-item" type="button" href="/EspaceCulturelle">Espace culturelle</a>
+          </div>
+        </div>
+        </div>
+
+
+        <div style="position:relative; right:-700px; top:-115px; width: 200px ;" class="nav-button">
+        <div class="dropdown">
+          <a  href="#" role="button" id="deroulanta" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"; style="text-decoration:none">Enfance-Jeunesse-Scolarité</a>
+          <div class="dropdown-menu" aria-labelledby="deroulanta">
+            <a class="dropdown-item" type="button" href="/PetiteEnfance">Petite enfance</a>
+            <a class="dropdown-item" type="button" href="/EcolePrimaire">Ecole primaire</a>
+            <a class="dropdown-item" type="button" href="/CollegeEtLycee">Collège et lycée</a>
+            <a class="dropdown-item" type="button" href="/Cantine">Cantine</a>
+            <a class="dropdown-item" type="button" href="/CaisseDesEcoles">Caisse des écoles</a>
+            <a class="dropdown-item" type="button" href="/CentreLoisirs">Centre loisirs</a>
+
+          </div>
+        </div>
+        </div>
+
+
+        <div style="position:relative; right:-920px; top: -135px;  width: 60px" class="nav-button">
+        <a  href="Contact" style="text-decoration:none" >Contact</a>
+        </div>
+    </nav>    
+  </div> 
+
+  <img src="images/logo.png" alt="Logo Cergy-Village" style="position: relative; top:-300px; right: -200px; z-index: 1;"/>
+  <div style="width:200px; height: 75px; background-color: white; position: relative; top:-440px; right: -200px;"></div>
+
+  <div style="padding-bottom:50px"></div>  
+
+  
+{% endblock %}

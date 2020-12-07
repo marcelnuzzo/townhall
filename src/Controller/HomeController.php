@@ -39,4 +39,15 @@ class HomeController extends AbstractController
         ]);
     }
 
+    /** 
+* @Route("/annuaire", name="home_annuaire")
+*/
+
+public function annuaire(): Response
+{
+    return $this->render('home/annuaire.html.twig', [
+        'controller_name' => 'HomeController',
+    ]);
+}
+
 }

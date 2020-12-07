@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Situation Géographique{% endblock %}
+
+{% block body %}
+{% include 'partials/header.html.twig' %}
+<h1>Situation Géographique</h1>
+<p>Le village se situe à 50 km au nord de Paris. Traversé au nord par la Francilienne, il se distingue de loin grâce à son paysage magnifiquement fleuri.
+Fontenay-en-Parisis se situe dans l’arrondissement de Sarcelles et le canton de Luzarches, il fait partie de la Communauté d’ Agglomérations Roissy Porte de France.
+
+Code postal : 95190
+
+Superficie : 10,84 ha
+
+Habitants : Fontenaysiens – Fontenaysiennes
+
+Population au 1er janvier 2016 : 1 979 habitants
+
+Altitude moyenne : 107m (mini : 77m-maxi : 138m)</p>
+<img src="images/carte.png" alt="Carte donnant l'emplacement de Cergy-Village" />
+<p>Coordonnées :</p>
+<ul>
+    <li>latitude : 49,05° nord</li>
+    <li>longitude : 2,45 ° est</li>
+</ul>
+<p>Accès : par la Francilienne sortie Fontenay-en-Parisis</p>    
+{% include 'partials/footer.html.twig' %}
+{% endblock %}
