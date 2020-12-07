@@ -10,7 +10,7 @@
             <tr>
                 <th>Id</th>
                 <th>Nom</th>
-                <th>Logo</th>
+                <th>Nom du logo</th>
                 <th>Description</th>
                 <th>Date création</th>
                 <th>Voir</th>
@@ -23,9 +23,10 @@
             <tr>
                 <td>{{ structure.id }}</td>
                 <td>{{ structure.schoolType }} {{ structure.name }}</td>
-                <td><img src="{{ structure.logo }}" alt="Logo"></td>
+                <td><img src="{{ vich_uploader_asset(structure, 'logoFile') }}" alt="image du logo" width="64"/></p>
+                </td>
                 <td>{{ structure.summar }}</td>
-                <td>{{ structure.createdat ? structure.createdat|date('d/m/Y H:i') : '' }}</td></td>
+                <td>{{ structure.createdat ? structure.createdat|date('d/m/Y H:i') : '' }}</td></>
                 <td>
                     <a href="{{ path('structure_show', {'id': structure.id }) }}">Voir</a>
 					</td>

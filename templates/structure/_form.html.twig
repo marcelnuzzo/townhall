@@ -1,4 +1,4 @@
 {{ form_start(form, {'attr': {'novalidate': 'novalidate' }}) }}
     {{ form_widget(form) }}
-    <button class="btn">{{ infrastructure.id ? 'Modifier' : 'Créer' }}</button>
+    <button class="btn btn-warning">{{ infrastructure.id ? 'Modifier' : 'Créer' }}</button>
 {{ form_end(form) }}

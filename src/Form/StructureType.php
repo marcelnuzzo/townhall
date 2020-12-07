@@ -2,18 +2,19 @@
 
 namespace App\Form;
 
-use App\Entity\Structure;
 use App\Entity\User;
+use App\Entity\Structure;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
-use Symfony\Component\OptionsResolver\OptionsResolver;
+use Vich\UploaderBundle\Form\Type\VichImageType;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
-use Symfony\Component\Form\Extension\Core\Type\TextType;
-use Symfony\Component\Form\Extension\Core\Type\TextareaType;
-use Symfony\Component\Form\Extension\Core\Type\UrlType;
+use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\TelType;
+use Symfony\Component\Form\Extension\Core\Type\UrlType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 
 class StructureType extends AbstractType
 {
@@ -45,7 +46,6 @@ class StructureType extends AbstractType
 			}
 			
            $builder
-			->add('logo')
             ->add('summar', TextareaType::class, [
                 'label' => 'Quelques mots sur l\'infrastructure :',
                 'attr' => [
@@ -83,10 +83,24 @@ class StructureType extends AbstractType
                 ],
             ])
 			->add('user', EntityType::class, [
-					'label' => 'Sélectionnez un utilisateur :',
-    'class' => User::class,
-    'choice_label' => 'email',
-	]);
+                'label' => 'Sélectionnez un utilisateur :',
+                'class' => User::class,
+                'choice_label' => 'email',
+            ])
+            ->add('logoName', TextType::class, [
+                'label' => 'Nom du logo :',
+                'attr' => [
+                    'autofocus' => true,
+                    'required' => true,
+                    'placeholder' => 'Entrez le nom du logo',
+                ],
+            ])
+            ->add('logoFile', VichImageType::class, array(
+                'required' => false,
+                'label' => "logo de la structure",
+                'allow_delete' => true,
+            ));
+            ;
     }
 
     public function configureOptions(OptionsResolver $resolver)

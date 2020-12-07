@@ -7,8 +7,8 @@
         {% for structure in structures %}
                 <article>
                     <h2>{{ structure.organizationType }} {{ structure.schoolType }} {{ structure.name }}</h2>
-                    {% if structure.logo is not null %}
-                    <p><img src="{{ structure.logo }}" alt="Logo" width="300"/></p>
+                    {% if structure.logoName is not null %}
+                    <p><img src="{{ vich_uploader_asset(structure, 'logoFile') }}" alt="image du logo" width="100" /></p>
                     {% endif %}
                     <p>{{ structure.summar }}</p>
                     <p>

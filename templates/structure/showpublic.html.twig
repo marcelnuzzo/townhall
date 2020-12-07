@@ -8,8 +8,8 @@
 	<p>Type : {{ infrastructure.schoolType }}</p>
 	{% endif %}
                 <p>Nom : {{ infrastructure.name }}</p>
-				{% if infrastructure.logo is not null %}
-                <p><img src="{{ infrastructure.logo }}" alt="Logo {{ infrastructure.organizationType }}"></p>
+				{% if infrastructure.logoName is not null %}
+                <p><img src="{{ vich_uploader_asset(structure, 'logoFile') }}" alt="photo du logo" width="100" /></p>
 				{% endif %}
 				{% if infrastructure.summar is not null %}
 				<h2>Résumé</h2>
