@@ -37,6 +37,7 @@ class TownHallType extends AbstractType
                 'required' => false,
                 'label' => "Photo du logo",
                 'allow_delete' => false, 
+                'download_link' => false,
             ))
             ->add('story', TextareaType::class, [
                 'label' => "Histoire",
