@@ -23,6 +23,7 @@ class StructureController extends AbstractController
     public function structure_index($_route, $structure)
     {
         $structures = $this->getDoctrine()->getRepository(Structure::class)->findBy(['organization_type' => $structure]);
+        
 		$render = $_route=="structure_index" ? 'structure/index.html.twig' : 'structure/indexpublic.html.twig';
 		return $this->render($render, [
             'structures' => $structures,

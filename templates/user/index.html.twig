@@ -8,11 +8,11 @@
             <h1>Liste des comptes utilisateurs</h1>
         </div>
 
-        <div class="mt-5">
+        <div class="d-flex mt-5 justify-content-center justify-content-md-start">
             <a href="{{ path('user_new') }}" class="btn btn-secondary" role="button" aria-pressed="true">Ajouter un compte utilisateur</a>
         </div>
 
-        <div class="mt-5">
+        <div class="mt-5 d-none d-md-block">
             <table class="table">
                 <thead>
                     <tr class="text-center">
@@ -42,6 +42,29 @@
                 {% else %}
                     <tr>
                         <td colspan="9">Aucun compte utilisateur enregistré.</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+
+        <div class="d-block d-sm-none mt-5">
+            <table class="table">
+                <thead>
+                    <tr class="text-center">
+                        <th>Utilisateurs</th>
+                    </tr>
+                </thead>
+                <tbody>
+                {% for user in users %}
+                    <tr>
+                        <td>
+                            <a href="{{ path('user_edit', {'id': user.id}) }}">{{ user.firstname }} {{ user.lastname }}</a>
+                        </td>
+                    </tr>
+                {% else %}
+                    <tr>
+                        <td colspan="9">Aucun utilisateur enregistré.</td>
                     </tr>
                 {% endfor %}
                 </tbody>

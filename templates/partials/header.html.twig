@@ -1,4 +1,5 @@
 {% if is_granted('ROLE_USER') %}
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<nav class="navbar navbar-expand-lg navbar-light primary">
 		<div class="container-fluid">
 			<nav class="navbar navbar-light primary">
@@ -6,7 +7,7 @@
 				<span class="navbar-toggler-icon"></span>
 				</button>
 			</nav>
-			<a class="navbar-brand" href="{{ path('home_admin') }}">Administration Cergy-Village</a>
+			<a class="collapse navbar-collapse navbar-brand" href="{{ path('home_admin') }}">Administration Cergy-Village</a>
 			<div class="collapse navbar-collapse py-2" id="navbarExample01">
 				<ul class="navbar-nav mr-auto mb-2 mb-lg-0">
 					{% if is_granted('ROLE_ADMIN') %}
@@ -29,7 +30,7 @@
 							<li>
 								<a class="dropdown-item" href="{{ path('structure_index', {'structure': 'association'}) }}">Gérer les associations</a>
 							</li>
-							<li class="nav-item active">
+							<li>
 								<a class="dropdown-item" href="{{ path('structure_index', {'structure': 'commerce'}) }}">Gérer les commerces</a>
 							</li>
 							<li>
@@ -42,10 +43,11 @@
 					</li>
 				</ul>
 			</div>
-			<a href="{{ path('user_show', {'id': app.user.id}) }}" class="btn btn-secondary mr-2" role="button" aria-pressed="true">Mon compte</a>
+			<a href="{{ path('user_show', {'id': app.user.id}) }}" class="btn btn-secondary mr-md-2" role="button" aria-pressed="true">Mon compte</a>
 			<a href="{{ path('app_logout') }}" class="btn btn-delete" role="button" aria-pressed="true">Déconnexion</a>
 		</div>
 	</nav>
+	</meta>
 {% else %}
 	<div class="jumbotron">
 		<h1 class="display-3">Bienvenue à la maire de Cergy</h1>
@@ -69,12 +71,12 @@
 				<li class="nav-item dropdown">
 					<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Le village</a>
 					<div class="dropdown-menu">
-						<a class="dropdown-item" href="{{ path('townhall_story') }}">Notre histoire</a>
+						{#<a class="dropdown-item" href="{{ path('townhall_story') }}">Notre histoire</a>#}
 						<li class="nav-item active">
-							<a class="nav-link" href="{{ path('townhall_showpublic') }}">Votre mairie</a>
+							{#<a class="nav-link" href="{{ path('townhall_showpublic') }}">Votre mairie</a>#}
 						</li>
 						<li class="nav-item active">
-							<a class="nav-link" href="{{ path('article_indexpublic') }}">Nos actualités</a>
+							{#<a class="nav-link" href="{{ path('article_indexpublic') }}">Nos actualités</a>#}
 						</li>
 						<li>
 							<a class="dropdown-item" href="{{ path('structure_indexpublic', {'structure': 'association'}) }}">Nos associations</a>

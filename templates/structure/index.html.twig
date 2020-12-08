@@ -8,11 +8,11 @@
             <h1>Structure</h1>
         </div>
 
-        <div class="mt-5">
+        <div class="d-flex mt-5 justify-content-center justify-content-md-start">
             <a href="{{ path('structure_new', {'structure': 'association'}) }}" class="btn btn-secondary" role="button" aria-pressed="true">Ajouter une structure</a>
         </div>
 
-        <div class="mt-4">
+        <div class="mt-5 d-none d-md-block">
             <table class="table">
                 <thead>
                     <tr class="text-center">
@@ -33,7 +33,7 @@
                         <td>{{ structure.phone }}</td>
                         <td>{{ structure.email }}</td>
                         <td>{{ structure.website }}</td>
-                        <td>{{ structure.createdat }}</td>
+                        <td>{{ structure.createdat ? structure.createdat|date('d/m/Y à H:i') : '' }}</td>
                         <td class="d-flex justify-content-center">
                             <a href="{{ path('structure_show', {'id': structure.id}) }}" class="btn btn-see mr-2" role="button" aria-pressed="true">Voir</a>
                             <a href="{{ path('structure_edit', {'id': structure.id}) }}" class="btn btn-secondary mr-2" role="button" aria-pressed="true">Modifier</a>
@@ -43,6 +43,29 @@
                 {% else %}
                     <tr>
                         <td colspan="13">no records found</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+
+        <div class="d-block d-sm-none mt-5">
+            <table class="table">
+                <thead>
+                    <tr class="text-center">
+                        <th>Nom des structures</th>
+                    </tr>
+                </thead>
+                <tbody>
+                {% for structure in structures %}
+                    <tr>
+                        <td>
+                            <a href="{{ path('structure_show', {'id': structure.id}) }}">{{ structure.name }}</a>
+                        </td>
+                    </tr>
+                {% else %}
+                    <tr>
+                        <td colspan="9">Aucune structure enregistrée.</td>
                     </tr>
                 {% endfor %}
                 </tbody>

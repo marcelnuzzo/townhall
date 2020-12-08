@@ -8,11 +8,11 @@
             <h1>Liste des articles</h1>
         </div>
 
-        <div class="mt-5">
+        <div class="d-flex mt-5 justify-content-center justify-content-md-start">
             <a href="{{ path('article_new') }}" class="btn btn-secondary" role="button" aria-pressed="true">Ajouter un article</a>
         </div>
 
-        <div class="mt-5">
+        <div class="mt-5 d-none d-md-block">
             <table class="table">
                 <thead>
                     <tr class="text-center">
@@ -31,11 +31,34 @@
                         <td>{{ article.category }}</td>
                         <td>{{ article.summar }}</td>
                         <td>{{ article.imageName }}</td>
-                        <td class="text-center">{{ article.publishedat ? article.publishedat|date('d/m/Y H:i') : '' }}</td>
-                        <td class="d-flex justify-content-center">
+                        <td class="text-center">{{ article.publishedat ? article.publishedat|date('d/m/Y à H:i') : '' }}</td>
+                        <td class="d-flex justify-content-md-center">
                             <a href="{{ path('article_show', {'id': article.id}) }}" class="btn btn-see mr-2" role="button" aria-pressed="true">Voir</a>
                             <a href="{{ path('article_edit', {'id': article.id}) }}" class="btn btn-secondary mr-2" role="button" aria-pressed="true">Modifier</a>
                             {{ include('article/_delete_form.html.twig') }}
+                        </td>
+                    </tr>
+                {% else %}
+                    <tr>
+                        <td colspan="9">Aucun article enregistré.</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+
+        <div class="d-block d-sm-none mt-5">
+            <table class="table">
+                <thead>
+                    <tr class="text-center">
+                        <th>Titres des articles</th>
+                    </tr>
+                </thead>
+                <tbody>
+                {% for article in articles %}
+                    <tr>
+                        <td>
+                            <a href="{{ path('article_show', {'id': article.id}) }}">{{ article.title }}</a>
                         </td>
                     </tr>
                 {% else %}

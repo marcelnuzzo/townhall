@@ -8,8 +8,8 @@ vich_uploader:
       namer: Vich\UploaderBundle\Naming\SmartUniqueNamer
 
       inject_on_load: false
-      delete_on_update: true
-      delete_on_remove: true
+      delete_on_update: false
+      delete_on_remove: false
 
     article:
       uri_prefix: /images/article
@@ -17,8 +17,8 @@ vich_uploader:
       namer: Vich\UploaderBundle\Naming\SmartUniqueNamer
 
       inject_on_load: false
-      delete_on_update: true
-      delete_on_remove: true
+      delete_on_update: false
+      delete_on_remove: false
 
     structure:
       uri_prefix: /images/structure
@@ -26,5 +26,5 @@ vich_uploader:
       namer: Vich\UploaderBundle\Naming\SmartUniqueNamer
 
       inject_on_load: false
-      delete_on_update: true
-      delete_on_remove: true
+      delete_on_update: false
+      delete_on_remove: false

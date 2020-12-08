@@ -20,11 +20,11 @@
                         </tr>
                         <tr>
                             <th>Logo</th>
-                            <td>{{ infrastructure.logo }}</td>
+                            <td>{{ infrastructure.logoFile }}</td>
                         </tr>
                         <tr>
                             <th>Résumé</th>
-                            <td>{{ infrastructure.summary }}</td>
+                            <td>{{ infrastructure.summar }}</td>
                         </tr>
                         <tr>
                             <th>Contenu</th>
@@ -47,8 +47,8 @@
                             <td>{{ infrastructure.website }}</td>
                         </tr>
                         <tr>
-                            <th>Créé le</th>
-                            <td>{{ infrastructure.createdat }}</td>
+                            <th>Créée le</th>
+                            <td>{{ infrastructure.createdat ? infrastructure.createdat|date('d/m/Y à H:i') : '' }}</td>
                         </tr>
                     </tbody>
                 </table>

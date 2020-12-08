@@ -1,9 +1,9 @@
-<div class="mt-5">
+{#<div class="mt-5">
     {{ form_start(form) }}
         
         <div class="form-outline mb-4">
             {#{{ form_widget(form.organizationType, {'attr': {'class': 'form-control'}}) }}#}
-        </div>
+        {#</div>
 
         <div class="form-outline mb-4">
             {{ form_widget(form.name, {'attr': {'class': 'form-control'}}) }}
@@ -63,7 +63,13 @@
         </div>
 
         <div class="justify-content-end">
-            {#<button class="btn btn-secondary">{{ structure.id ? 'Modifier' : 'Créer' }}</button>#}
+            <button class="btn btn-secondary">{{ infrastructure.organizationType ? 'Modifier' : 'Créer' }}</button>
         </div>
     {{ form_end(form) }}
-</div>
+</div>#}
+
+{{ form_start(form, {'attr': {'novalidate': 'novalidate' }}) }}
+    {{ form_widget(form) }}
+    <button class="btn btn-warning">{{ infrastructure.id ? 'Modifier' : 'Créer' }}</button>
+{{ form_end(form) }}
+
