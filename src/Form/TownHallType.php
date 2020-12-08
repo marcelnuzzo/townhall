@@ -36,7 +36,7 @@ class TownHallType extends AbstractType
             ->add('logoFile', VichImageType::class, array(
                 'required' => false,
                 'label' => "Photo du logo",
-                'allow_delete' => true, 
+                'allow_delete' => false, 
             ))
             ->add('story', TextareaType::class, [
                 'label' => "Histoire",
@@ -120,7 +120,7 @@ class TownHallType extends AbstractType
             ->add('imageFile', VichImageType::class, array(
                 'required' => false,
                 'label' => "Photo du maire",
-                'allow_delete' => true, 
+                'allow_delete' => false, 
             ))
         ;
     }

@@ -45,6 +45,7 @@ class ArticleType extends AbstractType
             ->add('content', TextareaType::class, [
                 'label' => 'Contenu de l\'article :',
             ])
+            /*
             ->add('imageName', TextType::class, [
                 'label' => 'Nom de la photo :',
                 'attr' => [
@@ -53,10 +54,11 @@ class ArticleType extends AbstractType
                     'placeholder' => 'Entrez le nom de la photo',
                 ],
             ])
+            */
             ->add('imageFile', VichImageType::class, array(
                 'required' => false,
                 'label' => "Photo de l'article",
-                'allow_delete' => true,
+                'allow_delete' => false,
             ));
     }
 
