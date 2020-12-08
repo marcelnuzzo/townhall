@@ -1,14 +1,25 @@
 <div class="mt-5">
     {{ form_start(form) }}
-        <div class="form-outline mb-4">
-            {{ form_widget(form.title, {'attr': {'class': 'form-control'}}) }}
+        <div class="row mb-4">
+            <div class="col">
+                <div class="form-outline mb-4">
+                    {{ form_label(form.title) }}
+                    {{ form_widget(form.title, {'attr': {'class': 'form-control'}}) }}
+                </div>
+            </div>
+            <div class="col">
+                <div class="form-outline mb-4">
+                    {{ form_label(form.category) }}
+                    {{ form_widget(form.category) }}
+                </div>
+            </div>
         </div>
 
         <div class="row mb-4">
             <div class="col">
                 <div class="form-outline mb-4">
-                    {{ form_label(form.category) }}
-                    {{ form_widget(form.category) }}
+                    {{ form_label(form.imageName) }}</br>
+                    {{ form_widget(form.imageName, {'attr': {'class': 'form-control'}}) }}
                 </div>
             </div>
             <div class="col">
@@ -17,24 +28,21 @@
                     {{ form_widget(form.imageFile) }}
                 </div>
             </div>
-            {#<div class="col">
-                <div class="form-outline mb-4">
-                    {{ form_label(form.imageName) }}</br>
-                    {{ form_widget(form.imageName, {'attr': {'class': 'form-control'}}) }}
-                </div>
-            </div>#}
         </div>
 
         <div class="form-outline mb-4">
-            {{ form_widget(form.summar, {'attr': {'class': 'form-control'}}) }}</br>
+            {{ form_label(form.summar) }}
+            {{ form_widget(form.summar, {'attr': {'class': 'form-control'}}) }}
         </div>
 
         <div class="form-outline mb-4">
-            {{ form_widget(form.content, {'attr': {'class': 'form-control'}}) }}</br>
+            {{ form_label(form.content) }}
+            {{ form_widget(form.content, {'attr': {'class': 'form-control'}}) }}
         </div>
 
         <div class="form-outline mb-4">
-            {#{{ form_widget(form.user, {'attr': {'class': 'form-control'}}) }}#}
+            {{ form_label(form.user) }}
+            {{ form_widget(form.user, {'attr': {'class': 'form-control'}}) }}
         </div>
 
         <div class="justify-content-end">

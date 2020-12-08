@@ -19,15 +19,15 @@ class ArticleType extends AbstractType
     {
         $builder
             ->add('title', TextType::class, [
-                'label' => 'Titre de l\'article :',
+                'label' => 'Titre',
                 'attr' => [
                     'autofocus' => true,
                     'required' => true,
-                    'placeholder' => 'Entrez le titre de l\'aticle',
+                    'placeholder' => 'Entrez le titre',
                 ],
             ])
             ->add('category', ChoiceType::class, [
-                'label' => 'Sélectionnez une catégorie :',
+                'label' => 'Sélectionnez une catégorie',
                 'expanded' => true,
                 'choices' => [
                     'Événement' => 'event',
@@ -36,17 +36,17 @@ class ArticleType extends AbstractType
                 ],
             ])
             ->add('summar', TextareaType::class, [
-                'label' => 'Résumé de l\'article :',
+                'label' => 'Résumé',
                 'attr' => [
                     'required' => false,
-                    'placeholder' => 'Entrez le résumé de l\'aticle',
+                    'placeholder' => 'Entrez le résumé',
                 ],
             ])
             ->add('content', TextareaType::class, [
-                'label' => 'Contenu de l\'article :',
+                'label' => 'Contenu',
             ])
             ->add('imageName', TextType::class, [
-                'label' => 'Nom de la photo :',
+                'label' => 'Nom de la photo',
                 'attr' => [
                     'autofocus' => true,
                     'required' => true,
@@ -57,7 +57,12 @@ class ArticleType extends AbstractType
                 'required' => false,
                 'label' => "Photo de l'article",
                 'allow_delete' => true,
-            ));
+            ))
+            ->add('user', EntityType::class, [
+                'label' => 'Sélectionnez un utilisateur',
+                'class' => User::class,
+                'choice_label' => 'email',
+            ]);
     }
 
     public function configureOptions(OptionsResolver $resolver)
