@@ -4,13 +4,17 @@
 
 {% block body %}
 {% include 'partials/header.html.twig' %}
-<h1>Les Elus</h1>
+<div style= "margin-top: -290px">
+<h1 class="item" style="margin-left: 15px">Les Elus</h1>
+<div style="height: 2px; width: 100%;  background: linear-gradient(to right, #4464BC, #E8ECF7);" class="item"></div>
+</div>
 
+<center><h2 style= "margin-left: 15px; margin-top: 100px; margin-bottom: 50px">Vos élus</h2></center>
+<center><img src="images/Marc-Deluxe-478x720.jpg" alt="Eglise de Cergy-Village" /></center>
+<h3 style="text-align: center">Marc DELUXE</h3>
+<p style="text-align: center">Maire</p>
 
-<h2>Vos élus</h2>
-<img src="images/Marc-Deluxe-478x720.jpg" alt="Eglise de Cergy-Village" />
-<h3>Marc DELUXE</h3>
-<p>Maire</p>
+<div style="text-align: center">
 <img src="images/Sonia-Da-Costa-478x720.jpg" alt="Eglise de Cergy-Village" />
 <h3>Sonia DA COSTA</h3>
 <p>1er adjoint
@@ -22,7 +26,8 @@ Finance – Sécurité positive</p>
 <img src="images/Sylvie-Batacle-478x720.jpg" alt="Eglise de Cergy-Village" />
 <h3>Sylvie BATACLE</h3>
 <p>3ème adjoint
-C.C.A.S.  – Enfance – Caisse des écoles</p>
+</div>
+
 <img src="images/Jack-Auzane-478x720.jpg" alt="Eglise de Cergy-Village" />
 <h3>Jack AUZANE</h3>
 <p>4ème adjoint
@@ -56,6 +61,16 @@ Information – Communication – Informatique</p>
 <h3>Pierre TROTTIER</h3>
 <img src="images/Sofia-Da-Silva-478x720.jpg" alt="Eglise de Cergy-Village" />
 <h3>Sofia DA SILVA</h3>
+<style>
+.item {
+      
+  vertical-align: middle
+}
 
+img {
+    width: 15%;
+    height: 15%;
+}
+</style>
 {% include 'partials/footer.html.twig' %}
 {% endblock %}
