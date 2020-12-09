@@ -4,8 +4,8 @@
 
 {% block body %}
     <h1>{{ infrastructure.organizationType }} – {{ infrastructure.name }}</h1>
-	{% if infrastructure.organizationType == "Établissements scolaire" %}
-	<p>Type : {{ structure.schoolType }}</p>
+	{% if infrastructure.organizationType == "Etablissement scolaire" %}
+	<p>Type : {{ infrastructure.schoolType }}</p>
 	{% endif %}
                 <p>Nom : {{ infrastructure.name }}</p>
 				{% if infrastructure.logoName is not null %}

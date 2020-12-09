@@ -26,7 +26,12 @@
                 <td>{{ article.title }}</td>
                 <td>{{ article.category }}</td>
                 <td>{{ article.summar }}</td>
-                <td><img src="{{ vich_uploader_asset(article, 'imageFile') }}" alt="photo de l'article" width="64"/></p>
+                <td>
+				{% if article.imageName is not null %}
+				<img src="{{ vich_uploader_asset(article, 'imageFile') }}" alt="photo de l'article" width="64"/>
+			{% else %}
+			Aucune image enregistrée.
+			{% endif %}
                 </td>
                 <td>{{ article.publishedat ? article.publishedat|date('d/m/Y H:i') : '' }}</td>
                 <td>

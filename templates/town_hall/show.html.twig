@@ -9,7 +9,9 @@
 {% else %}
 	<ul>
    <li>Nom : {{ town_hall.name }}</li>
-   <li>Logo :  <img src="{{ vich_uploader_asset(town_hall, 'logoFile') }}" alt="image du logo de la ville" /></li>
+   {% if town_hall.logoName is not null %}
+	<li>Logo :  <img src="{{ vich_uploader_asset(town_hall, 'logoFile') }}" alt="image du logo de la ville" /></li>
+	{% endif %}
    <li>Adresse postale : {{ town_hall.postaladdress }}</li>
    <li>N° téléphone : {{ town_hall.phone }}</li>
    <li>Adresse email : {{ town_hall.email }}</li>
@@ -25,7 +27,9 @@
   </ul>
   <ul>
 	<li>Prénom / nom du maire : {{ town_hall.nameMayor }}</li>
-	<li>Photo du maire :<img src="{{ vich_uploader_asset(town_hall, 'imageFile') }}" alt="photo du maire" /></li>
+	{% if town_hall.imageName is not null %}
+	<li>Photo du maire : <img src="{{ vich_uploader_asset(town_hall, 'imageFile') }}" alt="photo du maire" /></li>
+	{% endif %}
   </ul>
   <h2>Histoire</h2>
   <p>{{ town_hall.story }}</p>

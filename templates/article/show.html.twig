@@ -17,8 +17,9 @@
 	</ul>
 	<h2>Résumé</h2>
 	<p>{{ article.summar }}</p>
-	
-	<p><img src="{{ vich_uploader_asset(article, 'imageFile') }}" alt="photo de l'article" width="200"/></p>
+	{% if article.imageName is not null %}
+		<p><img src="{{ vich_uploader_asset(article, 'imageFile') }}" alt="photo de l'article" width="200"/></p>
+	{% endif %}
 	<h2>Contenu</h2>
 	<p>{{ article.content }}</p>
 	<nav role="navigation" aria-label="Menu secondaire">
@@ -29,7 +30,7 @@
 			<li>
 				<a href="{{ path('article_edit', {'id': article.id}) }}">Modifier</a>
 			</li>
-			<li>{{ include('article/_delete_form.html.twig') }}</li>
+			<li><a href="{{ path('article_delete', {'id': article.id}) }}">Supprimer</a></li>
 		</ul>
 	</nav>
 {% endblock %}

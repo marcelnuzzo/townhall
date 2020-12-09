@@ -92,7 +92,7 @@ class AppFixtures extends Fixture
         $etsScolaire = [
              'Ecole maternelle',
              'Ecole primaire',
-             'Coolège',
+             'Collège',
              'Lycée'
         ];
         $orgType = [

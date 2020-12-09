@@ -23,7 +23,12 @@
             <tr>
                 <td>{{ structure.id }}</td>
                 <td>{{ structure.schoolType }} {{ structure.name }}</td>
-                <td><img src="{{ vich_uploader_asset(structure, 'logoFile') }}" alt="image du logo" width="64"/></p>
+                <td>
+				{% if structure.logoName is not null %}
+				<img src="{{ vich_uploader_asset(structure, 'logoFile') }}" alt="image du logo" width="64"/>
+				{% else %}
+				Aucune image enregistrée.
+				{% endif %}
                 </td>
                 <td>{{ structure.summar }}</td>
                 <td>{{ structure.createdat ? structure.createdat|date('d/m/Y H:i') : '' }}</td></>

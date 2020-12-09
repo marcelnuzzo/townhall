@@ -1,9 +1,19 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Nos {{ structure }}s{% endblock %}
+{% block title %}
+{% if structure == "etablissement scolaire" %}
+		<h1>Nos établissements scolaires</h1>
+	{% else %}
+    <h1>Nos {{ structure }}s</h1>
+	{% endif %}
+{% endblock %}
 
 {% block body %}
+	{% if structure == "etablissement scolaire" %}
+		<h1>Nos établissements scolaires</h1>
+	{% else %}
     <h1>Nos {{ structure }}s</h1>
+	{% endif %}
         {% for structure in structures %}
                 <article>
                     <h2>{{ structure.organizationType }} {{ structure.schoolType }} {{ structure.name }}</h2>

@@ -29,7 +29,7 @@ class Structure
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
 	 * @Assert\Choice(
-	 *{"École maternelle", "École primaire", "Collège", "Lycée"},
+	 *{"Ecole maternelle", "Ecole primaire", "Collège", "Lycée"},
 	 *message = "Le choix {{ value }} est invalide."
 	 *)
      */

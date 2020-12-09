@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Mairie{% endblock %}
+{% block title %}Mairie {{ town_hall.name }}{% endblock %}
 
 {% block body %}
 	{% if not town_hall %}
@@ -25,7 +25,9 @@
   <h2>Le maire</h2>
   <ul>
 	<li>{{ town_hall.nameMayor }}</li>
+	{% if town_hall.imageName is not defined %}
   <li>Photo du maire :<img src="{{ vich_uploader_asset(town_hall, 'imageFile') }}" alt="photo du maire" /></li>
+{% endif %}
   <hr>
   </ul>
   <h2>Résumé</h2>

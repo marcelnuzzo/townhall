@@ -31,14 +31,14 @@ class StructureType extends AbstractType
                 ],
             ]);
 			
-			if ($structure == "établissements scolaire") {
+			if ($structure == "Etablissement scolaire") {
 			$builder
 			->add('school_type', ChoiceType::class, [
                 'label' => 'Sélectionnez le type d\'établissement scolaire :',
                 'expanded' => true,
                 'choices' => [
-                    'École maternelle' => 'École maternelle',
-                    'École primaire' => 'École primaire',
+                    'Ecole maternelle' => 'Ecole maternelle',
+                    'Ecole primaire' => 'Ecole primaire',
                     'Collège' => 'Collège',
 					'Lycée' => 'Lycée',
                 ],
