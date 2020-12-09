@@ -1,49 +1,4 @@
 {% if is_granted('ROLE_USER') %}
-<<<<<<< HEAD
-	<nav class="navbar navbar-expand-lg navbar-light bg-light">
-		<ul>
-			<li>
-				<a href="{{ path('user_show', {'id': app.user.id}) }}">Mon compte</a>
-			</li>
-			{% if is_granted('ROLE_ADMIN') %}
-				<li>
-					<a class="btn btn-primary" href="{{ path('user_index') }}">Gérer les comptes utilisateurs</a>
-				</li>
-			{% endif %}
-			<li>
-				<a href="{{ path('article_index') }}">Gérer les articles</a>
-			</li>
-			<li>
-				<a href="{{ path('townhall_show') }}">Gérer les informations relatives à la mairie</a>
-			</li>
-			<li>
-				<a href="{{ path('message_index') }}">Gérer les messages</a>
-			</li>
-			<li class="nav-item dropdown">
-				<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Gérer les infrastructures</a>
-				<div class="dropdown-menu">
-					<ul>
-						<li>
-							<a class="dropdown-item" href="{{ path('structure_index', {'structure': 'association'}) }}">Gérer les associations</a>
-						</li>
-						<li class="nav-item active">
-							<a class="dropdown-item" href="{{ path('structure_index', {'structure': 'commerce'}) }}">Gérer les commerces</a>
-						</li>
-						<li>
-							<a class="dropdown-item" href="{{ path('structure_index', {'structure': 'etablissement scolaire'}) }}">Gérer les établissements scolaires</a>
-						</li>
-						<li>
-							<a class="dropdown-item" href="{{ path('structure_index', {'structure': 'transport'}) }}">Gérer les transports</a>
-						</li>
-					</ul>
-				</div>
-			</li>
-			<li>
-				<a class="btn btn-primary" href="{{ path('app_logout') }}">Déconnexion</a>
-			</li>
-		</ul>
-	</nav>
-=======
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<nav class="navbar navbar-expand-lg navbar-light primary">
 		<div class="container-fluid">
@@ -64,7 +19,7 @@
 						<a href="{{ path('article_index') }}" class="nav-link">Gérer les articles</a>
 					</li>
 					<li class="nav-item">
-						{#<a href="{{ path('townhall_show') }}" class="nav-link">Gérer les informations relatives à la mairie</a>#}
+						<a href="{{ path('townhall_show') }}" class="nav-link">Gérer les informations relatives à la mairie</a>
 					</li>
 					<li class="nav-item">
 						<a href="{{ path('message_index') }}" class="nav-link">Gérer les messages</a>
@@ -79,7 +34,7 @@
 								<a class="dropdown-item" href="{{ path('structure_index', {'structure': 'commerce'}) }}">Gérer les commerces</a>
 							</li>
 							<li>
-								<a class="dropdown-item" href="{{ path('structure_index', {'structure': 'établissements scolaire'}) }}">Gérer les établissements scolaires</a>
+								<a class="dropdown-item" href="{{ path('structure_index', {'structure': 'etablissement scolaire'}) }}">Gérer les établissements scolaires</a>
 							</li>
 							<li>
 								<a class="dropdown-item" href="{{ path('structure_index', {'structure': 'transport'}) }}">Gérer les transports</a>
@@ -94,14 +49,12 @@
 	</nav>
 	</meta>
 	
->>>>>>> 6b32708d623df0d06bd32f8e9f07d2bc1676bf70
 {% else %}
 	<div class="jumbotron">
 		<h1 class="display-3">Bienvenue à la maire de Cergy</h1>
-		<img src="{{ asset("allImages/logo.png") }}" alt="">
 		<p>du texte</p>
-		<p>
 			<a class="btn btn-primary" href="#" role="button">Voir nos articles</a>
+		<p>
 		</p>
 		<p>emplacement pour notre slider de nos articles (ou autres)</p>
 	</div>
@@ -118,21 +71,12 @@
 				<li class="nav-item dropdown">
 					<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Le village</a>
 					<div class="dropdown-menu">
-<<<<<<< HEAD
 						<a class="dropdown-item" href="{{ path('townhall_story') }}">Notre histoire</a>
 						<li class="nav-item active">
 							<a class="nav-link" href="{{ path('townhall_showpublic') }}">Votre mairie</a>
 						</li>
 						<li class="nav-item active">
 							<a class="nav-link" href="{{ path('article_indexpublic') }}">Nos actualités</a>
-=======
-						{#<a class="dropdown-item" href="{{ path('townhall_story') }}">Notre histoire</a>#}
-						<li class="nav-item active">
-							{#<a class="nav-link" href="{{ path('townhall_showpublic') }}">Votre mairie</a>#}
-						</li>
-						<li class="nav-item active">
-							{#<a class="nav-link" href="{{ path('article_indexpublic') }}">Nos actualités</a>#}
->>>>>>> 6b32708d623df0d06bd32f8e9f07d2bc1676bf70
 						</li>
 						<li>
 							<a class="dropdown-item" href="{{ path('structure_indexpublic', {'structure': 'association'}) }}">Nos associations</a>
@@ -140,15 +84,8 @@
 						<li>
 							<a class="dropdown-item" href="{{ path('structure_indexpublic', {'structure': 'commerce'}) }}">Nos commerces</a>
 						</li>
-<<<<<<< HEAD
 				<li class="nav-item active">
 					<a class="dropdown-item" href="{{ path('structure_indexpublic', {'structure': 'etablissement scolaire'}) }}">Nos établissements scolaires</a>
-=======
-					</l>
-				</li>
-				<li class="nav-item active">
-					<a class="dropdown-item" href="{{ path('structure_indexpublic', {'structure': 'établissements scolaire'}) }}">Nos établissements scolaires</a>
->>>>>>> 6b32708d623df0d06bd32f8e9f07d2bc1676bf70
 				</li>
 				<li class="nav-item active">
 					<a class="dropdown-item" href="{{ path('structure_indexpublic', {'structure': 'transport'}) }}">Nos transports en commun</a>

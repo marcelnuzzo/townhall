@@ -1,9 +1,3 @@
-<<<<<<< HEAD
-{{ form_start(form, {'attr': {'novalidate': 'novalidate' }}) }}
-    {{ form_widget(form) }}
-    <button class="btn btn-warning">{{ infrastructure.id ? 'Modifier' : 'Créer' }}</button>
-{{ form_end(form) }}
-=======
 <div class="mt-5">
     {{ form_start(form) }}
 
@@ -26,6 +20,12 @@
                 </div>
             </div>
         </div>
+		{% if form.school_type is defined %}
+		<div class="form-outline mb-4">
+            {{ form_label(form.school_type) }}
+            {{ form_widget(form.school_type, {'attr': {'class': 'form-control'}}) }}
+        </div>
+		{% endif %}
 
         <div class="form-outline mb-4">
             {{ form_label(form.summar) }}
@@ -77,4 +77,3 @@
         </div>
     {{ form_end(form) }}
 </div>
->>>>>>> 6b32708d623df0d06bd32f8e9f07d2bc1676bf70

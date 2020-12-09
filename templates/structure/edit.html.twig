@@ -1,16 +1,6 @@
 {% extends 'admin/base.html.twig' %}
 
-<<<<<<< HEAD
-{% block title %}Editer Structure{% endblock %}
-
-{% block body %}
-    <h1>Modification «{{ structure }}s»</h1>
-
-    {{ include('structure/_form.html.twig', {'button_label': 'Modifier'}) }}
-
-    <a href="{{ path('structure_index', {'structure': structure}) }}">Retour à la liste</a>
-=======
-{% block title %}Modification Structure{% endblock %}
+{% block title %}Modification «{{ structure }}»{% endblock %}
 
 {% block body %}
     <section>
@@ -24,5 +14,4 @@
             {{ include('structure/_form.html.twig') }}
         </div>
     </section>
->>>>>>> 6b32708d623df0d06bd32f8e9f07d2bc1676bf70
 {% endblock %}

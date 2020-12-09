@@ -3,44 +3,12 @@
 {% block title %}{{ infrastructure.organizationType }} {{ infrastructure.name }}{% endblock %}
 
 {% block body %}
-<<<<<<< HEAD
-    <h1>{{ infrastructure.organizationType }} – {{ infrastructure.name }}</h1>
-	{% if infrastructure.organizationType == "Etablissement scolaire" %}
-	<p>Type : {{ infrastructure.schoolType }}</p>
-	{% endif %}
-                <p>Nom : {{ infrastructure.name }}</p>
-				{% if infrastructure.logoName is not null %}
-                <p><img src="{{ vich_uploader_asset(structure, 'logoFile') }}" alt="image du logo" width="200"/></p>
-				{% endif %}
-				{% if infrastructure.summar is not null %}
-				<h2>Résumé</h2>
-				<p>{{ infrastructure.summar }}</p>
-				{% endif %}
-				{% if infrastructure.content is not null %}
-                <h2>Description</h2>
-				<p>{{ infrastructure.content }}</p>
-				{% endif %}
-				{% if infrastructure.postalAddress is not null %}
-                <p>Adresse postale : {{ infrastructure.postaladdress }}</p>
-				{% endif %}
-				{% if infrastructure.phone is not null %}
-                <p>N° téléphone : {{ infrastructure.phone }}</p>
-				{% endif %}
-				{% if infrastructure.email is not null %}
-                <p>Adresse email : {{ infrastructure.email }}</p>
-				{% endif %}
-				{% if infrastructure.website is not null %}
-                <p>Site internet : {{ infrastructure.website }}</p>
-				{% endif %}
-    <p><a href="{{ path('structure_edit', {'id': infrastructure.id}) }}">Modifier</a></p>
-{% endblock %}
-=======
     <section>
         <a href="{{ path('structure_index', {'structure': infrastructure.organizationType}) }}" class="btn btn-delete mx-3 my-3" role="button" aria-pressed="true">Retour</a>
         
         <div class="container">
             <div class="text-center">
-                <h1>{{ infrastructure.name }}</h1>
+                <h1>{{ infrastructure.schoolType }} {{ infrastructure.name }}</h1>
             </div>
 
             <div class="mt-5">
@@ -89,4 +57,3 @@
         </div>
     </section>
 {% endblock %}
->>>>>>> 6b32708d623df0d06bd32f8e9f07d2bc1676bf70

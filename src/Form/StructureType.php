@@ -20,8 +20,7 @@ class StructureType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $structure = $options['structure'];
-		
+        $structure = strtolower($options['structure']);
 		$builder
             ->add('name', TextType::class, [
                 'label' => 'Nom',
@@ -31,7 +30,7 @@ class StructureType extends AbstractType
                 ],
             ]);
 			
-			if ($structure == "Etablissement scolaire") {
+			if ($structure == "etablissement scolaire") {
 			$builder
 			->add('school_type', ChoiceType::class, [
                 'label' => 'Sélectionnez le type d\'établissement scolaire',

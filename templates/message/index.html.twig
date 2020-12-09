@@ -1,45 +1,5 @@
 {% extends 'admin/base.html.twig' %}
 
-<<<<<<< HEAD
-{% block title %}Boîte de réception{% endblock %}
-
-{% block body %}
-    <h1>Boîte de réception</h1>
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Objet</th>
-                <th>Expéditeur</th>
-                <th>Statut</th>
-                <th>Date réception</th>
-                <th>Voir</th>
-				<th>Supprimer</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for message in messages %}
-            <tr>
-                <td>{{ message.id }}</td>
-                <td>{{ message.object }}</td>
-                <td><a href="mailto:{{ message.email }}">{{ message.email }}</a></td>
-                <td>{{ message.status }}</td>
-                <td>{{ message.receivedAt ? message.receivedAt|date('d/m/Y H:i') : '' }}</td>
-                <td>
-                    <a href="{{ path('message_show', {'id': message.id}) }}">Voir</a>
-                </td>
-				<td>
-					{{ include('message/_delete_form.html.twig') }}
-				</td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="7">Aucun message reçu.</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
-=======
 {% block title %}Message{% endblock %}
 
 {% block body %}
@@ -106,5 +66,4 @@
 
         {#<a href="{{ path('message_new') }}">Create new</a>#}
     </div>
->>>>>>> 6b32708d623df0d06bd32f8e9f07d2bc1676bf70
 {% endblock %}

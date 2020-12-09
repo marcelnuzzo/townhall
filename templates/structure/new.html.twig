@@ -1,14 +1,10 @@
 {% extends 'admin/base.html.twig' %}
 
-{% block title %}Création «{{ structure }}s»{% endblock %}
+{% block title %}Création «{{ structure }}»{% endblock %}
 
 {% block body %}
-<<<<<<< HEAD
-    <h1>Création «{{ structure }}»</h1>
-    {{ include('structure/_form.html.twig') }}
-=======
     <section>
-        <a href="{{ path('structure_index', {'structure': 'association'}) }}" class="btn btn-delete mx-3 my-3" role="button" aria-pressed="true">Retour</a>
+        <a href="{{ path('structure_index', {'structure': structure}) }}" class="btn btn-delete mx-3 my-3" role="button" aria-pressed="true">Retour</a>
 
         <div class="container">
             <div class="text-center">
@@ -18,5 +14,4 @@
             {{ include('structure/_form.html.twig') }}
         </div>
     </section>
->>>>>>> 6b32708d623df0d06bd32f8e9f07d2bc1676bf70
 {% endblock %}
