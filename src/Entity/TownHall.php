@@ -2,9 +2,10 @@
 
 namespace App\Entity;
 
-use App\Repository\TownHallRepository;
 use Doctrine\ORM\Mapping as ORM;
+use App\Repository\TownHallRepository;
 use Symfony\Component\HttpFoundation\File\File;
+use Symfony\Component\Validator\Constraints\Regex;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
 use Symfony\Component\Validator\Constraints as Assert;
 
@@ -27,10 +28,21 @@ class TownHall
      */
     private $name;
 
-    /**
-     * @ORM\Column(type="string", length=255)
+     /**
+     * NOTE: This is not a mapped field of entity metadata, just a simple property.
+     * 
+     * @Vich\UploadableField(mapping="townHall", fileNameProperty="logoName")
+     * 
+     * @var File|null
      */
-    private $logo;
+    private $logoFile;
+
+    /**
+     * @ORM\Column(type="string", nullable=true)
+     *
+     * @var string|null
+     */
+    private $logoName;
 
     /**
      * @ORM\Column(type="text")
@@ -41,7 +53,7 @@ class TownHall
     /**
      * @ORM\Column(type="text", nullable=true)
      */
-    private $summary;
+    private $summar;
 
     /**
      * @ORM\Column(type="text")
@@ -58,6 +70,8 @@ class TownHall
     /**
      * @ORM\Column(type="string", length=255)
 	 * @Assert\NotBlank(message="Erreur. Ce champ est obligatoire.") 
+     * @Assert\Regex(pattern = "/^(?:(?:\+|00)33|0)\s*[1-9](?:[\s.-]*\d{2}){4}$/",
+     * message = "Ce numéro n'est pas valide")
      */
     private $phone;
 
@@ -92,16 +106,6 @@ class TownHall
      */
     private $nameMayor;
 
-    /**
-     * @ORM\Column(type="string", length=255)
-     */
-    private $photoMayor;
-
-    /**
-     * @ORM\Column(type="string", length=255, nullable=true)
-     */
-    private $townHallTeam;
-
      /**
      * NOTE: This is not a mapped field of entity metadata, just a simple property.
      * 
@@ -112,7 +116,7 @@ class TownHall
     private $imageFile;
 
     /**
-     * @ORM\Column(type="string")
+     * @ORM\Column(type="string", nullable=true)
      *
      * @var string|null
      */
@@ -145,16 +149,41 @@ class TownHall
         return $this;
     }
 
-    public function getLogo(): ?string
+    public function getLogoName(): ?string
     {
-        return $this->logo;
+        return $this->logoName;
     }
 
-    public function setLogo(string $logo): self
+    public function setLogoName(string $logoName): self
     {
-        $this->logo = $logo;
+        $this->logoName = $logoName;
 
         return $this;
+    }
+
+    /**
+     * If manually uploading a file (i.e. not using Symfony Form) ensure an instance
+     * of 'UploadedFile' is injected into this setter to trigger the update. If this
+     * bundle's configuration parameter 'inject_on_load' is set to 'true' this setter
+     * must be able to accept an instance of 'File' as the bundle will inject one here
+     * during Doctrine hydration.
+     *
+     * @param File|\Symfony\Component\HttpFoundation\File\UploadedFile|null $logoFile
+     */
+    public function setLogoFile(?File $logoFile = null): void
+    {
+        $this->logoFile = $logoFile;
+
+        if (null !== $logoFile) {
+            // It is required that at least one field changes if you are using doctrine
+            // otherwise the event listeners won't be called and the file is lost
+            $this->updatedAt = new \DateTimeImmutable();
+        }
+    }
+
+    public function getLogoFile(): ?File
+    {
+        return $this->logoFile;
     }
 
     public function getStory(): ?string
@@ -169,14 +198,14 @@ class TownHall
         return $this;
     }
 
-    public function getSummary(): ?string
+    public function getSummar(): ?string
     {
-        return $this->summary;
+        return $this->summar;
     }
 
-    public function setSummary(?string $summary): self
+    public function setSummar(?string $summar): self
     {
-        $this->summary = $summary;
+        $this->summar = $summar;
 
         return $this;
     }

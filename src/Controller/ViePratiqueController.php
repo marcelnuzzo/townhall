@@ -2,9 +2,11 @@
 
 namespace App\Controller;
 
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use App\Entity\Structure;
+use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class ViePratiqueController extends AbstractController
 {
@@ -20,10 +22,14 @@ class ViePratiqueController extends AbstractController
     /**
      * @Route("/Commerces", name="Commerces")
      */
-    public function Commerces(): Response
+    public function Commerces(Structure $infrastructure, EntityManagerInterface $manager): Response
     {
-        return $this->render('vie_pratique/Commerces.html.twig', [
-            'controller_name' => 'ViePratiqueController',
+        $infrastructure = $manager->getRepository(Structure::class)->find($id);
+		$render = $_route=="structure_show" ? 'structure/show.html.twig' : 'structure/showpublic.html.twig';
+		return $this->render($render, [
+            'infrastructure' => $infrastructure,
+			'id' => $id,
+	        'structure' => $infrastructure->getOrganizationType(),
         ]);
     }
     /**

@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+{% if structure == "etablissement scolaire" %}
+		Nos établissements scolaires
+	{% else %}
+        Nos {{ structure }}s
+	{% endif %}
+{% endblock %}
+
+{% block body %}
+    <div class="container-fluid">
+        {% if structure is same as "etablissement scolaire" %}
+            <div class="text-center">
+                <h1 style="color:#bc4464;">Nos établissements scolaires</h1>
+            </div>
+        {% else %}
+            <div class="text-center">
+                <h1 style="color:#bc4464;">Nos {{ structure }}s</h1>
+            </div>
+        {% endif %}
+            {% for structure in structures %}
+                <div class="d-flex justify-content-center mt-3">
+                    <div class="card w-75 mb-3 blog-main shadow p-3 mb-5 bg-white rounded">
+                        <div class="card-body">
+                            <h5 class="card-title" style="color:#4464bc;">{{ structure.schoolType }} {{ structure.name }}</h5>
+                            <p class="card-text">{{ structure.summar }}</p>
+                            <div class="d-flex justify-content-end">
+                                <a href="{{ path('structure_showpublic', {'structure': structure.organizationType, 'id': structure.id }) }}" class="btn btn-see">En savoir plus</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+    </div>
+{% endblock %}

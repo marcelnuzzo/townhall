@@ -3,32 +3,25 @@
 namespace App\Controller;
 
 use App\Entity\TownHall;
+use App\Entity\User;
 use App\Form\TownHallType;
 use App\Repository\TownHallRepository;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use App\Repository\UserRepository;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\Routing\Exception\NoConfigurationException;
+use Symfony\Component\HttpFoundation\File\Exception\IniSizeFileException;
+use Symfony\Component\HttpFoundation\File\Exception\FormSizeFileException;
 
-/**
- * @Route("/user/mairie")
- */
 class TownHallController extends AbstractController
 {
-    /**
-     * @Route("/", name="townhall_index", methods={"GET"})
-     */
-    public function index(TownHallRepository $townHallRepository): Response
-    {
-        return $this->render('town_hall/index.html.twig', [
-            'town_halls' => $townHallRepository->findAll(),
-        ]);
-    }
 
     /**
-     * @Route("/new", name="town_hall_new", methods={"GET","POST"})
+     * @Route("/user/townhall/new", name="townhall_new", methods={"GET","POST"})
      */
-    public function new(Request $request): Response
+    public function townhall_new(Request $request): Response
     {
         $townHall = new TownHall();
         $form = $this->createForm(TownHallType::class, $townHall);
@@ -36,10 +29,11 @@ class TownHallController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $entityManager = $this->getDoctrine()->getManager();
+			$townHall->setUpdateAt(new \DateTime('now', new \DateTimeZone('Europe/Paris')));
             $entityManager->persist($townHall);
             $entityManager->flush();
 
-            return $this->redirectToRoute('townhall_index');
+            return $this->redirectToRoute('townhall_show');
         }
 
         return $this->render('town_hall/new.html.twig', [
@@ -49,27 +43,57 @@ class TownHallController extends AbstractController
     }
 
     /**
-     * @Route("/{id}", name="townhall_show", methods={"GET"})
+     * @Route("/user/townhall/show", name="townhall_show")
+	 * @Route("/a-propos", name="townhall_showpublic")
+     * @Route("/user/townhall/new", name="townhall_new", methods={"GET","POST"})
+	 * @param $_route
      */
-    public function show(TownHall $townHall): Response
+    public function townhall_show($_route,  TownHallRepository $townhallRepo, Request $request, UserRepository $userRepo)
     {
-        return $this->render('town_hall/show.html.twig', [
-            'town_hall' => $townHall,
-        ]);
+        $exist = $townhallRepo->findAll();
+        if(!$exist) {
+            $townHall = new TownHall();
+            $form = $this->createForm(TownHallType::class, $townHall);
+            $form->handleRequest($request);
+
+            if ($form->isSubmitted() && $form->isValid()) {
+                $entityManager = $this->getDoctrine()->getManager();
+                $entityManager->persist($townHall);
+                $entityManager->flush();
+
+                return $this->redirectToRoute('townhall_show');
+            }
+            
+            return $this->render('town_hall/new.html.twig', [
+                'town_hall' => $townHall,
+                'form' => $form->createView(),
+            ]);
+        } else {
+            $users = $userRepo->findAll();
+            $firstId = $townhallRepo->findFirstId()[0]['id'];
+            $townhall = $this->getDoctrine()->getRepository(TownHall::class)->find($firstId);
+        
+            $render = $_route=="townhall_show" ? 'town_hall/show.html.twig' : 'town_hall/showpublic.html.twig';
+            return $this->render($render, [
+                'town_hall' => $townhall,
+                'users' => $users,
+            ]);
+        }
     }
 
     /**
-     * @Route("/{id}/edit", name="town_hall_edit", methods={"GET","POST"})
+     * @Route("/user/townhall/edit/{id}", name="townhall_edit", methods={"GET","POST"})
      */
-    public function edit(Request $request, TownHall $townHall): Response
+    public function townhall_edit(Request $request, TownHall $townHall): Response
     {
-        $form = $this->createForm(TownHallType::class, $townHall);
+		$form = $this->createForm(TownHallType::class, $townHall);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+			$townHall->setUpdateAt(new \DateTime('now', new \DateTimeZone('Europe/Paris')));
             $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('townhall_index');
+            return $this->redirectToRoute('townhall_show');
         }
 
         return $this->render('town_hall/edit.html.twig', [
@@ -77,18 +101,17 @@ class TownHallController extends AbstractController
             'form' => $form->createView(),
         ]);
     }
-
-    /**
-     * @Route("/{id}", name="town_hall_delete", methods={"DELETE"})
+	
+	  /**
+     * @Route("/histoire", name="townhall_story")
      */
-    public function delete(Request $request, TownHall $townHall): Response
+    public function townhall_story(TownHallRepository $repo)
     {
-        if ($this->isCsrfTokenValid('delete'.$townHall->getId(), $request->request->get('_token'))) {
-            $entityManager = $this->getDoctrine()->getManager();
-            $entityManager->remove($townHall);
-            $entityManager->flush();
-        }
-
-        return $this->redirectToRoute('town_hall_index');
+        $firstId = $repo->findFirstId()[0]['id'];
+        $townhall = $this->getDoctrine()->getRepository(TownHall::class)->find($firstId);
+		return $this->render('town_hall/story.html.twig', [
+            'town_hall' => $townhall,
+        ]);
     }
-}
+
+ }

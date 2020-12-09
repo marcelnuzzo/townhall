@@ -19,6 +19,17 @@ class TownHallRepository extends ServiceEntityRepository
         parent::__construct($registry, TownHall::class);
     }
 
+    public function findFirstId()
+    {
+        return $this->createQueryBuilder('t')
+                    ->select('t.id')
+                    ->orderBy('t.id', 'ASC')
+                    ->setMaxResults(1)
+                    ->getQuery()
+                    ->getResult()
+                    ;
+    }
+
     // /**
     //  * @return TownHall[] Returns an array of TownHall objects
     //  */

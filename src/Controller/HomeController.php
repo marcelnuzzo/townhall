@@ -19,7 +19,7 @@ class HomeController extends AbstractController
         ]);
     }
 	
-				/**
+	/**
      * @Route("/accessibilité", name="home_accessibility")
      */
     public function accessibility(): Response
@@ -29,8 +29,9 @@ class HomeController extends AbstractController
         ]);
     }
 	
-				/**
-     * @Route("/admin", name="home_admin")
+	
+    /**
+     * @Route("/user/administration", name="home_admin")
      */
     public function admin(): Response
     {
@@ -38,16 +39,6 @@ class HomeController extends AbstractController
             'controller_name' => 'HomeController',
         ]);
     }
-
-    /** 
-* @Route("/annuaire", name="home_annuaire")
-*/
-
-public function annuaire(): Response
-{
-    return $this->render('home/annuaire.html.twig', [
-        'controller_name' => 'HomeController',
-    ]);
-}
+    
 
 }

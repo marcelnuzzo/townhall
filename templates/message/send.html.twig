@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Nous contacter{% endblock %}
+
+{% block body %}
+    <div class="container-fluid">
+        <div class="text-center">
+            <h1>Nous contacter</h1>
+        </div>
+
+        <div class="mt-5">
+            {{ form_start(form) }}
+                <div class="row mb-4">
+                    <div class="col">
+                        <div class="form-outline">
+                            {{ form_label(form.email) }}
+                            {{ form_widget(form.email, {'attr': {'class': 'form-control'}}) }}
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="form-outline">
+                            {{ form_label(form.object) }}
+                            {{ form_widget(form.object, {'attr': {'class': 'form-control'}}) }}
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-outline mb-4">
+                    {{ form_label(form.content) }}
+                    {{ form_widget(form.content, {'attr': {'class': 'form-control'}}) }}
+                </div>
+
+                <div class="form-outline mb-4">
+                    {{ form_widget(form.accept) }}
+                    <strong>{{ form_label(form.accept) }}</strong>
+                </div>
+
+                <div class="d-flex justify-content-end">
+                    <button class="btn btn-secondary">Envoyer</button>
+                </div>
+            {{ form_end(form) }}
+        </div>
+    </div>
+{% endblock %}

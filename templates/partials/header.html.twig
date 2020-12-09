@@ -3,13 +3,12 @@
   <div class="container-fluid">
   <div class="d-flex justify-content-center" style="background-image: url('https://www.mairie-le-thillay.fr/sites/lethillay/files/styles/bandeau/public/image/bandeau/p4251492.jpg?itok=EtXOIQSv');">
     <div class="mask rgba-gradient align-items-center">
-      <img src="images/logo.png" alt="Logo Cergy-Village"/>
+      <img src="{{ asset('images/logo.png') }}" alt="Logo Cergy-Village"/>
     </div>
-    {#<img class="img-fluid" src=" https://www.mairie-le-thillay.fr/sites/lethillay/files/styles/bandeau/public/image/bandeau/p4251492.jpg?itok=EtXOIQSv" style="background-repeat: no-repeat; background-size: cover; background-position: center center;">#}
   </div>
 	<nav class="navbar navbar-expand-lg navbar-light col-md-12 blog-main shadow-sm p-3 mb-5 bg-white rounded">
 		<div class="container-fluid">
-			<nav class="navbar navbar-light primary">
+			<nav class="navbar navbar-light">
 				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarExample01" aria-controls="navbarExample01" aria-expanded="false" aria-label="Toggle navigation">
 				<span class="navbar-toggler-icon"></span>
 				</button>
@@ -18,9 +17,9 @@
         <a class="navbar-brand mt-2" href="{{ path('home_index') }}">Accueil</a>
         <div class="collapse navbar-collapse py-2" id="navbarExample01">
           <ul class="navbar-nav mr-auto mb-2 mb-lg-0">
-            <li class="nav-item dropdown primary">
+            <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-expanded="false">Le village</a>
-              <ul class="dropdown-menu primary" style="border: transparent;" aria-labelledby="navbarDropdown">
+              <ul class="dropdown-menu" style="border: transparent;" aria-labelledby="navbarDropdown">
                 <li>
                   <a class="dropdown-item" href="{{ path('Historique') }}">Historique</a>
                 </li>
@@ -29,9 +28,9 @@
                 </li>
               </ul>
             </li>
-            <li class="nav-item dropdown primary">
+            <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-expanded="false">Mairie</a>
-              <ul class="dropdown-menu primary" style="border: transparent;" aria-labelledby="navbarDropdown">
+              <ul class="dropdown-menu" style="border: transparent;" aria-labelledby="navbarDropdown">
                 <li>
                   <a class="dropdown-item" href="{{ path('LesElus') }}">Les élus</a>
                 </li>
@@ -40,17 +39,17 @@
                 </li>
               </ul>
             </li>
-            <li class="nav-item dropdown primary">
+            <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-expanded="false">Vie pratique</a>
-              <ul class="dropdown-menu primary" style="border: transparent;" aria-labelledby="navbarDropdown">
+              <ul class="dropdown-menu" style="border: transparent;" aria-labelledby="navbarDropdown">
                 <li>
                   <a class="dropdown-item" href="{{ path('NumerosUtiles') }}">Numéros utiles</a>
                 </li>
                 <li>
-                  <a class="dropdown-item" href="{{ path('Commerces') }}">Commerces</a>
+                  <a class="dropdown-item" href="{{ path('structure_indexpublic', {'structure': 'commerce'}) }}">Commerces</a>
                 </li>
                 <li>
-                  <a class="dropdown-item" href="{{ path('Transports') }}">Transports</a>
+                  <a class="dropdown-item" href="{{ path('structure_indexpublic', {'structure': 'transport'}) }}">Transports</a>
                 </li>
                 <li>
                   <a class="dropdown-item" href="{{ path('Dechets') }}">Déchetterie</a>
@@ -63,11 +62,11 @@
                 </li>
               </ul>
             </li>
-            <li class="nav-item dropdown primary">
+            <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-expanded="false">Vie associtaive et culturelle</a>
-              <ul class="dropdown-menu primary" style="border: transparent;" aria-labelledby="navbarDropdown">
+              <ul class="dropdown-menu" style="border: transparent;" aria-labelledby="navbarDropdown">
                 <li>
-                  <a class="dropdown-item" href="{{ path('AnnuaireDesAssociations') }}">Annuaire des Associations</a>
+                  <a class="dropdown-item" href="{{ path('structure_indexpublic', {'structure': 'association'}) }}">Annuaire des Associations</a>
                 </li>
                 <li>
                   <a class="dropdown-item" href="{{ path('LocationDeSalle') }}">Location de salles</a>
@@ -77,17 +76,14 @@
                 </li>
               </ul>
             </li>
-            <li class="nav-item dropdown primary">
+            <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-expanded="false">Enfance - Jeunesse - Scolarité</a>
-              <ul class="dropdown-menu primary" style="border: #E8ECF7;" aria-labelledby="navbarDropdown">
+              <ul class="dropdown-menu" style="border: #E8ECF7;" aria-labelledby="navbarDropdown">
                 <li>
                   <a class="dropdown-item" href="{{ path('PetiteEnfance') }}">Petite Enfance</a>
                 </li>
                 <li>
-                  <a class="dropdown-item" href="{{ path('EcolePrimaire') }}">École primaire</a>
-                </li>
-                <li>
-                  <a class="dropdown-item" href="{{ path('CollegeEtLycee') }}">Collège et Lycée</a>
+                  <a class="dropdown-item" href="{{ path('structure_indexpublic', {'structure': 'etablissement scolaire'}) }}">Établissements scolaires</a>
                 </li>
                 <li>
                   <a class="dropdown-item" href="{{ path('Cantine') }}">Cantine scolaire</a>
@@ -101,7 +97,7 @@
               </ul>
             </li>
             <li class="nav-item">
-              <a href="{{ path('Contact') }}" class="nav-link">Contact</a>
+              <a href="{{ path('message_send') }}" class="nav-link">Contact</a>
             </li>
           </ul>
         </div>
