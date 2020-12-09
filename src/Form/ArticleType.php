@@ -36,17 +36,10 @@ class ArticleType extends AbstractType
                 ],
             ])
             ->add('summar', TextareaType::class, [
-<<<<<<< HEAD
-                'label' => 'Résumé de l\'article :',
-                'attr' => [
-                    'required' => false,
-                    'placeholder' => 'Entrez le résumé de l\'aticle',
-=======
                 'label' => 'Résumé',
                 'attr' => [
                     'required' => false,
                     'placeholder' => 'Entrez le résumé',
->>>>>>> 6b32708d623df0d06bd32f8e9f07d2bc1676bf70
                 ],
             ])
             ->add('content', TextareaType::class, [
@@ -60,23 +53,6 @@ class ArticleType extends AbstractType
                     'placeholder' => 'Entrez le nom de la photo',
                 ],
             ])
-<<<<<<< HEAD
-            /*
-            ->add('imageName', TextType::class, [
-                'label' => 'Nom de la photo :',
-                'attr' => [
-                    'autofocus' => true,
-                    'required' => true,
-                    'placeholder' => 'Entrez le nom de la photo',
-                ],
-            ])
-            */
-            ->add('imageFile', VichImageType::class, array(
-                'required' => false,
-                'label' => "Photo de l'article",
-                'allow_delete' => false,
-            ));
-=======
             ->add('imageFile', VichImageType::class, array(
                 'required' => false,
                 'label' => "Photo de l'article",
@@ -87,7 +63,6 @@ class ArticleType extends AbstractType
                 'class' => User::class,
                 'choice_label' => 'email',
             ]);
->>>>>>> 6b32708d623df0d06bd32f8e9f07d2bc1676bf70
     }
 
     public function configureOptions(OptionsResolver $resolver)
