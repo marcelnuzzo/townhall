@@ -4,19 +4,19 @@
 
 {% block body %}
 
-<div style= "margin-top: -290px">
+<div style= "margin-top: 50px">
 <h1 class="item">Historique</h1> 
 <div style="height: 2px; width: 100%;  background: linear-gradient(to right, #4464BC, #E8ECF7);" class="item"></div>
 </div>
 
-<br/><br/>
-<h2>Géographie</h2>
-<p style="margin-left:15px">Le village se situe à 50 km au nord de Paris. Traversé au nord par la Francilienne, il se distingue de loin grâce à son paysage magnifiquement fleuri.</p>
-<h2>Histoire</h2>
+<br/><br/></br>
+<h2  style="text-decoration: underline #5A8E46" >Géographie</h2>
+<p style="margin-left:15px" >Le village se situe à 50 km au nord de Paris. Traversé au nord par la Francilienne, il se distingue de loin grâce à son paysage magnifiquement fleuri.</p>
+<h2 style="text-decoration: underline #5A8E46">Histoire</h2>
 
 
-<div style="float: right">
-<p style= "margin-left: 15px">L'église fut construite sur les ruines d'un ancien sanctuaire celtique qui fut ensuite un lieu de culte gallo-romain. Ce dernier est situé sur les pentes ouest de la Vallée du Crould.
+
+<p style= "margin-left: 15px" >L'église fut construite sur les ruines d'un ancien sanctuaire celtique qui fut ensuite un lieu de culte gallo-romain. Ce dernier est situé sur les pentes ouest de la Vallée du Crould.
 Dès le 1er siècle, le village se développa autour de ce sanctuaire. Si l’église est une construction du 16e siècle, la tour elle, fut édifiée plus tard.
 
 Le cimetière accolé à l’origine à l’église, a été déplacé vers le site actuel. La partie ancienne du cimetière actuel comporte des dalles et statues, comme la tombe à l’ange dont les traits graciles sont tout à fait remarquables.
@@ -29,11 +29,15 @@ Livré aux lions, brûlé dans un feu, flagellé, puis crucifié, sa foi lui per
 Enfin, Saint Denys fut décapité ; il prit alors sa tête et marcha jusqu’à son lieu de sépulture à Saint-Denis.
 C’est d’ailleurs à cet emplacement précis, que Sainte Geneviève fit ériger la première église.
 </p>
-</div>
 
-<img src="images/Eglise.jpg" alt="Eglise de Cergy-Village" style="margin-left:15px; width: 30%; height: 30%"/>
+
+<img src="images/Eglise.jpg" alt="Eglise de Cergy-Village" style="margin-left:15px; width: 40%; height: 40%"/>
 
 <style>
+body {
+  overflow-x: hidden;
+}  
+
 h1, h2 {
     margin-left : 15px;
 }
@@ -42,6 +46,14 @@ h1, h2 {
       
   vertical-align: middle
 }
+
+@media (max-width: 1250px){
+    img {
+      height: 1%;
+      width: 1%;
+    }
+}
+
 
 
 </style>
