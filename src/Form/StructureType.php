@@ -24,17 +24,17 @@ class StructureType extends AbstractType
 		
 		$builder
             ->add('name', TextType::class, [
-                'label' => 'Nom de l\'infrastructure :',
+                'label' => 'Nom',
                 'attr' => [
                     'required' => true,
-                    'placeholder' => 'Entrez le nom de l\'infrastructure',
+                    'placeholder' => 'Entrez le nom',
                 ],
             ]);
 			
 			if ($structure == "Etablissement scolaire") {
 			$builder
 			->add('school_type', ChoiceType::class, [
-                'label' => 'Sélectionnez le type d\'établissement scolaire :',
+                'label' => 'Sélectionnez le type d\'établissement scolaire',
                 'expanded' => true,
                 'choices' => [
                     'Ecole maternelle' => 'Ecole maternelle',
@@ -47,60 +47,61 @@ class StructureType extends AbstractType
 			
            $builder
             ->add('summar', TextareaType::class, [
-                'label' => 'Quelques mots sur l\'infrastructure :',
+                'label' => 'Quelques mots sur l\'infrastructure',
                 'attr' => [
                     'placeholder' => 'Quelques mots sur l\'infrastructure',
                 ],
             ])
             ->add('content', TextareaType::class, [
-                'label' => 'Descripf!ion :',
+                'label' => 'Description',
                 'attr' => [
                     'placeholder' => 'Indiqur une description',
                 ],
             ])
             ->add('postaladdress', TextType::class, [
-                'label' => 'Adrese postale de l\'infrastructure :',
+                'label' => 'Adrese postale',
                 'attr' => [
-                    'placeholder' => 'Entrez l\'adresse postale de l\'infrastructure',
+                    'placeholder' => 'Entrez l\'adresse postale',
                 ],
             ])
             ->add('phone', TelType::class, [
-                'label' => 'N° téléphone de l\'infrastructure :',
+                'label' => 'Numéro de téléphone',
                 'attr' => [
-                    'placeholder' => 'Entrez le numéro de téléphone de l\'infrastructure',
+                    'placeholder' => 'Entrez le numéro de téléphone',
                 ],
             ])
             ->add('email', EmailType::class, [
-                'label' => 'Adresse email de l\'infrastructure :',
+                'label' => 'Adresse email',
                 'attr' => [
-                    'placeholder' => 'Entrez l\adrsse email de l\'infrastructure',
+                    'placeholder' => 'Entrez l\adrsse email',
                 ],
             ])
             ->add('website', UrlType::class, [
-                'label' => 'Adresse URL de l\'infrastructure :',
+                'label' => 'Adresse URL',
                 'attr' => [
-                    'placeholder' => 'Entrez l\'adresse URL de l\'infrastructure',
+                    'placeholder' => 'Entrez l\'adresse URL',
                 ],
             ])
 			->add('user', EntityType::class, [
-                'label' => 'Sélectionnez un utilisateur :',
+                'label' => 'Sélectionnez un utilisateur',
                 'class' => User::class,
                 'choice_label' => 'email',
             ])
-            /*
             ->add('logoName', TextType::class, [
-                'label' => 'Nom du logo :',
+                'label' => 'Nom du logo',
                 'attr' => [
                     'autofocus' => true,
                     'required' => true,
                     'placeholder' => 'Entrez le nom du logo',
                 ],
             ])
-            */
             ->add('logoFile', VichImageType::class, array(
                 'required' => false,
-                'label' => "logo de la structure",
-                'allow_delete' => false,
+                'attr' => [
+                    'placeholder' => 'Logo de la structure',
+                ],
+                'allow_delete' => true,
+                'download_uri' => true
             ));
             ;
     }

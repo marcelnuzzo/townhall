@@ -1,6 +1,52 @@
-{{ form_start(form, {'attr': {'novalidate': 'novalidate' }}) }}
-    {{ form_widget(form) }}
-    <button class="btn btn-warning">
-	{{ article.id ? 'Modifier l\'article' : 'Créer l\'article' }}
-	</button>
-{{ form_end(form) }}
+<div class="mt-5">
+    {{ form_start(form) }}
+        <div class="row mb-4">
+            <div class="col">
+                <div class="form-outline mb-4">
+                    {{ form_label(form.title) }}
+                    {{ form_widget(form.title, {'attr': {'class': 'form-control'}}) }}
+                </div>
+            </div>
+            <div class="col">
+                <div class="form-outline mb-4">
+                    {{ form_label(form.category) }}
+                    {{ form_widget(form.category) }}
+                </div>
+            </div>
+        </div>
+
+        <div class="row mb-4">
+            <div class="col">
+                <div class="form-outline mb-4">
+                    {{ form_label(form.imageName) }}</br>
+                    {{ form_widget(form.imageName, {'attr': {'class': 'form-control'}}) }}
+                </div>
+            </div>
+            <div class="col">
+                <div class="form-outline mb-4">
+                    {{ form_label(form.imageFile) }}</br>
+                    {{ form_widget(form.imageFile) }}
+                </div>
+            </div>
+        </div>
+
+        <div class="form-outline mb-4">
+            {{ form_label(form.summar) }}
+            {{ form_widget(form.summar, {'attr': {'class': 'form-control'}}) }}
+        </div>
+
+        <div class="form-outline mb-4">
+            {{ form_label(form.content) }}
+            {{ form_widget(form.content, {'attr': {'class': 'form-control'}}) }}
+        </div>
+
+        <div class="form-outline mb-4">
+            {{ form_label(form.user) }}
+            {{ form_widget(form.user, {'attr': {'class': 'form-control'}}) }}
+        </div>
+
+        <div class="justify-content-end">
+            <button class="btn btn-secondary">{{ article.id ? 'Modifier' : 'Créer' }}</button>
+        </div>
+    {{ form_end(form) }}
+</div>

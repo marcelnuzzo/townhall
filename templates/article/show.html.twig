@@ -1,36 +1,43 @@
-{% extends 'base.html.twig' %}
+{% extends 'admin/base.html.twig' %}
 
 {% block title %}Article n°{{ article.id }}
 	{{ article.title }}
 {% endblock %}
 
 {% block body %}
-	<h1>Article n°{{ article.id }}
-		{{ article.title }}</h1>
-	<ul>
-		<li>Titre :
-			{{ article.title }}</li>
-		<li>Publié le
-			{{ article.publishedat ? article.publishedat|date('d/m/Y à H:i') : '' }}</li>
-		<li>Catégorie :
-			{{ article.category }}</li>
-	</ul>
-	<h2>Résumé</h2>
-	<p>{{ article.summar }}</p>
-	{% if article.imageName is not null %}
-		<p><img src="{{ vich_uploader_asset(article, 'imageFile') }}" alt="photo de l'article" width="200"/></p>
-	{% endif %}
-	<h2>Contenu</h2>
-	<p>{{ article.content }}</p>
-	<nav role="navigation" aria-label="Menu secondaire">
-		<ul>
-			<li>
-				<a href="{{ path('article_index') }}">Retour à la liste des articles</a>
-			</li>
-			<li>
-				<a href="{{ path('article_edit', {'id': article.id}) }}">Modifier</a>
-			</li>
-			<li><a href="{{ path('article_delete', {'id': article.id}) }}">Supprimer</a></li>
-		</ul>
-	</nav>
+    <section>
+        <a href="{{ path('article_index') }}" class="btn btn-delete mx-3 my-3" role="button" aria-pressed="true">Retour</a>
+
+        <main role="main" class="container">
+            <div class="row">
+                <div class="col-md-12 blog-main shadow p-3 mb-5 bg-white rounded">
+                    <div class="blog-post">
+                        <div class="text-center">
+                            <h2>{{ article.title }}</h2>
+                        </div>
+                        <p class="blog-post-meta">
+                            Fait le {{ article.publishedat ? article.publishedat|date('d/m/Y à H:i') : '' }} (catégorie : {{ article.category }})
+                        </p>
+                        <hr> 
+                        <p>
+                        {{ article.summar }}
+                        </p>  
+                        {% if article.imageFile is defined %}
+                            <img src="{{ vich_uploader_asset(article, 'imageFile') }}" width="200"/>
+                        {% endif %}
+                        <p class="mt-2">
+                            {{ article.content }}
+                        </p>
+                        <p>
+                            {{ article.imageName }}
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="d-flex justify-content-end mb-3">
+                <a href="{{ path('article_edit', {'id': article.id}) }}" class="btn btn-secondary mr-2" role="button" aria-pressed="true">Modifier</a>
+                {{ include('article/_delete_form.html.twig') }}
+            </div>
+        </main>
+    </section>
 {% endblock %}

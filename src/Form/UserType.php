@@ -19,31 +19,31 @@ class UserType extends AbstractType
     {
         $builder
 		->add('lastname', TextType::class, [
-			'label' => 'Nom :',
+			'label' => 'Nom',
 			'attr' => [
 				'required' => true,
-				'placeholder' => 'Entrez le nom',
+				'placeholder' => 'Nom',
 			],
 		])
             ->add('firstname', TextType::class, [
-                'label' => 'Prénom :',
+                'label' => 'Prénom',
                 'attr' => [
 					'required' => true,
-                    'placeholder' => 'Entrez le prénom',
+                    'placeholder' => 'Prénom',
                 ],
             ])
             ->add('phone', TelType::class, [
-                'label' => 'N° téléphone :',
+                'label' => 'Numéro de téléphone',
                 'attr' => [
                     'required' => false,
-					'placeholder' => 'Entrez le numéro de téléphone',
+					'placeholder' => 'Numéro de téléphone',
                 ],
             ])
 			->add('email', TextType::class, [
-                'label' => 'Adresse email :',
+                'label' => 'Email',
                 'attr' => [
 					'required' => true,
-                    'placeholder' => 'Entrez l\'adress,e email',
+                    'placeholder' => 'Email',
                 ],
             ])
             ->add("roles", CollectionType::class, [

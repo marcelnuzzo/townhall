@@ -15,16 +15,17 @@ use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 
 class AppFixtures extends Fixture
 {
-    private $passwordEncoder;
-
-    public function __construct(UserPasswordEncoderInterface $passwordEncoder)
+    
+	private $passwordEncoder;
+	
+	public function __construct(UserPasswordEncoderInterface $passwordEncoder)
     {
         $this->passwordEncoder = $passwordEncoder;
     }
-
-    public function load(ObjectManager $manager)
+	
+	public function load(ObjectManager $manager)
     {
-        $faker = Faker\Factory::create('fr_FR');
+       $faker = Faker\Factory::create('fr_FR');
         $userRepo = $manager->getRepository('App:User');
 
         $user1 = new User();
@@ -40,8 +41,13 @@ class AppFixtures extends Fixture
         ));
         $manager->persist($user1);
         $manager->flush();
+<<<<<<< HEAD
 
         $user2 = new User();
+=======
+		
+		$user2 = new User();
+>>>>>>> 6b32708d623df0d06bd32f8e9f07d2bc1676bf70
         $user2->setFirstname($faker->firstName)
             ->setlastname($faker->lastName)
             ->setPhone($faker->phoneNumber)
@@ -55,20 +61,59 @@ class AppFixtures extends Fixture
             ));
         $manager->persist($user2);
         $manager->flush();
+<<<<<<< HEAD
 
         
         for($i=1; $i<=10; $i++) {
+=======
+		/*
+		$townhall = new TownHall();
+        $townhall->setName('Mairie de Cergy');
+		$townhall->setLogoName('ogo');
+		$townhall->setContent('Mairie de Cergy');
+        $townhall->setSummar($faker->text);
+		$townhall->setStory($faker->text);
+        $townhall->setPhone('0123456789');
+        $townhall->setEmail('contact@paris.com');
+		$townhall->setPostaladdress('2 avenue georges beqand Cergy');
+		$townhall->setWebsite('www.cergy.fr');
+		$townhall->setUpdateAt(new \DateTime());
+		$townhall->setLatitude(4);
+		$townhall->setLongitude(10);
+		$townhall->setImageName("blabla");
+		$townhall->setNameMayor("blabla");
+		$manager->persist($townhall);
+        $manager->flush();
+        */
+        
+        $category = [
+            'Événement',
+            'Alerte info',
+            'Annonce',
+        ];
+		for($i=1; $i<=10; $i++) {
+>>>>>>> 6b32708d623df0d06bd32f8e9f07d2bc1676bf70
             if($i < 5) {
                 $user = $user2;
             } else {
                 $user = $user1;
             }
+<<<<<<< HEAD
             $article = new Article();
             $article->setTitle($faker->sentence(6))
                     ->setCategory($faker->word)
                     ->setSummar($faker->sentence(6))
                     ->setContent($faker->paragraph)
                     //->setImage($faker->imageUrl($width = 640, $height = 480))
+=======
+            shuffle($category);
+            $cat = $category[0];
+            $article = new Article();
+            $article->setTitle($faker->sentence(6))
+                    ->setCategory($cat)
+                    ->setSummar($faker->sentence(6))
+                    ->setContent($faker->paragraph)
+>>>>>>> 6b32708d623df0d06bd32f8e9f07d2bc1676bf70
                     ->setPublishedAt($faker->dateTimeBetween('-100 days', '-1 days'))
                     ->setUser($user);
 
@@ -90,6 +135,7 @@ class AppFixtures extends Fixture
         $manager->flush();
 
         $etsScolaire = [
+<<<<<<< HEAD
              'Ecole maternelle',
              'Ecole primaire',
              'Collège',
@@ -100,6 +146,18 @@ class AppFixtures extends Fixture
              'Commerce',
              'Transport',
              'Etablissement scolaire'
+=======
+             'École maternelle',
+             'École primaire',
+             'Coolège',
+             'Lycée'
+        ];
+        $orgType = [
+             'association',
+             'commerce',
+             'transport',
+             'établissements scolaire'
+>>>>>>> 6b32708d623df0d06bd32f8e9f07d2bc1676bf70
         ];
 
         for($i=1; $i<=10; $i++) {
@@ -133,6 +191,7 @@ class AppFixtures extends Fixture
         }
         $manager->flush();
 
+<<<<<<< HEAD
         $townhall = new TownHall();
         $townhall->setName('Mairie de Cergy');
 		//$townhall->setLogoName($faker->imageUrl($width = 640, $height = 480));
@@ -152,3 +211,8 @@ class AppFixtures extends Fixture
         $manager->flush();
     }
 }
+=======
+		
+    }
+}
+>>>>>>> 6b32708d623df0d06bd32f8e9f07d2bc1676bf70

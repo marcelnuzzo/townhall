@@ -1,4 +1,5 @@
 {% if is_granted('ROLE_USER') %}
+<<<<<<< HEAD
 	<nav class="navbar navbar-expand-lg navbar-light bg-light">
 		<ul>
 			<li>
@@ -42,6 +43,58 @@
 			</li>
 		</ul>
 	</nav>
+=======
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<nav class="navbar navbar-expand-lg navbar-light primary">
+		<div class="container-fluid">
+			<nav class="navbar navbar-light primary">
+				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarExample01" aria-controls="navbarExample01" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+				</button>
+			</nav>
+			<a class="collapse navbar-collapse navbar-brand" href="{{ path('home_admin') }}">Administration Cergy-Village</a>
+			<div class="collapse navbar-collapse py-2" id="navbarExample01">
+				<ul class="navbar-nav mr-auto mb-2 mb-lg-0">
+					{% if is_granted('ROLE_ADMIN') %}
+						<li class="nav-item">
+							<a href="{{ path('user_index') }}" class="nav-link">Gérer les comptes utilisateurs</a>
+						</li>
+					{% endif %}
+					<li class="nav-item">
+						<a href="{{ path('article_index') }}" class="nav-link">Gérer les articles</a>
+					</li>
+					<li class="nav-item">
+						{#<a href="{{ path('townhall_show') }}" class="nav-link">Gérer les informations relatives à la mairie</a>#}
+					</li>
+					<li class="nav-item">
+						<a href="{{ path('message_index') }}" class="nav-link">Gérer les messages</a>
+					</li>
+					<li class="nav-item dropdown primary">
+						<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-expanded="false">Gérer les infrastructures</a>
+						<ul class="dropdown-menu primary" style="border: #E8ECF7;" aria-labelledby="navbarDropdown">
+							<li>
+								<a class="dropdown-item" href="{{ path('structure_index', {'structure': 'association'}) }}">Gérer les associations</a>
+							</li>
+							<li>
+								<a class="dropdown-item" href="{{ path('structure_index', {'structure': 'commerce'}) }}">Gérer les commerces</a>
+							</li>
+							<li>
+								<a class="dropdown-item" href="{{ path('structure_index', {'structure': 'établissements scolaire'}) }}">Gérer les établissements scolaires</a>
+							</li>
+							<li>
+								<a class="dropdown-item" href="{{ path('structure_index', {'structure': 'transport'}) }}">Gérer les transports</a>
+							</li>
+						</ul>
+					</li>
+				</ul>
+			</div>
+			<a href="{{ path('user_show', {'id': app.user.id}) }}" class="btn btn-secondary mr-md-2" role="button" aria-pressed="true">Mon compte</a>
+			<a href="{{ path('app_logout') }}" class="btn btn-delete" role="button" aria-pressed="true">Déconnexion</a>
+		</div>
+	</nav>
+	</meta>
+	
+>>>>>>> 6b32708d623df0d06bd32f8e9f07d2bc1676bf70
 {% else %}
 	<div class="jumbotron">
 		<h1 class="display-3">Bienvenue à la maire de Cergy</h1>
@@ -65,12 +118,21 @@
 				<li class="nav-item dropdown">
 					<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Le village</a>
 					<div class="dropdown-menu">
+<<<<<<< HEAD
 						<a class="dropdown-item" href="{{ path('townhall_story') }}">Notre histoire</a>
 						<li class="nav-item active">
 							<a class="nav-link" href="{{ path('townhall_showpublic') }}">Votre mairie</a>
 						</li>
 						<li class="nav-item active">
 							<a class="nav-link" href="{{ path('article_indexpublic') }}">Nos actualités</a>
+=======
+						{#<a class="dropdown-item" href="{{ path('townhall_story') }}">Notre histoire</a>#}
+						<li class="nav-item active">
+							{#<a class="nav-link" href="{{ path('townhall_showpublic') }}">Votre mairie</a>#}
+						</li>
+						<li class="nav-item active">
+							{#<a class="nav-link" href="{{ path('article_indexpublic') }}">Nos actualités</a>#}
+>>>>>>> 6b32708d623df0d06bd32f8e9f07d2bc1676bf70
 						</li>
 						<li>
 							<a class="dropdown-item" href="{{ path('structure_indexpublic', {'structure': 'association'}) }}">Nos associations</a>
@@ -78,8 +140,15 @@
 						<li>
 							<a class="dropdown-item" href="{{ path('structure_indexpublic', {'structure': 'commerce'}) }}">Nos commerces</a>
 						</li>
+<<<<<<< HEAD
 				<li class="nav-item active">
 					<a class="dropdown-item" href="{{ path('structure_indexpublic', {'structure': 'etablissement scolaire'}) }}">Nos établissements scolaires</a>
+=======
+					</l>
+				</li>
+				<li class="nav-item active">
+					<a class="dropdown-item" href="{{ path('structure_indexpublic', {'structure': 'établissements scolaire'}) }}">Nos établissements scolaires</a>
+>>>>>>> 6b32708d623df0d06bd32f8e9f07d2bc1676bf70
 				</li>
 				<li class="nav-item active">
 					<a class="dropdown-item" href="{{ path('structure_indexpublic', {'structure': 'transport'}) }}">Nos transports en commun</a>

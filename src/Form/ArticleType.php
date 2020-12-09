@@ -19,15 +19,15 @@ class ArticleType extends AbstractType
     {
         $builder
             ->add('title', TextType::class, [
-                'label' => 'Titre de l\'article :',
+                'label' => 'Titre',
                 'attr' => [
                     'autofocus' => true,
                     'required' => true,
-                    'placeholder' => 'Entrez le titre de l\'aticle',
+                    'placeholder' => 'Entrez le titre',
                 ],
             ])
             ->add('category', ChoiceType::class, [
-                'label' => 'Sélectionnez une catégorie :',
+                'label' => 'Sélectionnez une catégorie',
                 'expanded' => true,
                 'choices' => [
                     'Événement' => 'event',
@@ -36,15 +36,31 @@ class ArticleType extends AbstractType
                 ],
             ])
             ->add('summar', TextareaType::class, [
+<<<<<<< HEAD
                 'label' => 'Résumé de l\'article :',
                 'attr' => [
                     'required' => false,
                     'placeholder' => 'Entrez le résumé de l\'aticle',
+=======
+                'label' => 'Résumé',
+                'attr' => [
+                    'required' => false,
+                    'placeholder' => 'Entrez le résumé',
+>>>>>>> 6b32708d623df0d06bd32f8e9f07d2bc1676bf70
                 ],
             ])
             ->add('content', TextareaType::class, [
-                'label' => 'Contenu de l\'article :',
+                'label' => 'Contenu',
             ])
+            ->add('imageName', TextType::class, [
+                'label' => 'Nom de la photo',
+                'attr' => [
+                    'autofocus' => true,
+                    'required' => true,
+                    'placeholder' => 'Entrez le nom de la photo',
+                ],
+            ])
+<<<<<<< HEAD
             /*
             ->add('imageName', TextType::class, [
                 'label' => 'Nom de la photo :',
@@ -60,6 +76,18 @@ class ArticleType extends AbstractType
                 'label' => "Photo de l'article",
                 'allow_delete' => false,
             ));
+=======
+            ->add('imageFile', VichImageType::class, array(
+                'required' => false,
+                'label' => "Photo de l'article",
+                'allow_delete' => true,
+            ))
+            ->add('user', EntityType::class, [
+                'label' => 'Sélectionnez un utilisateur',
+                'class' => User::class,
+                'choice_label' => 'email',
+            ]);
+>>>>>>> 6b32708d623df0d06bd32f8e9f07d2bc1676bf70
     }
 
     public function configureOptions(OptionsResolver $resolver)

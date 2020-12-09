@@ -1,0 +1,59 @@
+@font-face {
+    font-family: "Heebo";
+    src: url(/assets/Heebo/static/Heebo-VariableFont_wght.ttf) format("truetype");
+    font-weight: normal;
+    font-style: normal;
+}
+
+body {
+    font-family: "Heebo", sans-serif;
+    background-color: white;
+}
+
+.primary {
+    color: #E8ECF7;
+    background-color: #E8ECF7;
+}
+
+.btn {
+    border: 1px solid;
+    padding: 8px 22px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.btn-secondary {
+    border-color: #4464bc;
+    background-color: transparent;
+    color: #4464bc;
+}
+
+.btn-secondary:hover {
+    border-color: #4464bc;
+    background-color: #4464bc;
+    color: white;
+}
+
+.btn-delete {
+    border-color: #bc4464;
+    background-color: transparent;
+    color: #bc4464;
+}
+
+.btn-delete:hover {
+    border-color: #bc4464;
+    background-color: #bc4464;
+    color: white;
+}
+
+.btn-see {
+    border-color: #1a2647;
+    background-color: transparent;
+    color: #1a2647;
+}
+
+.btn-see:hover {
+    border-color: #1a2647;
+    background-color: #1a2647;
+    color: white;
+}

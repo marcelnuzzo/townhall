@@ -1,5 +1,6 @@
-{% extends 'base.html.twig' %}
+{% extends 'admin/base.html.twig' %}
 
+<<<<<<< HEAD
 {% block title %}Editer Structure{% endblock %}
 
 {% block body %}
@@ -8,4 +9,20 @@
     {{ include('structure/_form.html.twig', {'button_label': 'Modifier'}) }}
 
     <a href="{{ path('structure_index', {'structure': structure}) }}">Retour à la liste</a>
+=======
+{% block title %}Modification Structure{% endblock %}
+
+{% block body %}
+    <section>
+        <a href="{{ path('structure_index', {'structure': infrastructure.organizationType}) }}" class="btn btn-delete mx-3 my-3" role="button" aria-pressed="true">Retour</a>
+
+        <div class="container">
+            <div class="text-center">
+                <h1>Modifier la structure</h1>
+            </div>
+
+            {{ include('structure/_form.html.twig') }}
+        </div>
+    </section>
+>>>>>>> 6b32708d623df0d06bd32f8e9f07d2bc1676bf70
 {% endblock %}

@@ -1,8 +1,9 @@
-{% extends 'base.html.twig' %}
+{% extends 'admin/base.html.twig' %}
 
 {% block title %}Message n°{{ message.id }} – {{ message.object }}{% endblock %}
 
 {% block body %}
+<<<<<<< HEAD
 	<h1>Message n°{{ message.id }}</h1>
 	<p>Envoyé par : <a href="{{ message.email }}">{{ message.email }}</a></p>
 	<p>Le {{ message.receivedAt ? message.receivedAt|date('d/m/Y') : '' }} à {{ message.receivedAt ? message.receivedAt|date('H:i') : '' }}</p>
@@ -15,3 +16,70 @@
 	<hr>
 	<p><a href="{{ path('message_index') }}">Retour à la boîte de messagerie</a></p>
 {% endblock %}
+=======
+
+    <section>
+        <a href="{{ path('message_index') }}" class="btn btn-delete mx-3 my-3" role="button" aria-pressed="true">Retour</a>
+
+        <div class="text-center mb-5">
+            <h1>Message n°{{message.id}}</h1>
+        </div>
+
+        <div class="d-sm-none mb-4">
+            <div class="d-flex justify-content-end">
+                <a href="{{ message.email }}" class="btn btn-see mr-2" role="button" aria-pressed="true">Répondre</a>
+                <a href="{{ path('message_status', {'id': message.id}) }}" class="btn btn-secondary mr-2" role="button" aria-pressed="true">Lu</a>
+                {{ include('message/_delete_form.html.twig') }}
+            </div>
+        </div>
+
+        <div class="col-lg-8 m-auto">
+            <div class="row inbox-wrapper">
+                <div class="col-lg-12">
+                    <div class="card shadow p-3 mb-5 bg-white rounded">
+                        <div class="card-body">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-lg-12 email-content">
+                                        <div class="email-head">
+                                            <div class="email-head-subject" style="border-bottom: 1px solid #e8ebf1;">
+                                                <div class="title d-flex align-items-center justify-content-between">
+                                                    <div class="d-flex align-items-center">
+                                                        <span><strong>Objet : </strong></span>
+                                                        <span>{{ message.object}}</span>
+                                                    </div>
+                                                    <div class="d-none d-md-block">
+                                                        <div class="d-flex mb-2">
+                                                            <a href="{{ message.email }}" class="btn btn-see mr-2" role="button" aria-pressed="true">Répondre</a>
+                                                            <a href="{{ path('message_status', {'id': message.id}) }}" class="btn btn-secondary mr-2" role="button" aria-pressed="true">Lu</a>
+                                                            {{ include('message/_delete_form.html.twig') }}
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="email-head-sender d-flex align-items-center justify-content-between flex-wrap my-2" style="border-bottom: 1px solid #e8ebf1;">
+                                                <div class="d-flex align-items-center">
+                                                    <div class="sender d-flex align-items-center">
+                                                        <span><strong>Email : </strong></span>
+                                                        <span>{{message.email}}</span>
+                                                    </div>
+                                                </div>
+                                                <div class="date">{{ message.receivedAt ? message.receivedAt|date('d/m/Y à H:i:s') : '' }}</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-12 email-body text-justify">
+                                        <p>{{ message.content}}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}
+>>>>>>> 6b32708d623df0d06bd32f8e9f07d2bc1676bf70

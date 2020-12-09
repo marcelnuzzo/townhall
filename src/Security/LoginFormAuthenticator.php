@@ -92,3 +92,7 @@ class LoginFormAuthenticator extends AbstractFormLoginAuthenticator
         return $this->urlGenerator->generate('app_login');
     }
 }
+<<<<<<< HEAD
+=======
+
+>>>>>>> 6b32708d623df0d06bd32f8e9f07d2bc1676bf70

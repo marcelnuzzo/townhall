@@ -1,5 +1,6 @@
-{% extends 'base.html.twig' %}
+{% extends 'admin/base.html.twig' %}
 
+<<<<<<< HEAD
 {% block title %}Boîte de réception{% endblock %}
 
 {% block body %}
@@ -38,4 +39,72 @@
         {% endfor %}
         </tbody>
     </table>
+=======
+{% block title %}Message{% endblock %}
+
+{% block body %}
+    <div class="container-fluid mt-5">
+        <div class="text-center">
+            <h1>Message</h1>
+        </div>
+        
+        <div class="mt-5 d-none d-md-block">
+            <table class="table">
+                <thead>
+                    <tr class="text-center">
+                        <th>Objet</th>
+                        <th>Email</th>
+                        <th>Statut</th>
+                        <th>Reçu le</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                {% for message in messages %}
+                    <tr class="text-center">
+                        <td>{{ message.object }}</td>
+                        <td>{{ message.email }}</td>
+                        <td>{{ message.status }}</td>
+                        <td>{{ message.receivedAt ? message.receivedAt|date('d/m/Y à H:i:s') : '' }}</td>
+                        <td class="d-flex justify-content-center">
+                            <a href="{{ path('message_show', {'id': message.id}) }}" class="btn btn-see mr-2" role="button" aria-pressed="true">Voir</a>
+                            {#<a href="{{ path('message_edit', {'id': message.id}) }}" class="btn btn-secondary mr-2" role="button" aria-pressed="true">Modifier</a>#}
+                            {{ include('message/_delete_form.html.twig') }}
+                        </td>
+                    </tr>
+                {% else %}
+                    <tr>
+                        <td colspan="8">no records found</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+
+        <div class="d-block d-sm-none mt-5">
+            <table class="table">
+                <thead>
+                    <tr class="text-center">
+                        <th>Messages reçus</th>
+                    </tr>
+                </thead>
+                <tbody>
+                {% for message in messages %}
+                    <tr>
+                        <td>
+                            <a href="{{ path('message_show', {'id': message.id}) }}">{{ message.object }}</a>
+                        </td>
+                    </tr>
+                {% else %}
+                    <tr>
+                        <td colspan="9">Aucun message enregistré.</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+
+        {#<a href="{{ path('message_new') }}">Create new</a>#}
+    </div>
+>>>>>>> 6b32708d623df0d06bd32f8e9f07d2bc1676bf70
 {% endblock %}
