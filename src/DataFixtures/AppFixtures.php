@@ -80,7 +80,7 @@ class AppFixtures extends Fixture
             $message = new Message();
             $message->setObject($faker->word(5))
                     ->setEmail($faker->email())
-                    ->setStatus($faker->word())
+                    ->setStatus("Non lu")
                     ->setContent($faker->sentence(2))
                     ->setAccept(mt_rand(0, 1))
                     ->setReceivedAt($faker->dateTimeBetween('-10 days', '-1 days'));

@@ -45,6 +45,7 @@ class ArticleType extends AbstractType
             ->add('content', TextareaType::class, [
                 'label' => 'Contenu',
             ])
+            /*
             ->add('imageName', TextType::class, [
                 'label' => 'Nom de la photo',
                 'attr' => [
@@ -53,16 +54,20 @@ class ArticleType extends AbstractType
                     'placeholder' => 'Entrez le nom de la photo',
                 ],
             ])
+            */
             ->add('imageFile', VichImageType::class, array(
                 'required' => false,
                 'label' => "Photo de l'article",
-                'allow_delete' => true,
+                'allow_delete' => false,
             ))
+            /*
             ->add('user', EntityType::class, [
                 'label' => 'Sélectionnez un utilisateur',
                 'class' => User::class,
                 'choice_label' => 'email',
-            ]);
+            ])
+            */
+            ;
     }
 
     public function configureOptions(OptionsResolver $resolver)

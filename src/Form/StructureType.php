@@ -86,6 +86,7 @@ class StructureType extends AbstractType
                 'class' => User::class,
                 'choice_label' => 'email',
             ])
+            /*
             ->add('logoName', TextType::class, [
                 'label' => 'Nom du logo',
                 'attr' => [
@@ -94,12 +95,13 @@ class StructureType extends AbstractType
                     'placeholder' => 'Entrez le nom du logo',
                 ],
             ])
+            */
             ->add('logoFile', VichImageType::class, array(
                 'required' => false,
                 'attr' => [
                     'placeholder' => 'Logo de la structure',
                 ],
-                'allow_delete' => true,
+                'allow_delete' => false,
                 'download_uri' => true
             ));
             ;

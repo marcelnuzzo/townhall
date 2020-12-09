@@ -16,7 +16,7 @@
                     <tbody>
                         <tr>
                             <th>Logo</th>
-                            <td>{{ infrastructure.logoName }}</br>{{ infrastructure.logoFile }}</td>
+                            <td><img src="{{ vich_uploader_asset(infrastructure, 'logoFile') }}" width="150"/></td>
                         </tr>
                         <tr>
                             <th>Résumé</th>

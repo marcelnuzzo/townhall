@@ -30,7 +30,7 @@
                         <td>{{ article.title }}</td>
                         <td>{{ article.category }}</td>
                         <td>{{ article.summar }}</td>
-                        <td>{{ article.imageName }}</td>
+                        <td><img src="{{ vich_uploader_asset(article, 'imageFile') }}" alt="photo de l'article" width="64"/></td>
                         <td class="text-center">{{ article.publishedat ? article.publishedat|date('d/m/Y à H:i') : '' }}</td>
                         <td class="d-flex justify-content-md-center">
                             <a href="{{ path('article_show', {'id': article.id}) }}" class="btn btn-see mr-2" role="button" aria-pressed="true">Voir</a>

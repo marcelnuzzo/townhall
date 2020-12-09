@@ -25,6 +25,11 @@
             {{ form_widget(form.email, {'attr': {'class': 'form-control'}}) }}
         </div>
 
+        <div class="form-outline mb-4">
+            {{ form_label(form.roles) }}
+            {{ form_widget(form.roles, {'attr': {'class': 'form-control'}}) }}
+        </div>
+
         <div class="justify-content-end">
             <button class="btn btn-secondary">{{ user.id ? 'Modifier' : 'Créer' }}</button>
         </div>

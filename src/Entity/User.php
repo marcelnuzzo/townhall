@@ -65,12 +65,12 @@ class User implements UserInterface
 	
 
     /**
-     * @ORM\OneToMany(targetEntity=Article::class, mappedBy="user")
+     * @ORM\OneToMany(targetEntity=Article::class, mappedBy="user", orphanRemoval=true)
      */
     private $articles;
 
     /**
-     * @ORM\OneToMany(targetEntity=Structure::class, mappedBy="user")
+     * @ORM\OneToMany(targetEntity=Structure::class, mappedBy="user", orphanRemoval=true)
      */
     private $structures;
 
