@@ -6,134 +6,58 @@
 {% block body %}
 
   <div class="container-fluid">
-  <div class="d-flex flex-row"> 
-  <div class="actualite" >Actualité</div>
-    <div></div>
-
-    <div>Météo</div>
-    <div></div>
-
-    {# fond couleur météo #}
-    <div ></div>
-    <div ></div>
-      
-    {# Carousel #} 
-    <div>
-      <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-      <ol class="carousel-indicators">
-      <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-      <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-      <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-      <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
-      <li data-target="#carouselExampleIndicators" data-slide-to="4"></li>
-      </ol>
-          
-      <div class="carousel-inner">
-      <div class="carousel-item active">
-      <img src="images/townHall/photo.jpeg" class="d-block w-100" alt="Actualité 1">
-      </div>
-      <div class="carousel-item">
-      <img src="images/townHall/photo.jpeg" class="d-block w-100" alt="Actualité 2">
-      </div>
-      <div class="carousel-item">
-      <img src="images/townHall/photo.jpeg" class="d-block w-100" alt="Actualité 3">
-      </div>
-      <div class="carousel-item">
-      <img src="images/townHall/photo.jpeg" class="d-block w-100" alt="Actualité 4">
-      </div>
-      <div class="carousel-item">
-      <img src="images/townHall/photo.jpeg" class="d-block w-100" alt="Actualité 5">
-      </div>
-      </div>
-
-      <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-      <span class="sr-only">Previous</span>
-      </a>
-      <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-      <span class="carousel-control-next-icon" aria-hidden="true"></span>
-      <span class="sr-only">Next</span>
-      </a>
-      </div>
-  </div>
-  </div>
-  </div>
-
-
-  <div style="padding-bottom:300px"></div>
-
- {# Block bleu#}
-    <div style="background-color:#4464bc;margin-bottom:0;position: static;left: 0px; width: 150%; display:block; height: 230px">
-        <div style="position: relative; top: 20px; left: 2%;color:white;font-family: Gravity;">HORAIRES D’OUVERTURE<br><br><br>Du Lundi au Mercredi : <br>de 08h30 à 12h00 <br>de 13h30 à 17h00<br><br>Le Jeudi : de 08h30 à 12h00</div>
-        <div style="position: relative;top: -110px; left: 250px;color:white;">Le Vendredi : <br>de 08h30 à 12h00 <br>de 13h30 à 17h00<br><br> Le Samedi : <br>de 10h00 à 12h00</div>
-        <div style="position: relative;top: -315px; left: 82%;color:white; left: 1022px">CONTACT<br><br><br> 10, place de la mairie <br>95880 Cergy-village<br><br> Téléphone : +33 1 34 25 60 00</div>
-        <div style="background-color:white;height:1.5px;position: relative; top: -459px;width:75px; right: -1022px"></div>
-        <div style="background-color:white;height:1.5px;position: relative; top: -462px;width:195px; right: -38px"></div>
-    </div>
-
-
-  {#<div class="actualite" style="border:solid; width:75px;text-align:center; font-family:Gravity-Light; position: relative; right: -30px; top: -250px">Actualité</div>
-  <div style="background-color:black;height:2px;position: relative; top: -245px;width:250px; right: -30px"></div>
-
-  <div style="border:solid; width:75px;text-align:center;top:-280px;position:relative; right: -900px; font-family: Gravity">Météo</div>
-  <div style="background-color:black;height:2px;position:relative;top: -275px;width:250px; right: -900px;"></div>
-
-  {# fond couleur météo #}
-  {#<div style="background-color:#E8ECF7;position:relative;border-radius: 10px;width:300px;height:200px; left: 890px; top: -260px"></div>
-  <div style="background-color:#E8ECF7;position:relative;border-radius: 10px;width:300px;height:150px; left: 890px; top: -255px"></div>
-    
-   {# Carousel #} 
-  {#<div style="height:50px; width:600px; position: relative; top: -610px; right: -30px">
-    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-    <ol class="carousel-indicators">
-    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-    <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
-    <li data-target="#carouselExampleIndicators" data-slide-to="4"></li>
-    </ol>
+    <div class="d-md-flex flex-md-row"> 
         
-    <div class="carousel-inner">
-    <div class="carousel-item active">
-    <img src="images/townHall/photo.jpeg" class="d-block w-100" alt="Actualité 1">
-    </div>
-    <div class="carousel-item">
-    <img src="images/townHall/photo.jpeg" class="d-block w-100" alt="Actualité 2">
-    </div>
-    <div class="carousel-item">
-    <img src="images/townHall/photo.jpeg" class="d-block w-100" alt="Actualité 3">
-    </div>
-    <div class="carousel-item">
-    <img src="images/townHall/photo.jpeg" class="d-block w-100" alt="Actualité 4">
-    </div>
-    <div class="carousel-item">
-    <img src="images/townHall/photo.jpeg" class="d-block w-100" alt="Actualité 5">
-    </div>
-    </div>
+      {# Carousel #} 
+      <div class="col-md-7">
+        <h2 class="actualite ml-3"><span class="badge text-white" style="background-color:#4464bc;">Actualité</span></h2>
+        <hr>
+        <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+          <ol class="carousel-indicators">
+            <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="4"></li>
+          </ol>
+            
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <img src="images/townHall/photo.jpeg" class="d-block w-100" alt="Actualité 1">
+            </div>
+            <div class="carousel-item">
+              <img src="images/townHall/photo.jpeg" class="d-block w-100" alt="Actualité 2">
+            </div>
+            <div class="carousel-item">
+              <img src="images/townHall/photo.jpeg" class="d-block w-100" alt="Actualité 3">
+            </div>
+            <div class="carousel-item">
+              <img src="images/townHall/photo.jpeg" class="d-block w-100" alt="Actualité 4">
+            </div>
+            <div class="carousel-item">
+              <img src="images/townHall/photo.jpeg" class="d-block w-100" alt="Actualité 5">
+            </div>
+          </div>
 
-    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="sr-only">Previous</span>
-    </a>
-    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="sr-only">Next</span>
-    </a>
+          <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+          </a>
+          <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+          </a>
+        </div>
+      </div>
+
+      {# fond couleur météo #}
+      <div class="col-md-5 d-md-flex justify-content-md-end">
+        <h2 class="actualite ml-3"><span class="badge text-white" style="background-color:#4464bc;">Météo</span></h2>
+      </div>
+
+
     </div>
-</div>
-
-<div style="padding-bottom:300px"></div>
-
- {# Block bleu#}
-    {#<div style="background-color:#4464bc;margin-bottom:0;position: static;left: 0px; width: 150%; display:block; height: 230px">
-        <div style="position: relative; top: 20px; left: 2%;color:white;font-family: Gravity;">HORAIRES D’OUVERTURE<br><br><br>Du Lundi au Mercredi : <br>de 08h30 à 12h00 <br>de 13h30 à 17h00<br><br>Le Jeudi : de 08h30 à 12h00</div>
-        <div style="position: relative;top: -110px; left: 250px;color:white;">Le Vendredi : <br>de 08h30 à 12h00 <br>de 13h30 à 17h00<br><br> Le Samedi : <br>de 10h00 à 12h00</div>
-        <div style="position: relative;top: -315px; left: 82%;color:white; left: 1022px">CONTACT<br><br><br> 10, place de la mairie <br>95880 Cergy-village<br><br> Téléphone : +33 1 34 25 60 00</div>
-        <div style="background-color:white;height:1.5px;position: relative; top: -459px;width:75px; right: -1022px"></div>
-        <div style="background-color:white;height:1.5px;position: relative; top: -462px;width:195px; right: -38px"></div>
-    </div>#}
-
-    
+  </div>
 
 {% endblock %}
  
