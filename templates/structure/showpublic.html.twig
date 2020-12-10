@@ -1,33 +1,77 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}{{ infrastructure.organizationType }} – {{ infrastructure.name }}{% endblock %}
+{% block title %}{{ infrastructure.name }}{% endblock %}
 
 {% block body %}
-    <h1>{{ infrastructure.organizationType }} – {{ infrastructure.name }}</h1>
-	{% if infrastructure.organizationType == "Etablissement scolaire" %}
-	<p>Type : {{ infrastructure.schoolType }}</p>
-	{% endif %}
-				{% if infrastructure.logoName is not null %}
-                <p><img src="{{ vich_uploader_asset(structure, 'logoFile') }}" alt="photo du logo" width="100" /></p>
+
+<div class="container-fluid">
+	<div class="jumbotron text-center" style="background-color:#bc4464;">
+		<h4 class="card-title h4 pb-2"><strong>{{ infrastructure.name }}</strong></h4>
+
+		{% if infrastructure.organizationType is same as "Etablissement scolaire" %}
+			<h6>{{ infrastructure.schoolType }}</h6>
+		{% endif %}
+
+		{% if infrastructure.logoName is not null %}
+			<div class="view overlay my-4">
+				<img class="img-fluid" src="{{ vich_uploader_asset(infrastructure, 'logoFile') }}" alt="photo du logo"/>
+			</div>
+		{% else %}
+			<div class="view overlay my-4">
+				<img class="img-fluid" src="{{ asset('images/building-1089861_1920.jpg') }}" alt="photo du logo"/>
+			</div>
+		{% endif %}
+
+		{% if infrastructure.summar is not null %}
+			<h5 class="indigo-text h5 mb-4">{{ infrastructure.summar }}</h5>
+		{% endif %}
+
+		{% if infrastructure.content is not null %}
+			<p class="card-text">{{ infrastructure.content }}</p>
+		{% endif %}
+		
+		<div class="d-md-flex ml-3 ml-md-0">
+			<div class="col-md-3">
+				{% if infrastructure.postaladdress is not null %}
+					<div class="card" style="width: 18rem; background-color:#E8ECF7;">
+						<div class="card-body">
+							<h6 class="card-subtitle mb-2" style="color:#4464bc;">Adresse postale</h6>
+							<p class="card-text">{{ infrastructure.postaladdress }}</p>
+						</div>
+					</div>
 				{% endif %}
-				{% if infrastructure.summar is not null %}
-				<h2>Résumé</h2>
-				<p>{{ infrastructure.summar }}</p>
-				{% endif %}
-				{% if infrastructure.content is not null %}
-                <h2>Description</h2>
-				<p>{{ infrastructure.content }}</p>
-				{% endif %}
-				{% if infrastructure.postalAddress is not null %}
-                <p>Adresse postale : {{ infrastructure.postaladdress }}</p>
-				{% endif %}
+			</div>
+			<div class="col-md-3 mt-3 mt-md-0">
 				{% if infrastructure.phone is not null %}
-                <p>N° téléphone : {{ infrastructure.phone }}</p>
+					<div class="card" style="width: 18rem;background-color:#E8ECF7;">
+						<div class="card-body">
+							<h6 class="card-subtitle mb-2" style="color:#4464bc;">Numéro de téléphone</h6>
+							<p class="card-text">{{ infrastructure.phone }}</p>
+						</div>
+					</div>
 				{% endif %}
+			</div>
+			<div class="col-md-3 mt-3 mt-md-0">
 				{% if infrastructure.email is not null %}
-                <p>Adresse email : {{ infrastructure.email }}</p>
+					<div class="card" style="width: 18rem;background-color:#E8ECF7;">
+						<div class="card-body">
+							<h6 class="card-subtitle mb-2" style="color:#4464bc;">Adresse email</h6>
+							<p class="card-text">{{ infrastructure.email }}</p>
+						</div>
+					</div>
 				{% endif %}
+			</div>
+			<div class="col-md-3 mt-3 mt-md-0">
 				{% if infrastructure.website is not null %}
-                <p>Site internet : {{ infrastructure.website }}</p>
+					<div class="card" style="width: 18rem;background-color:#E8ECF7;">
+						<div class="card-body">
+							<h6 class="card-subtitle mb-2" style="color:#4464bc;">Site internet</h6>
+							<p class="card-text">{{ infrastructure.website }}</p>
+						</div>
+					</div>
 				{% endif %}
+			</div>
+		</div>
+	</div>
+</div>
 {% endblock %}

@@ -70,7 +70,8 @@ class MessageController extends AbstractController
         ]);
     }
 	
-	/**
+
+	    /**
      * @Route("/user/message/status/{id}", name="message_status")
      */
     public function message_status(Request $request, Message $message): response

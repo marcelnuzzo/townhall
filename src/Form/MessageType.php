@@ -17,31 +17,31 @@ class MessageType extends AbstractType
     {
         $builder
             ->add('object', TextType::class, [
-			'label' => 'L\'objet :',
+			'label' => 'Objet',
                 'attr' => [
 					'required' => true,
 					'autofocus' => true,
-                    'placeholder' => 'Entrez l\'objet de ce message',
+                    'placeholder' => 'Entrez le sujet du message',
                 ],
 			])
             ->add('email', EmailType::class, [
-			'label' => 'Votre adresse email :',
+			'label' => 'Adresse email',
                 'attr' => [
 					'required' => true,
                     'placeholder' => 'Entrez votre adresse email',
                 ],
 			])
             ->add('content', TextareaType::class, [
-			'label' => 'Contenu de ce message :',
+			'label' => 'Contenu',
                 'attr' => [
 					'required' => true,
                     'placeholder' => 'Entrez le contenu de ce message',
                 ],
 			])
             ->add('accept', CheckboxType::class, [
-    'label'    => 'Je confirme l\'envoi d ce message et j\'accepte de partager mes données personnelles.',
-    'required' => false,
-]);
+                'label'    => 'Je confirme l\'envoi de ce message et j\'accepte de partager mes données personnelles.',
+                'required' => false,
+            ]);
     }
 
     public function configureOptions(OptionsResolver $resolver)

@@ -71,7 +71,7 @@ class StructureController extends AbstractController
 		return $this->render($render, [
             'infrastructure' => $infrastructure,
 			'id' => $id,
-	'structure' => $infrastructure->getOrganizationType(),
+	        'structure' => $infrastructure->getOrganizationType(),
         ]);
     }
 
