@@ -1,107 +1,161 @@
-<meta name="viewport" content="width=device-width, initial-scale=1">
-  <div class="container-fluid">
-  <div class="d-flex justify-content-center" style="background-image: url('https://www.mairie-le-thillay.fr/sites/lethillay/files/styles/bandeau/public/image/bandeau/p4251492.jpg?itok=EtXOIQSv');">
-    <div class="mask rgba-gradient align-items-center">
-      {#<img src="{{ asset('images/logo.png') }}" alt="Logo Cergy-Village"/>#}
-    </div>
-  </div>
-  {% if is_granted('ROLE_USER') %}
-	<nav class="navbar navbar-expand-lg navbar-light col-md-12 blog-main shadow-sm p-3 mb-5 bg-white rounded">
-		<div class="container-fluid">
-			<nav class="navbar navbar-light">
-				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarExample01" aria-controls="navbarExample01" aria-expanded="false" aria-label="Toggle navigation">
-				<span class="navbar-toggler-icon"></span>
-				</button>
-			</nav>
-			<a class="collapse navbar-collapse navbar-brand" href="{{ path('home_admin') }}">Administration Cergy-Village</a>
-			<div class="collapse navbar-collapse py-2" id="navbarExample01">
-				<ul class="navbar-nav mr-auto mb-2 mb-lg-0">
-					{% if is_granted('ROLE_ADMIN') %}
-						<li class="nav-item">
-							<a href="{{ path('user_index') }}" class="nav-link">Gérer les comptes utilisateurs</a>
-						</li>
-					{% endif %}
-					<li class="nav-item">
-						<a href="{{ path('article_index') }}" class="nav-link">Gérer les articles</a>
-					</li>
-					<li class="nav-item">
-						<a href="{{ path('townhall_show') }}" class="nav-link">Gérer les informations relatives à la mairie</a>
-					</li>
-					<li class="nav-item">
-						<a href="{{ path('message_index') }}" class="nav-link">Gérer les messages</a>
-					</li>
-					<li class="nav-item dropdown primary">
-						<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-expanded="false">Gérer les infrastructures</a>
-						<ul class="dropdown-menu primary" style="border: #E8ECF7;" aria-labelledby="navbarDropdown">
-							<li>
-								<a class="dropdown-item" href="{{ path('structure_index', {'structure': 'association'}) }}">Gérer les associations</a>
-							</li>
-							<li>
-								<a class="dropdown-item" href="{{ path('structure_index', {'structure': 'commerce'}) }}">Gérer les commerces</a>
-							</li>
-							<li>
-								<a class="dropdown-item" href="{{ path('structure_index', {'structure': 'etablissement scolaire'}) }}">Gérer les établissements scolaires</a>
-							</li>
-							<li>
-								<a class="dropdown-item" href="{{ path('structure_index', {'structure': 'transport'}) }}">Gérer les transports</a>
-							</li>
-						</ul>
-					</li>
-				</ul>
-			</div>
-			<a href="{{ path('user_show', {'id': app.user.id}) }}" class="btn btn-secondary mr-md-2" role="button" aria-pressed="true">Mon compte</a>
-			<a href="{{ path('app_logout') }}" class="btn btn-delete" role="button" aria-pressed="true">Déconnexion</a>
-		</div>
-	</nav>
+{% if is_granted('ROLE_USER') %}
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <nav class="navbar navbar-expand-lg navbar-light primary">
+      <div class="container-fluid">
+        <nav class="navbar navbar-light primary">
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarExample01" aria-controls="navbarExample01" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+          </button>
+        </nav>
+        <a class="collapse navbar-collapse navbar-brand" href="{{ path('home_admin') }}">Administration Cergy-Village</a>
+        <div class="collapse navbar-collapse py-2" id="navbarExample01">
+          <ul class="navbar-nav mr-auto mb-2 mb-lg-0">
+            {% if is_granted('ROLE_ADMIN') %}
+              <li class="nav-item">
+                <a href="{{ path('user_index') }}" class="nav-link">Gérer les comptes utilisateurs</a>
+              </li>
+            {% endif %}
+            <li class="nav-item">
+              <a href="{{ path('article_index') }}" class="nav-link">Gérer les articles</a>
+            </li>
+            <li class="nav-item">
+              {#<a href="{{ path('townhall_show') }}" class="nav-link">Gérer les informations relatives à la mairie</a>#}
+            </li>
+            <li class="nav-item">
+              <a href="{{ path('message_index') }}" class="nav-link">Gérer les messages</a>
+            </li>
+            <li class="nav-item dropdown primary">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-expanded="false">Gérer les infrastructures</a>
+              <ul class="dropdown-menu primary" style="border: #E8ECF7;" aria-labelledby="navbarDropdown">
+                <li>
+                  <a class="dropdown-item" href="{{ path('structure_index', {'structure': 'association'}) }}">Gérer les associations</a>
+                </li>
+                <li>
+                  <a class="dropdown-item" href="{{ path('structure_index', {'structure': 'commerce'}) }}">Gérer les commerces</a>
+                </li>
+                <li>
+                  <a class="dropdown-item" href="{{ path('structure_index', {'structure': 'établissements scolaire'}) }}">Gérer les établissements scolaires</a>
+                </li>
+                <li>
+                  <a class="dropdown-item" href="{{ path('structure_index', {'structure': 'transport'}) }}">Gérer les transports</a>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+        <a href="{{ path('user_show', {'id': app.user.id}) }}" class="btn btn-secondary mr-md-2" role="button" aria-pressed="true">Mon compte</a>
+        <a href="{{ path('app_logout') }}" class="btn btn-delete" role="button" aria-pressed="true">Déconnexion</a>
+      </div>
+    </nav>
 	</meta>
 	
 {% else %}
-	<div class="jumbotron">
-		<h1 class="display-3">Bienvenue à la maire de Cergy</h1>
-		<p>du texte</p>
-			<a class="btn btn-primary" href="#" role="button">Voir nos articles</a>
-		<p>
-		</p>
-		<p>emplacement pour notre slider de nos articles (ou autres)</p>
-	</div>
-	<nav class="navbar navbar-expand-lg navbar-light bg-light">
-		<a class="navbar-brand" href="#">Navbar</a>
-		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor03" aria-controls="navbarColor03" aria-expanded="false" aria-label="Toggle navigation">
-			<span class="navbar-toggler-icon"></span>
-		</button>
-		<div class="collapse navbar-collapse" id="navbarColor03">
-			<ul class="navbar-nav mr-auto">
-				<li class="nav-item active">
-					<a class="nav-link" href="\">Accueil</a>
-				</li>
-				<li class="nav-item dropdown">
-					<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Le village</a>
-					<div class="dropdown-menu">
-						<a class="dropdown-item" href="{{ path('townhall_story') }}">Notre histoire</a>
-						<li class="nav-item active">
-							<a class="nav-link" href="{{ path('townhall_showpublic') }}">Votre mairie</a>
-						</li>
-						<li class="nav-item active">
-							<a class="nav-link" href="{{ path('article_indexpublic') }}">Nos actualités</a>
-						</li>
-						<li>
-							<a class="dropdown-item" href="{{ path('structure_indexpublic', {'structure': 'association'}) }}">Nos associations</a>
-						</li>
-						<li>
-							<a class="dropdown-item" href="{{ path('structure_indexpublic', {'structure': 'commerce'}) }}">Nos commerces</a>
-						</li>
-				<li class="nav-item active">
-					<a class="dropdown-item" href="{{ path('structure_indexpublic', {'structure': 'etablissement scolaire'}) }}">Nos établissements scolaires</a>
-				</li>
-				<li class="nav-item active">
-					<a class="dropdown-item" href="{{ path('structure_indexpublic', {'structure': 'transport'}) }}">Nos transports en commun</a>
-				</li>
-				<li class="nav-item active">
-					<a class="nav-link" href="{{ path('message_send') }}">Nous contacter</a>
-				</li>
-			</ul>
-		</div>
-	</nav>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <div class="container-fluid">
+      <div class="d-flex justify-content-end">
+          <img class="img-fluid" src="{{ asset('images/3137-lieuCle-banner-AgencePostaleCommunale.jpg') }}" alt="Logo Cergy-Village">
+        </div>
+      </div>
+      <nav class="navbar navbar-expand-lg navbar-light col-md-12 blog-main shadow-sm p-3 mb-5 bg-white rounded">
+        <div class="container-fluid">
+          <nav class="navbar navbar-light">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarExample01" aria-controls="navbarExample01" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+            </button>
+          </nav>
+          <div class="d-md-flex d-block flex-row mx-md-auto mx-0">
+            <a class="navbar-brand mt-2" href="{{ path('home_index') }}">Accueil</a>
+            <div class="collapse navbar-collapse py-2" id="navbarExample01">
+              <ul class="navbar-nav mr-auto mb-2 mb-lg-0">
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-expanded="false">Le village</a>
+                  <ul class="dropdown-menu" style="border: transparent;" aria-labelledby="navbarDropdown">
+                    <li>
+                      <a class="dropdown-item" href="{{ path('Historique') }}">Historique</a>
+                    </li>
+                    <li>
+                      <a class="dropdown-item" href="{{ path('SituationGeographique') }}">Situation géographique</a>
+                    </li>
+                  </ul>
+                </li>
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-expanded="false">Mairie</a>
+                  <ul class="dropdown-menu" style="border: transparent;" aria-labelledby="navbarDropdown">
+                    <li>
+                      <a class="dropdown-item" href="{{ path('LesElus') }}">Les élus</a>
+                    </li>
+                    <li>
+                      <a class="dropdown-item" href="{{ path('ConseilsMunicipaux') }}">Conseils municipaux</a>
+                    </li>
+                  </ul>
+                </li>
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-expanded="false">Vie pratique</a>
+                  <ul class="dropdown-menu" style="border: transparent;" aria-labelledby="navbarDropdown">
+                    <li>
+                      <a class="dropdown-item" href="{{ path('NumerosUtiles') }}">Numéros utiles</a>
+                    </li>
+                    <li>
+                      <a class="dropdown-item" href="{{ path('structure_indexpublic', {'structure': 'commerce'}) }}">Commerces</a>
+                    </li>
+                    <li>
+                      <a class="dropdown-item" href="{{ path('structure_indexpublic', {'structure': 'transport'}) }}">Transports</a>
+                    </li>
+                    <li>
+                      <a class="dropdown-item" href="{{ path('Dechets') }}">Déchetterie</a>
+                    </li>
+                    <li>
+                      <a class="dropdown-item" href="{{ path('Demarches') }}">Démarches</a>
+                    </li>
+                    <li>
+                      <a class="dropdown-item" href="{{ path('Cimetiere') }}">Cimetière</a>
+                    </li>
+                  </ul>
+                </li>
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-expanded="false">Vie associtaive et culturelle</a>
+                  <ul class="dropdown-menu" style="border: transparent;" aria-labelledby="navbarDropdown">
+                    <li>
+                      <a class="dropdown-item" href="{{ path('structure_indexpublic', {'structure': 'association'}) }}">Annuaire des Associations</a>
+                    </li>
+                    <li>
+                      <a class="dropdown-item" href="{{ path('LocationDeSalle') }}">Location de salles</a>
+                    </li>
+                    <li>
+                      <a class="dropdown-item" href="{{ path('EspaceCulturelle') }}">Espace culturel</a>
+                    </li>
+                  </ul>
+                </li>
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-expanded="false">Enfance - Jeunesse - Scolarité</a>
+                  <ul class="dropdown-menu" style="border: #E8ECF7;" aria-labelledby="navbarDropdown">
+                    <li>
+                      <a class="dropdown-item" href="{{ path('PetiteEnfance') }}">Petite Enfance</a>
+                    </li>
+                    <li>
+                      <a class="dropdown-item" href="{{ path('structure_indexpublic', {'structure': 'etablissement scolaire'}) }}">Établissements scolaires</a>
+                    </li>
+                    <li>
+                      <a class="dropdown-item" href="{{ path('Cantine') }}">Cantine scolaire</a>
+                    </li>
+                    <li>
+                      <a class="dropdown-item" href="{{ path('CaisseDesEcoles') }}">Caisse des écoles</a>
+                    </li>
+                    <li>
+                      <a class="dropdown-item" href="{{ path('CentreLoisirs') }}">Centre de loisirs</a>
+                    </li>
+                  </ul>
+                </li>
+                <li class="nav-item">
+                  <a href="{{ path('message_send') }}" class="nav-link">Contact</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </div>
+	</meta>
 {% endif %}
 {% for message in app.flashes('success') %}
 	<div class="alert alert-success">

@@ -1,15 +1,34 @@
-<footer class="mt-5 bg-light py-5 text-center">
-	<ul>
-		<li>
-			<a href="{{ path('home_accessibility') }}">Accessibilité</a>
-		</li>
-		<li>
-			<a href="#">Mentions légales</a>
-		</li>
-		{% if is_granted('ROLE_ADMIN') %}
-		<li>
-			<a href="{{ path('home_admin') }}">Espace admin</a>
-		</li>
-		{% endif %}
-	</ul>
+<footer class="text-center text-md-left mt-5" style="background-color:#E8ECF7;">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-4 mt-3">
+        <h5 class="text-uppercase" style="color:#4464bc;">Cergy-Village</h5>
+        <hr>
+        <p style="color:#090D18;">
+          10, place de la mairie <br>
+          95880 Cergy-village<br> 
+          +33 1 34 25 60 00
+        </p>
+      </div>
+      <div class="col-md-4 mt-3">
+        <h5 class="text-uppercase" style="color:#4464bc;">Horaires d'ouvertures</h5>
+        <hr>
+        <p style="color:#090D18;">Lundi à Mercredi : 08h30 - 12h00 / 13h30 - 17h00</p>
+        <p style="color:#090D18;">Jeudi : 08h30 - 12h00</p>
+        <p style="color:#090D18;">Vendredi : 08h30 - 12h00 / 13h30 - 17h00Le Samedi : <br>de 10h00 à 12h00</p>
+        <p style="color:#090D18;">Samedi : 10h00 - 12h00</p>
+      </div>
+      <div class="col-md-4 mt-3">
+        <div class="d-flex justify-content-center">
+          <img src="{{ asset('images/logo.png') }}" alt="Logo Cergy-Village"/>
+        </div>
+        <div class="d-flex justify-content-center">
+          <a href="{{ path('home_admin') }}"><span class="align-text-bottom">Espace administration</span></a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="text-center p-3" style="background-color: #A2B2DE;">
+    © 2020 Cergy-Village
+  </div>
 </footer>
