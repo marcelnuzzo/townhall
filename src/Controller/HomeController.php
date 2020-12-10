@@ -73,7 +73,7 @@ class HomeController extends AbstractController
      */
     public function numerosutiles(): Response
     {
-        return $this->render('home/index.html.twig', [
+        return $this->render('vie_pratique/NumerosUtiles.html.twig', [
             'controller_name' => 'HomeController',
         ]);
     }
@@ -83,7 +83,7 @@ class HomeController extends AbstractController
      */
     public function dechets(): Response
     {
-        return $this->render('home/index.html.twig', [
+        return $this->render('vie_pratique/Dechets.html.twig', [
             'controller_name' => 'HomeController',
         ]);
     }
@@ -93,7 +93,7 @@ class HomeController extends AbstractController
      */
     public function demarche(): Response
     {
-        return $this->render('home/index.html.twig', [
+        return $this->render('vie_pratique/Demarches.html.twig', [
             'controller_name' => 'HomeController',
         ]);
     }
@@ -103,7 +103,7 @@ class HomeController extends AbstractController
      */
     public function cimetiere(): Response
     {
-        return $this->render('home/index.html.twig', [
+        return $this->render('vie_pratique/Cimetiere.html.twig', [
             'controller_name' => 'HomeController',
         ]);
 	}
@@ -113,7 +113,7 @@ class HomeController extends AbstractController
      */
     public function espaceculturel(): Response
     {
-        return $this->render('home/index.html.twig', [
+        return $this->render('vie_associative_et_culturelle/EspaceCulturelle.html.twig', [
             'controller_name' => 'HomeController',
         ]);
 	}
@@ -123,7 +123,7 @@ class HomeController extends AbstractController
      */
     public function petiteenfance(): Response
     {
-        return $this->render('home/index.html.twig', [
+        return $this->render('enfance_jeunesse_scolarite/PetiteEnfance.html.twig', [
             'controller_name' => 'HomeController',
         ]);
 	}
@@ -133,7 +133,7 @@ class HomeController extends AbstractController
      */
     public function caissedesecoles(): Response
     {
-        return $this->render('home/index.html.twig', [
+        return $this->render('enfance_jeunesse_scolarite/CaisseDesEcoles.html.twig', [
             'controller_name' => 'HomeController',
         ]);
 	}
@@ -143,7 +143,7 @@ class HomeController extends AbstractController
      */
     public function centreloisirs(): Response
     {
-        return $this->render('home/index.html.twig', [
+        return $this->render('enfance_jeunesse_scolarite/CentreLoisirs.html.twig', [
             'controller_name' => 'HomeController',
         ]);
 	}
