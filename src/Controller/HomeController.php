@@ -12,8 +12,44 @@ class HomeController extends AbstractController
      * @Route("/", name="home_default")
      * @Route("/accueil", name="home_index")
      */
-    public function index(): Response
+        public function index(): Response
     {
+
+        $url = 'https://api.meteo-concept.com/api/forecast/daily?insee=95127';
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_URL, $url);
+        curl_setopt($ch, CURLOPT_HTTPHEADER, array('Accept: application/json','X-AUTH-TOKEN: fb47ee6ddf9d891c8d8f3a35ff58b95b83e8fbea4c59f48ee68201ebf945ab22'));
+        curl_setopt($ch, CURLOPT_HEADER, false);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        $data = curl_exec($ch);
+        if ($data !== false)
+            $status = curl_getinfo($ch, CURLINFO_RESPONSE_CODE);
+        curl_close($ch);
+
+        if ($data !== false && $status === 200) {
+            $decoded = json_decode($data);
+            $city = $decoded->city;
+            $forecasts = $decoded->forecast;
+			echo $forecasts;
+            $tmax = $forecasts[0]->tmax;
+            $tmax2 = $forecasts[1]->tmax;
+            $tmax3 = $forecasts[2]->tmax;
+
+
+            $saturday = null;
+            foreach ($forecasts as $k => $f) {
+                $day = (new \DateTime($f->datetime))->format('w');
+                if ($day == 6) {
+                    $saturday = $k;
+                    break;
+                }
+            }
+
+            // print("Le week-end prochain est dans {$saturday} jours ! Les températures mini/maxi à {$city->name} seront :\n");
+            // print("\tSamedi   : {$forecasts[$saturday]->tmin}°C/{$forecasts[$saturday]->tmax}°C\n");
+            // print("\tDimanche : {$forecasts[$saturday+1]->tmin}°C/{$forecasts[$saturday+1]->tmax}°C\n");
+        }
+
         return $this->render('home/index.html.twig', [
             'controller_name' => 'HomeController',
         ]);
