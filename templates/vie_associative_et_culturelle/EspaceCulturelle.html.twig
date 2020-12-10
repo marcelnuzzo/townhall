@@ -4,22 +4,31 @@
 
 {% block body %}
 
-<h1>ESPACE CULTUREL</h1>
+<div class="container-fluid">
+    <h1>ESPACE CULTUREL</h1>
+    <div style="height: 2px; width: 100%;  background: linear-gradient(to right, #4464BC, #E8ECF7);" class="item"></div>
+    
+    <div class="text-center mt-4">
+        <p>
+            Espace culturel
+            Foyer Polyvalent<br/>
+            Allée de Rosières
+            95000 Cergy-Village
+            (Accès Théâtre de Verdure)<br/>
+            e-mail : cergy-village@village-online.com
+        </p>
+        <h2>Horaires d’ouverture :</h2>
+        <p>
+            Mardi : 9h00 – 12h00<br/>
+            Mercredi : 14h00 – 18h00<br/>
+            Vendredi : 16h30 – 18h00<br/>
+            Samedi : 10h00 – 12h00
+        </p>
+    </div>
 
-    <p>
-        Espace culturel
-        Foyer Polyvalent
-        Allée de Rosières
-        95000 Cergy-Village
-        (Accès Théâtre de Verdure)
-        e-mail : cergy-village@village-online.com
-    </p>
-    <h2>Horaires d’ouverture :</h2>
-        <ul>
-            <li>Mardi : 9h00 – 12h00</li>
-            <li>Mercredi : 14h00 – 18h00</li>
-            <li>Vendredi : 16h30 – 18h00</li>
-            <li>Samedi : 10h00 – 12h00</li>
-        </ul>
-    <img src="images/foyer-polyvalent.jpg"/>   
+    <div class="d-flex justify-content-center">
+        <img class="img-fluid" src="images/foyer-polyvalent.jpg"/>
+    </div>
+    
+</div>  
 {% endblock %}
