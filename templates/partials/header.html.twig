@@ -2,9 +2,10 @@
   <div class="container-fluid">
   <div class="d-flex justify-content-center" style="background-image: url('https://www.mairie-le-thillay.fr/sites/lethillay/files/styles/bandeau/public/image/bandeau/p4251492.jpg?itok=EtXOIQSv');">
     <div class="mask rgba-gradient align-items-center">
-      <img src="{{ asset('images/logo.png') }}" alt="Logo Cergy-Village"/>
+      {#<img src="{{ asset('images/logo.png') }}" alt="Logo Cergy-Village"/>#}
     </div>
   </div>
+  {% if is_granted('ROLE_USER') %}
 	<nav class="navbar navbar-expand-lg navbar-light col-md-12 blog-main shadow-sm p-3 mb-5 bg-white rounded">
 		<div class="container-fluid">
 			<nav class="navbar navbar-light">
