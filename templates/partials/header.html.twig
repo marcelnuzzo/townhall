@@ -19,7 +19,7 @@
               <a href="{{ path('article_index') }}" class="nav-link">Gérer les articles</a>
             </li>
             <li class="nav-item">
-              {#<a href="{{ path('townhall_show') }}" class="nav-link">Gérer les informations relatives à la mairie</a>#}
+              <a href="{{ path('townhall_show') }}" class="nav-link">Gérer les informations relatives à la mairie</a>#}
             </li>
             <li class="nav-item">
               <a href="{{ path('message_index') }}" class="nav-link">Gérer les messages</a>
@@ -53,7 +53,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
     <div class="container-fluid">
       <div class="d-flex justify-content-end">
-          <img class="img-fluid" src="{{ asset('images/3137-lieuCle-banner-AgencePostaleCommunale.jpg') }}" alt="Logo Cergy-Village">
+          {#<img class="img-fluid" src="{{ asset('images/3137-lieuCle-banner-AgencePostaleCommunale.jpg') }}" alt="Logo Cergy-Village">#}
         </div>
       </div>
       <nav class="navbar navbar-expand-lg navbar-light col-md-12 blog-main shadow-sm p-3 mb-5 bg-white rounded">
@@ -71,10 +71,10 @@
                   <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-expanded="false">Le village</a>
                   <ul class="dropdown-menu" style="border: transparent;" aria-labelledby="navbarDropdown">
                     <li>
-                      <a class="dropdown-item" href="{{ path('Historique') }}">Historique</a>
+                      <a class="dropdown-item" href="{{ path('townhall_story') }}">Historique</a>
                     </li>
-                    <li>
-                      <a class="dropdown-item" href="{{ path('SituationGeographique') }}">Situation géographique</a>
+					<li>
+                      <a class="dropdown-item" href="{{ path('townhall_showpublic') }}"></a>
                     </li>
                   </ul>
                 </li>
@@ -82,10 +82,7 @@
                   <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-expanded="false">Mairie</a>
                   <ul class="dropdown-menu" style="border: transparent;" aria-labelledby="navbarDropdown">
                     <li>
-                      <a class="dropdown-item" href="{{ path('LesElus') }}">Les élus</a>
-                    </li>
-                    <li>
-                      <a class="dropdown-item" href="{{ path('ConseilsMunicipaux') }}">Conseils municipaux</a>
+                      <a class="dropdown-item" href="{{ path('home_conseil') }}">Conseils municipaux</a>
                     </li>
                   </ul>
                 </li>
@@ -93,7 +90,7 @@
                   <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-expanded="false">Vie pratique</a>
                   <ul class="dropdown-menu" style="border: transparent;" aria-labelledby="navbarDropdown">
                     <li>
-                      <a class="dropdown-item" href="{{ path('NumerosUtiles') }}">Numéros utiles</a>
+                      <a class="dropdown-item" href="{{ path('home_numerosutiles') }}">Numéros utiles</a>
                     </li>
                     <li>
                       <a class="dropdown-item" href="{{ path('structure_indexpublic', {'structure': 'commerce'}) }}">Commerces</a>
@@ -102,13 +99,13 @@
                       <a class="dropdown-item" href="{{ path('structure_indexpublic', {'structure': 'transport'}) }}">Transports</a>
                     </li>
                     <li>
-                      <a class="dropdown-item" href="{{ path('Dechets') }}">Déchetterie</a>
+                      <a class="dropdown-item" href="{{ path('home_dechets') }}">Déchetterie</a>
                     </li>
                     <li>
-                      <a class="dropdown-item" href="{{ path('Demarches') }}">Démarches</a>
+                      <a class="dropdown-item" href="{{ path('home_demarches') }}">Démarches</a>
                     </li>
                     <li>
-                      <a class="dropdown-item" href="{{ path('Cimetiere') }}">Cimetière</a>
+                      <a class="dropdown-item" href="{{ path('home_cimetiere') }}">Cimetière</a>
                     </li>
                   </ul>
                 </li>
@@ -119,10 +116,7 @@
                       <a class="dropdown-item" href="{{ path('structure_indexpublic', {'structure': 'association'}) }}">Annuaire des Associations</a>
                     </li>
                     <li>
-                      <a class="dropdown-item" href="{{ path('LocationDeSalle') }}">Location de salles</a>
-                    </li>
-                    <li>
-                      <a class="dropdown-item" href="{{ path('EspaceCulturelle') }}">Espace culturel</a>
+                      <a class="dropdown-item" href="{{ path('home_espaceculturel') }}">Espace culturel</a>
                     </li>
                   </ul>
                 </li>
@@ -130,19 +124,16 @@
                   <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-expanded="false">Enfance - Jeunesse - Scolarité</a>
                   <ul class="dropdown-menu" style="border: #E8ECF7;" aria-labelledby="navbarDropdown">
                     <li>
-                      <a class="dropdown-item" href="{{ path('PetiteEnfance') }}">Petite Enfance</a>
+                      <a class="dropdown-item" href="{{ path('home_petiteenfance') }}">Petite Enfance</a>
                     </li>
                     <li>
                       <a class="dropdown-item" href="{{ path('structure_indexpublic', {'structure': 'etablissement scolaire'}) }}">Établissements scolaires</a>
                     </li>
                     <li>
-                      <a class="dropdown-item" href="{{ path('Cantine') }}">Cantine scolaire</a>
+                      <a class="dropdown-item" href="{{ path('home_caissedesecoles') }}">Caisse des écoles</a>
                     </li>
                     <li>
-                      <a class="dropdown-item" href="{{ path('CaisseDesEcoles') }}">Caisse des écoles</a>
-                    </li>
-                    <li>
-                      <a class="dropdown-item" href="{{ path('CentreLoisirs') }}">Centre de loisirs</a>
+                      <a class="dropdown-item" href="{{ path('home_centreloisirs') }}">Centre de loisirs</a>
                     </li>
                   </ul>
                 </li>

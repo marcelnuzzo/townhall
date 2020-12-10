@@ -37,6 +37,119 @@ class HomeController extends AbstractController
     {
         return $this->render('admin/admin.html.twig');
     }
-    
+	
+	/**
+     * @Route("/situation-geographique", name="home_situationgeographique")
+     */
+    public function situationgeographique(): Response
+    {
+        return $this->render('home/index.html.twig', [
+            'controller_name' => 'HomeController',
+        ]);
+    }
+	
+	/**
+     * @Route("/les-elus", name="home_leselus")
+     */
+    public function leselus(): Response
+    {
+        return $this->render('home/index.html.twig', [
+            'controller_name' => 'HomeController',
+        ]);
+    }
+	
+	/**
+     * @Route("/conseil-municipale", name="home_conseil")
+     */
+    public function conseil(): Response
+    {
+        return $this->render('home/index.html.twig', [
+            'controller_name' => 'HomeController',
+        ]);
+    }
+	
+	/**
+     * @Route("/numeros-utiles", name="home_numerosutiles")
+     */
+    public function numerosutiles(): Response
+    {
+        return $this->render('home/index.html.twig', [
+            'controller_name' => 'HomeController',
+        ]);
+    }
+	
+	/**
+     * @Route("/dechets", name="home_dechets")
+     */
+    public function dechets(): Response
+    {
+        return $this->render('home/index.html.twig', [
+            'controller_name' => 'HomeController',
+        ]);
+    }
+	
+	/**
+     * @Route("/demarches", name="home_demarches")
+     */
+    public function demarche(): Response
+    {
+        return $this->render('home/index.html.twig', [
+            'controller_name' => 'HomeController',
+        ]);
+    }
+	
+	/**
+     * @Route("/cimetiere", name="home_cimetiere")
+     */
+    public function cimetiere(): Response
+    {
+        return $this->render('home/index.html.twig', [
+            'controller_name' => 'HomeController',
+        ]);
+	}
+	
+	/**
+     * @Route("/espace-culturel", name="home_espaceculturel")
+     */
+    public function espaceculturel(): Response
+    {
+        return $this->render('home/index.html.twig', [
+            'controller_name' => 'HomeController',
+        ]);
+	}
+	
+	/**
+     * @Route("/petite-enfance", name="home_petiteenfance")
+     */
+    public function petiteenfance(): Response
+    {
+        return $this->render('home/index.html.twig', [
+            'controller_name' => 'HomeController',
+        ]);
+	}
+	
+	/**
+     * @Route("/caisse-d´s-ecoles", name="home_caissedesecoles")
+     */
+    public function caissedesecoles(): Response
+    {
+        return $this->render('home/index.html.twig', [
+            'controller_name' => 'HomeController',
+        ]);
+	}
+	
+	/**
+     * @Route("/centre-de-loisirs", name="home_centreloisirs")
+     */
+    public function centreloisirs(): Response
+    {
+        return $this->render('home/index.html.twig', [
+            'controller_name' => 'HomeController',
+        ]);
+	}
+
+
+
+
 
 }
