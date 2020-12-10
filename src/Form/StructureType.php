@@ -86,23 +86,14 @@ class StructureType extends AbstractType
                 'class' => User::class,
                 'choice_label' => 'email',
             ])
-            /*
-            ->add('logoName', TextType::class, [
-                'label' => 'Nom du logo',
-                'attr' => [
-                    'autofocus' => true,
-                    'required' => true,
-                    'placeholder' => 'Entrez le nom du logo',
-                ],
-            ])
-            */
             ->add('logoFile', VichImageType::class, array(
+			'label' => 'Importez un logo',
                 'required' => false,
                 'attr' => [
                     'placeholder' => 'Logo de la structure',
                 ],
                 'allow_delete' => false,
-                'download_uri' => true
+                'download_uri' => false
             ));
             ;
     }
