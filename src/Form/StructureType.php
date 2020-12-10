@@ -81,6 +81,7 @@ class StructureType extends AbstractType
                     'placeholder' => 'Entrez l\'adresse URL',
                 ],
             ])
+            /*
 			->add('user', EntityType::class, [
                 'label' => 'Sélectionnez un utilisateur',
                 'class' => User::class,

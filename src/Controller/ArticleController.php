@@ -21,7 +21,7 @@ class ArticleController extends AbstractController
      */
     public function article_index($_route)
     {
-		$articles = $this->getDoctrine()->getRepository(Article::class)->findBy(array(), array('publishedat' => 'DESC'));    
+        $articles = $this->getDoctrine()->getRepository(Article::class)->findBy(array(), array('publishedat' => 'DESC'));    
 		$render = $_route=="article_index" ? 'article/index.html.twig' : 'article/indexpublic.html.twig';
 		return $this->render($render, [
             'articles' => $articles,
@@ -62,9 +62,14 @@ class ArticleController extends AbstractController
      */
     public function article_show($_route, Article $article): Response
     {
+        $user = $article->getUser();
+        $firstname = $user->getFirstname();
+        $lastname = $user->getLastname();
+        $fullname = $firstname." ".$lastname;
         $render = $_route=="article_show" ? 'article/show.html.twig' : 'article/showpublic.html.twig';
 		return $this->render($render, [
             'article' => $article,
+            'fullname' => $fullname,
         ]);
     }
 

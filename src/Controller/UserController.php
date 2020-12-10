@@ -29,13 +29,17 @@ class UserController extends AbstractController
      */
     public function user_new(Request $request, UserPasswordEncoderInterface $passwordEncoder): Response
     {
+        $withoutPw = true;
         $user = new User();
-        $form = $this->createForm(UserType::class, $user);
+        $form = $this->createForm(UserType::class, $user, [
+            'withoutPw' => $withoutPw,
+        ]);
         $form->handleRequest($request);
-
+            
         if ($form->isSubmitted() && $form->isValid()) {
+            $pw = $form->get('password')->getData();
             //$user->setRoles(["ROLE_ADMIN"]);
-			$password = $passwordEncoder->encodePassword($user, "kevin"); //Encode the password
+			$password = $passwordEncoder->encodePassword($user, $pw); //Encode the password
             $user->setPassword($password); //setter the password of user
             $user->setCreatedat(new \DateTime('now', new \DateTimeZone('Europe/Paris')));
             $entityManager = $this->getDoctrine()->getManager();
@@ -49,6 +53,7 @@ class UserController extends AbstractController
         return $this->render('user/new.html.twig', [
             'user' => $user,
             'form' => $form->createView(),
+            'withoutPw' => $withoutPw,
         ]);
     }
 
@@ -68,7 +73,10 @@ class UserController extends AbstractController
      */
     public function user_edit(Request $request, User $user, UserPasswordEncoderInterface $passwordEncoder): Response
     {
-        $form = $this->createForm(UserType::class, $user);
+        $withoutPw = false;
+        $form = $this->createForm(UserType::class, $user, [
+            'withoutPw' => $withoutPw,
+        ]);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
@@ -82,6 +90,7 @@ class UserController extends AbstractController
         return $this->render('user/edit.html.twig', [
             'user' => $user,
             'form' => $form->createView(),
+            'withoutPw' => $withoutPw,
         ]);
     }
 

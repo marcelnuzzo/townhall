@@ -19,6 +19,7 @@
                         <th>Titre</th>
                         <th>Catégorie</th>
                         <th>Résumé</th>
+                        <th>Auteur</th>
                         <th>Image</th>
                         <th>Publié</th>
                         <th>Actions</th>
@@ -30,6 +31,7 @@
                         <td>{{ article.title }}</td>
                         <td>{{ article.category }}</td>
                         <td>{{ article.summar }}</td>
+                        <td>{{ article.user.firstname }} {{ article.user.lastname }}</td>
                         <td><img src="{{ vich_uploader_asset(article, 'imageFile') }}" alt="photo de l'article" width="64"/></td>
                         <td class="text-center">{{ article.publishedat ? article.publishedat|date('d/m/Y à H:i') : '' }}</td>
                         <td class="d-flex justify-content-md-center">

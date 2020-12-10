@@ -22,6 +22,7 @@
                         <th>Email</th>
                         <th>Site internet</th>
                         <th>Créée le </th>
+                        <th>Auteur</th>
                         <th>Actions</th>
                     </tr>
                 </thead>
@@ -34,6 +35,7 @@
                         <td>{{ structure.email }}</td>
                         <td>{{ structure.website }}</td>
                         <td>{{ structure.createdat ? structure.createdat|date('d/m/Y à H:i') : '' }}</td>
+                        <td>{{ structure.user.firstname }} {{ structure.user.lastname }}</td>
                         <td class="d-flex justify-content-center">
                             <a href="{{ path('structure_show', {'id': structure.id}) }}" class="btn btn-see mr-2" role="button" aria-pressed="true">Voir</a>
                             <a href="{{ path('structure_edit', {'id': structure.id}) }}" class="btn btn-secondary mr-2" role="button" aria-pressed="true">Modifier</a>
