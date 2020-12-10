@@ -58,7 +58,7 @@ class StructureType extends AbstractType
                 ],
             ])
             ->add('postaladdress', TextType::class, [
-                'label' => 'Adrese postale',
+                'label' => 'Adresse postale',
                 'attr' => [
                     'placeholder' => 'Entrez l\'adresse postale',
                 ],
@@ -80,6 +80,12 @@ class StructureType extends AbstractType
                 'attr' => [
                     'placeholder' => 'Entrez l\'adresse URL',
                 ],
+            ])
+            /*
+			->add('user', EntityType::class, [
+                'label' => 'Sélectionnez un utilisateur',
+                'class' => User::class,
+                'choice_label' => 'email',
             ])
             ->add('logoFile', VichImageType::class, array(
 			'label' => 'Importez un logo',
