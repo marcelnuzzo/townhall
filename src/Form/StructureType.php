@@ -81,12 +81,12 @@ class StructureType extends AbstractType
                     'placeholder' => 'Entrez l\'adresse URL',
                 ],
             ])
+            /*
 			->add('user', EntityType::class, [
                 'label' => 'Sélectionnez un utilisateur',
                 'class' => User::class,
                 'choice_label' => 'email',
             ])
-            /*
             ->add('logoName', TextType::class, [
                 'label' => 'Nom du logo',
                 'attr' => [
@@ -103,7 +103,7 @@ class StructureType extends AbstractType
                 ],
                 'allow_delete' => false,
                 'download_uri' => true
-            ));
+            ))
             ;
     }
 

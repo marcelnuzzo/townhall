@@ -16,7 +16,10 @@
                             <h2>{{ article.title }}</h2>
                         </div>
                         <p class="blog-post-meta">
-                            Fait le {{ article.publishedat ? article.publishedat|date('d/m/Y à H:i') : '' }} (catégorie : {{ article.category }})
+                            Fait le <strong>{{ article.publishedat ? article.publishedat|date('d/m/Y à H:i') : '' }}</strong> (catégorie : <strong>{{ article.category }}</strong>)
+                        </p>
+                        <p>
+                            Edité par : <strong>{{ fullname }}</strong>
                         </p>
                         <hr> 
                         <p>

@@ -41,10 +41,12 @@ class StructureController extends AbstractController
             'structure' => $structure,
         ]);
         $form->handleRequest($request);
+        $user =  $this->getUser();
 
         if ($form->isSubmitted() && $form->isValid()) {
 			$infrastructure->setOrganizationType($structure);
-			$infrastructure->setCreatedAt(new \DateTime('now', new \DateTimeZone('Europe/Paris')));
+            $infrastructure->setCreatedAt(new \DateTime('now', new \DateTimeZone('Europe/Paris')));
+            $infrastructure->setUser($user);
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($infrastructure);
             $entityManager->flush();
@@ -66,12 +68,17 @@ class StructureController extends AbstractController
      */
     public function structure_show($_route, $id, Structure $infrastructure, EntityManagerInterface $manager)
     {
+        $user = $infrastructure->getUser();
+        $firstname = $user->getFirstname();
+        $lastname = $user->getLastname();
+        $fullname = $firstname." ".$lastname;
         $infrastructure = $manager->getRepository(Structure::class)->find($id);
 		$render = $_route=="structure_show" ? 'structure/show.html.twig' : 'structure/showpublic.html.twig';
 		return $this->render($render, [
             'infrastructure' => $infrastructure,
 			'id' => $id,
-	'structure' => $infrastructure->getOrganizationType(),
+            'structure' => $infrastructure->getOrganizationType(),
+            'fullname' => $fullname,
         ]);
     }
 

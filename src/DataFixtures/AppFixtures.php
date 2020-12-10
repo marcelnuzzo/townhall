@@ -28,8 +28,8 @@ class AppFixtures extends Fixture
         $userRepo = $manager->getRepository('App:User');
 
         $user1 = new User();
-        $user1->setFirstname('Smith');
-        $user1->setLastname('Will');
+        $user1->setFirstname('Will');
+        $user1->setLastname('Smith');
         $user1->setPhone('0123456789');
         $user1->setEmail('will.smith@gmail.com');
         $user1->setCreatedat(new \DateTime());

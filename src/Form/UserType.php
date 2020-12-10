@@ -17,6 +17,7 @@ class UserType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
+        $withoutPw = $options['withoutPw'];
         $builder
 		->add('lastname', TextType::class, [
 			'label' => 'Nom',
@@ -25,51 +26,50 @@ class UserType extends AbstractType
 				'placeholder' => 'Nom',
 			],
 		])
-            ->add('firstname', TextType::class, [
-                'label' => 'Prénom',
-                'attr' => [
-					'required' => true,
-                    'placeholder' => 'Prénom',
-                ],
-            ])
-            ->add('phone', TelType::class, [
-                'label' => 'Numéro de téléphone',
-                'attr' => [
-                    'required' => false,
-					'placeholder' => 'Numéro de téléphone',
-                ],
-            ])
-			->add('email', TextType::class, [
-                'label' => 'Email',
-                'attr' => [
-					'required' => true,
-                    'placeholder' => 'Email',
-                ],
-            ])
-            ->add("roles", CollectionType::class, [
-                'entry_type' => ChoiceType::class, 
-                'entry_options' => [
-                    'label' => false,
-                    'choices' => [
-                        'ROLE_ADMIN' => "ROLE_ADMIN",
-                        'ROLE_USER' => "ROLE_USER"
-                    ],
-                    'expanded' => true,
-                    'multiple' => false,
-                ]
-            ])
-            /*
-            ->add('roles', ChoiceType::class, [
-                "choices" => [
+        ->add('firstname', TextType::class, [
+            'label' => 'Prénom',
+            'attr' => [
+                'required' => true,
+                'placeholder' => 'Prénom',
+            ],
+        ])
+        ->add('phone', TelType::class, [
+            'label' => 'Numéro de téléphone',
+            'attr' => [
+                'required' => false,
+                'placeholder' => 'Numéro de téléphone',
+            ],
+        ])
+        ->add('email', TextType::class, [
+            'label' => 'Email',
+            'attr' => [
+                'required' => true,
+                'placeholder' => 'Email',
+            ],
+        ])
+        ->add("roles", CollectionType::class, [
+            'entry_type' => ChoiceType::class, 
+            'entry_options' => [
+                'label' => false,
+                'choices' => [
                     'ROLE_ADMIN' => "ROLE_ADMIN",
                     'ROLE_USER' => "ROLE_USER"
                 ],
-                'mapped' => true,
                 'expanded' => true,
                 'multiple' => false,
+            ]
+        ]);
+        if($withoutPw) {
+            $builder
+            ->add("password", TextType::class, [
+                'label' => 'Mot de passe',
+                'attr' => [
+                    'required' => true,
+                    'placeholder' => 'Mot de passe',
+                ]
             ])
-            */
-            ;
+             ;
+        }
             
     }
 
@@ -77,6 +77,7 @@ class UserType extends AbstractType
     {
         $resolver->setDefaults([
             'data_class' => User::class,
+            'withoutPw' => null,
         ]);
     }
 }
