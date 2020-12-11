@@ -14,7 +14,7 @@ class HomeController extends AbstractController
      */
         public function index(): Response
     {
-        $url = 'https://api.meteo-concept.com/api/forecast/daily?token=b43508342e9515c0809e673b0826dc390d16a986bdcb22fcac4a0802bc95d00d&insee=95127';
+        $url = 'https://api.meteo-concept.com/api/forecast/daily?token=7ce2ef43a824a607dc8229a85fa1e26af12f49ab6303179d57051350654fe72b&insee=95127';
         $data = file_get_contents($url);
 
         if ($data !== false) {
