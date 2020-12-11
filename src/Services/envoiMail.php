@@ -6,7 +6,7 @@ class envoiMail
 {
     public function envoi($message)
     {
-        $body="Objet : ".$message->getObject().'</br>'."Email : ".$message->getEmail().'</br>'."Statut : ".$message->getStatus().'</br>'."Contenu : ".$message->getContent().'</br>'."Accept : ".$message->getAccept().'</br>'
+        $body="Objet : ".$message->getObject().'</br>'."Email : ".$message->getEmail().'</br>'."Statut : ".$message->getStatus().'</br>'."Contenu : ".$message->getContent().'</br>'."Accept : "
         ;
         $message = (new \Swift_Message('Mairie de Cergy'))
                 ->setFrom('nuzzomarcel358@gmail.com')

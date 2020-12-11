@@ -23,19 +23,19 @@
             
           <div class="carousel-inner">
             <div class="carousel-item active">
-              <img src="images/townHall/photo.jpeg" class="d-block w-100" alt="Actualité 1">
+              <img src="/townhall/public/images/townHall/photo.jpeg" class="d-block w-100" alt="Actualité 1">
             </div>
             <div class="carousel-item">
-              <img src="images/townHall/photo.jpeg" class="d-block w-100" alt="Actualité 2">
+              <img src="/townhall/public/allImages/photo_carte.jfif" class="d-block w-100" alt="Actualité 2">
             </div>
             <div class="carousel-item">
-              <img src="images/townHall/photo.jpeg" class="d-block w-100" alt="Actualité 3">
+              <img src="/townhall/public/allImages/photo_panorama.jpg" class="d-block w-100" alt="Actualité 3">
             </div>
             <div class="carousel-item">
-              <img src="images/townHall/photo.jpeg" class="d-block w-100" alt="Actualité 4">
+              <img src="/townhall/public/allImages/photo_universite.jpg" class="d-block w-100" alt="Actualité 4">
             </div>
             <div class="carousel-item">
-              <img src="images/townHall/photo.jpeg" class="d-block w-100" alt="Actualité 5">
+              <img src="/townhall/public/images/townHall/photo.jpeg" class="d-block w-100" alt="Actualité 5">
             </div>
           </div>
 
@@ -50,17 +50,16 @@
         </div>
       </div>
 
-{# fond couleur météo #}
-<div class="col-md-5">
-<h2 class="actualite ml-3 d-md-flex justify-content-md-end; right: 50px; "><span class="badge text-white" style="background-color:#4464bc;">Météo</span></h2>
-<hr style="width: 390px; margin-left: 10px">
-</div>
-
-
-
-      <div class="col-md-5 d-md-flex justify-content-md-end"><br/>
-        <h2 class="actualite ml-3"><span class="badge text-black" style="background-color:#E8ECF7; margin-right:500px; margin-top: 75px">Aujourd'hui °C <br/><br/> Demain °C Après-Demain °C</span></h2>
-    </div
+      {# fond couleur météo #}
+      <div class="col-md-5">
+        <h2 class="actualite ml-3 d-md-flex justify-content-md-end; right: 50px; "><span class="badge text-white" style="background-color:#4464bc;">Météo</span></h2>
+        <hr style="width: 390px; margin-left: 10px">
+      
+        <h2 class="actualite ml-3"><span class="badge text-black" 
+        style="background-color:#E8ECF7; margin-right:500px; 
+        margin-top: 75px">Aujourd'hui {{ tmax1  }}°C <br/><br/>
+        Demain {{ tmax2 }}°C<br/><br/> Après-Demain {{ tmax3 }} °C</span></h2>
+      </div>
 
     </div>
   </div>

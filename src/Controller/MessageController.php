@@ -41,7 +41,7 @@ class MessageController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $entityManager = $this->getDoctrine()->getManager();
-			$message->setStatus("unread");
+			$message->setStatus("Non lu");
 			$message->setReceivedAt(new \DateTime('now', new \DateTimeZone('Europe/Paris')));
             $entityManager->persist($message);
             $entityManager->flush();

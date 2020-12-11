@@ -7,8 +7,8 @@
 	<p>Aucune information enregistrée.</p>
 {% else %}
 	<h1>{{ town_hall.name }}</h1>
-	{{ town_hall.logoFile }}
-	<h>Coordonnées</h2>
+	Photo du logo : <img src="{{ vich_uploader_asset(town_hall, 'logoFile') }}" alt="image du logo de la ville" />
+	<h2>Coordonnées</h2>
 	<ul>
 	<li>Adresse postale : {{ town_hall.postaladdress }}</li>
    <li>N° téléphone : {{ town_hall.phone }}</li>
@@ -28,6 +28,7 @@
 	{% if town_hall.imageName is not defined %}
   <li>Photo du maire :<img src="{{ vich_uploader_asset(town_hall, 'imageFile') }}" alt="photo du maire" /></li>
 {% endif %}
+<li>Photo du maire :<img src="{{ vich_uploader_asset(town_hall, 'imageFile') }}" alt="photo du maire" /></li>
   <hr>
   </ul>
   <h2>Résumé</h2>
@@ -35,5 +36,5 @@
   <hr>
   <h2>Contenu</h2>
   <p>{{ town_hall.content }}</p>
-  {% endif %}
+{% endif %}
 {% endblock %}
